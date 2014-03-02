@@ -164,7 +164,7 @@ $( '.participantRow' ).click(function()
 	var id = $(this).attr('id');
 
 	jQuery.ajax({
-		url:'<?php echo base_url(); ?>index.php/results/participation_html/'+id,
+		url:'" . base_url() . "index.php/results/participation_html/'+id,
 	})
 	.done(function(html) {
 			$('.selectedRow').removeClass('selectedRow');
