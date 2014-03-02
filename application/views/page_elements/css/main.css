@@ -59,12 +59,24 @@ body
 	font-size: 113%;
 }
 
+
 h1, h2, h3, h4, h5, h6
 {
 	font-family: 'Overlock', Helvetica, Arial, sans-serif;
-	font-size: 125%;
 }
 
+h1
+{
+	font-size: 160%;
+	margin-bottom: 0.6em !important;
+	margin-top: 0;
+}
+
+h2 {	font-size: 140%;	}
+h3 {	font-size: 120%;	}
+h4 {	font-size: 110%;	}
+h5 {	font-size: 100%;	}
+h6 {	font-size: 90%;	}
 
 #content 
 {
@@ -82,12 +94,14 @@ a:visited
 
 #toolNavi
 {
-	border-top: 3px solid #B7F300;
-	background-color: #555;
-	color: #eee;
-		border-top: 3px solid #555;
-		background-color: #B7F300;
-		color: #333;
+	border-top: 3px solid #555;
+	background-color: #B7F300;
+	color: #333;
+}
+
+.development #toolNavi
+{
+	background-color: #F3B700;
 }
 
 #toolNavi a:link,
@@ -282,7 +296,6 @@ h3
 	padding: 10px 10px 5px 10px;
 	margin-bottom: 20px;
 	max-width: 600px;
-	border-radius: 10px;
 	margin-right: 20px;
 }
 
@@ -333,6 +346,7 @@ table th {
 #contestToTakePart h2 {
 	margin: 0;
 }
+
 
 #contestToTakePart em {
 	font-style: normal;
@@ -391,12 +405,6 @@ h4
 	margin: 0.8em 0 0.2em 0;
 }
 
-h1
-{
-	font-size: 160%;
-	margin-bottom: 0.6em !important;
-	margin-top: 0;
-}
 
 #alreadyParticipated
 {

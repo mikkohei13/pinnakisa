@@ -1,3 +1,17 @@
+<?php
+// Show if we are using development database
+if ("tring657_kisa_dev" == $this->db->database)
+{
+	$dev_info = "<span class=\"dev-note\">DEVELOPMENT DB</span> ";
+	$dev_class = "development";
+}
+else
+{
+	$dev_info = "";
+	$dev_class = "production";
+}
+
+?>
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -38,12 +52,16 @@
 	{
 		if ($this->ion_auth->is_admin())
 		{
-			echo " class=\"adminin\"";		
+			echo " class=\"adminin $dev_class\"";		
 		}
 		else
 		{
-			echo " class=\"loggedin\"";
+			echo " class=\"loggedin $dev_class\"";
 		}
+	}
+	else
+	{
+		echo " class=\"guest $dev_class\"";
 	}
 	
 	?>>
@@ -51,12 +69,7 @@
 <p id="toolNavi">
 <?php
 
-// Show if we are using development database
-if ("tring657_kisa_dev" == $this->db->database)
-{
-	echo "<span class=\"dev-note\">DEVELOPMENT DB</span> ";
-}
-
+echo $dev_info;
 echo "<span><a href=\"" . base_url() . "\" id=\"home\">Etusivu</a></span> ";
 
 $userData = $this->ion_auth->user()->row();
