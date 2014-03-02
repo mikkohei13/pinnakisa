@@ -159,12 +159,12 @@ input[type="submit"]
 }
 
 
-#active .participation
+.active .participation
 {
 	background-color: #FFF873;
 }
 
-#passive .participation
+.passive .participation
 {
 	background-color: #f1efd5;
 }
@@ -276,7 +276,7 @@ h3
 }
 
 /*
-#contestsCol
+.contestsCol
 {
 	float: right;
 	width: 500px;

@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 		// Needed for published contests
 		$viewdata['publishedContests'] = $this->contest_model->listing("published");
 
-//		$viewdata['archivedContests'] = $this->contest_model->listing("archived");
+		$viewdata['archivedContests'] = $this->contest_model->listing("archived");
 		
 		$this->load->view('welcome', $viewdata);
 	}

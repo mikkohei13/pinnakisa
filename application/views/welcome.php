@@ -62,7 +62,6 @@ if (! empty($participations))
 // -----
 
 
-
 // --------------------------------------------
 // Open participarions
 
@@ -70,7 +69,7 @@ if ($this->ion_auth->logged_in())
 {
 	if (! empty($htmlPublished))
 	{
-		echo "<div class=\"participationsCol\" id=\"active\">";
+		echo "<div class=\"participationsCol active\" id=\"active\">";
 		
 		// Published
 		echo "<h3>Käynnissä olevat osallistumiseni</h3>";
@@ -87,7 +86,7 @@ if ($this->ion_auth->logged_in())
 // --------------------------------------------
 // Open contests
 
-echo "<div id=\"contestsCol\">";
+echo "<div class=\"contestsCol active\">";
 echo "<h3>Meneillään olevat kisat</h3>";
 
 foreach ($publishedContests as $rowNumber => $array)
@@ -118,13 +117,34 @@ foreach ($publishedContests as $rowNumber => $array)
 echo "</div>";
 
 // --------------------------------------------
+// Old contests
+
+echo "<div class=\"contestsCol passive\">";
+echo "<h3>Päättyneet kisat</h3>";
+
+foreach ($archivedContests as $rowNumber => $array)
+{
+	echo "<div class=\"contest\">";
+	echo "<h4>" . @$array['name'] . "</h4>
+		<p class='results'><a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulospalvelu</a></p>
+		<p class='contestTime'>Kilpailuaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
+		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
+	</div>
+	";
+	
+	$helper[$array['id']] = @$array['name'];
+}
+
+echo "</div>";
+
+// --------------------------------------------
 // Old participarions
 
 if ($this->ion_auth->logged_in())
 {
 	if (! empty($htmlOther))
 	{
-		echo "<div class=\"participationsCol\" id=\"passive\">";
+		echo "<div class=\"participationsCol passive\" id=\"passive\">";
 		
 		// Drafts and archived
 		echo "<h3>Päättyneet osallistumiseni</h3>";
