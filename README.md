@@ -46,13 +46,13 @@ You can install the system by yourself, or ask to use it as a service <hawk(ät)
 * Hanki ja asenna Codeigniter
 * Kopioi tämän repositoryn tiedostot Codeigniterin kanssa samaan hakemistoon
 * Luo tyhjä tietokanta ja sille käyttäjä kaikin oikeuksin.
-* Populoi tietokanta
-** Autentikaatiotaulujen tiedot ovat hakemistossa application/sql/
-** Kilpailuja varten luo taulut XX ja YY (@TODO)
+* Populoi tietokanta:
+1. Autentikaatiotaulujen tiedot ovat hakemistossa application/sql/
+2. Kilpailuja varten luo taulut XX ja YY (@TODO)
 * Päivitä omat tietosi application/config -hakemiston tiedostoihin
-** database.php: tietokannan tiedot
-** mail.php: postipalvelimen tiedot
-** config.php: encryption key
+1. database.php: tietokannan tiedot
+2. mail.php: postipalvelimen tiedot
+3. config.php: encryption key
 
 
 Lisenssit / Licenses
