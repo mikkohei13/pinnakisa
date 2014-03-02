@@ -1,0 +1,715 @@
+/* ------------------------------
+HTML5 Boilerplate
+*/
+
+
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ------------------------------
+Colors
+
+YELLOW
+http://colorschemedesigner.com/#1L61Tw0w.w0w0
+
+*/
+
+/* MAIN */
+body
+{
+	background-color: #ccc;
+	margin: 0;
+	padding: 0 !important;
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+	font-size: 113%;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Overlock', Helvetica, Arial, sans-serif;
+	font-size: 125%;
+}
+
+
+#content 
+{
+	background-color: #fff;
+	padding: 10px 10px 30px 10px;
+	margin: 0;
+}
+
+a:link,
+a:visited
+{
+	color: #384b00;
+		color: #003388;
+}
+
+#toolNavi
+{
+	border-top: 3px solid #B7F300;
+	background-color: #555;
+	color: #eee;
+		border-top: 3px solid #555;
+		background-color: #B7F300;
+		color: #333;
+}
+
+#toolNavi a:link,
+#toolNavi a:visited
+{
+	color: #eee;
+		color: #333;
+}
+
+#footer
+{
+	border-top: 3px solid #B7F300;
+}
+
+
+table td, table th {
+	border: 1px solid #eee;
+}
+
+table th
+{
+	border-bottom: 2px solid #ccc;
+}
+
+input[type="submit"]
+{
+	background-color: #B7F300;
+}
+
+#infoMessage
+{
+	background-color: #FFF200;
+}
+
+
+/* ADMIN */
+#youAreAdmin
+{
+	color: #FFC900;
+		color: #f60;
+}
+
+#adminTools
+{
+	border-top: 3px solid #BFA130;
+	background-color: #FFC900;
+}
+
+/*TOOLS*/
+.contest
+{
+	border-top: 3px solid #B7F300;
+	background-color: #f1f1f1;
+		background-color: #e1e1e1;
+}
+
+
+#active .participation
+{
+	background-color: #FFF873;
+}
+
+#passive .participation
+{
+	background-color: #f1efd5;
+}
+ 
+ 
+
+.takePart
+{
+	background-color: #B7F300;
+	border: 3px solid #D7F970;
+		border-right: 2px solid #9c9c9c; 
+		border-bottom: 2px solid #9c9c9c; 
+		border-left: 2px solid #f0f0f0; 
+		border-top: 2px solid #f0f0f0; 
+}
+
+#speciesList h5
+{
+	background-color: #ddd;
+}
+
+.ace td
+{
+	background-color: #ffc;
+}
+
+#alreadyParticipated
+{
+	background-color: #FFF200;
+}
+
+/*SP TOOLS*/
+.del {
+	background-color: #fdd;
+	color: #d00;
+}
+.sp:hover
+{
+	background-color: #fff773;
+}
+
+
+
+/* ------------------------------
+Main styles
+*/
+
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+
+@-ms-viewport{
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+
+
+body
+{
+	margin: 0;
+	padding: 0 !important;
+}
+
+#content 
+{
+	padding: 10px;
+	margin: 0;
+}
+
+body {
+	padding: 10px;
+}
+
+#adminTools
+{
+	margin-top: 3em;
+	padding: 10px;
+	width: 300px; 
+}
+
+h3
+{
+	margin-top: 0;
+		margin-top: 1em;
+}
+
+#toolNavi
+{
+	padding: 5px 10px;
+	margin: 0;
+		font-size: 130%;
+}
+
+.loggedin #toolNavi, 
+.adminin #toolNavi 
+{
+		font-size: 100%;
+}
+
+#toolNavi a
+{
+	text-decoration: none;
+}
+
+#toolNavi span
+{
+	margin-right: 1em;
+}
+
+/*
+#contestsCol
+{
+	float: right;
+	width: 500px;
+	margin-left: 10px;
+}
+*/
+
+.contest
+{
+	padding: 10px 10px 5px 10px;
+	margin-bottom: 20px;
+	max-width: 800px;
+}
+
+.participation
+{
+	padding: 10px 10px 5px 10px;
+	margin-bottom: 20px;
+	max-width: 600px;
+	border-radius: 10px;
+	margin-right: 20px;
+}
+
+.contest h4, .contest p,
+.participation h4, .participation p 
+{
+	margin: 0 0 0.5em 0;
+}
+
+.takePart {
+		font-size: 130%;
+	width: 100px;
+	float: right;
+	margin: 10px;
+	text-align: center;
+			border-radius: 5px;
+}
+
+.takePart a {
+	text-decoration: none;
+	padding: 3px;
+	display: block;
+}
+
+#footer {
+	clear: both;
+	margin: 0;
+	padding: 5px 10px;
+}
+
+
+table {
+	margin-bottom: 1em;
+}
+
+table td, table th {
+	border-collapse: collapse;
+	padding: 3px;
+	vertical-align: bottom;
+}
+
+table th {
+	text-align: left;
+}
+
+#contestToTakePart p,
+#contestToTakePart h1,
+#contestToTakePart h2 {
+	margin: 0;
+}
+
+#contestToTakePart em {
+	font-style: normal;
+	font-weight: normal;
+}
+
+#contestToTakePart {
+	font-size: 93%;
+	padding: 10px 0;
+}
+
+
+input[type="submit"]
+{
+	font-size: 150%;
+	margin: 0.5em 0;
+	border-radius: 5px;
+}
+
+#infoMessage
+{
+	font-size: 120%;
+}
+
+.required:after
+{
+	color: #d00;
+	content:" * pakollinen";	
+}
+
+.locations th,
+.locations td
+{
+	width: 20px;
+}
+
+/*
+.locationHeader
+{
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+*/
+
+.results
+{
+	font-weight: bold;
+}
+
+p,
+h4
+{
+	margin: 0.8em 0 0.2em 0;
+}
+
+h1
+{
+	font-size: 160%;
+	margin-bottom: 0.6em !important;
+	margin-top: 0;
+}
+
+#alreadyParticipated
+{
+	margin-bottom: 0.5em !important;
+}
+
+#clearer
+{
+	clear: both;
+}
+
+#participantTable
+{
+	float: left;
+	POSITION: relative;
+	TOP: 1.6em;
+}
+
+#participantTable td
+{
+	cursor: pointer;
+}
+
+#participant
+{
+	font-weight: normal;
+}
+
+#participant span
+{
+	color: #999;
+}
+
+#updated
+{
+	padding-left: 1em;
+}
+
+.selectedRow td,
+#tickTable td
+{
+	background-color: #eee;
+}
+
+.onMyList
+{
+	background-color: #cec;
+}
+
+/* ------------------------------
+Specieslist
+*/
+
+#speciesList
+{
+	min-width: 19em;
+	column-count: 3;
+	column-width: 19em;
+	-webkit-column-count: 3; /* Safari and Chrome */
+	-webkit-column-width: 19em;
+	-moz-column-count: 3; /* Firefox */
+	-moz-column-width: 19em;
+}
+
+#speciesList p {
+	margin: 0 0 0.2em 0;
+	font-size: 100%;
+	height: 1.5em; /* Jos tähän 1em -> rivit ja sarakkeet sekaisin. Mikä toimii varmasti eri selaimilla, myös mobiili? Jos ei arvoa, lihavointi muuttaa rivin korkeutta. */
+	white-space: nowrap;
+	overflow: visible;
+}
+
+#speciesList input {
+	border: 1px solid #ccc;
+	width: 6em;
+	font-size: 86%;
+	font-weight: normal !important;
+}
+
+#speciesList h5 {
+	padding: 0.2em;
+	margin: .5em 0 .2em 0;
+	font-size: 100%;
+/*	border-radius: 4px; */
+	font-weight: normal;
+}
+
+
+#speciesList em {
+/*	min-width: 11em;*/ margin-right: 0.5em;
+	float: left;
+	display: block;
+	font-style: normal;
+}
+
+
+.del {
+	margin-left: 2px;
+	padding: 0 5px;
+	height: 5px;
+	cursor: pointer;
+	display: none;
+	font-weight: normal !important;
+	border-radius: 3px;
+}
+
+.isSet .del {
+	display: inline;
+}
+
+.sp {
+	cursor: pointer;
+}
+
+.isSet {
+	font-weight: bold;
+}
+
+#speciesList input {
+	border: 1px solid #ccc;
+}
+
+#speciesList .isSet input {
+	border: none;
+}
+
+.myStats
+{
+	margin-left: 3em;
+	color: #777;
+}
+
+#p_password
+{
+	margin-top: 2em;
+}
+
+
+/* ------------------------------
+Media queries
+*/
+
+@media only screen and (max-width: 35em)
+{
+	h1
+	{
+/*		color: red; */
+	}
+	#speciesList
+	{
+		column-count: 1;
+		-webkit-column-count: 1; /* Safari and Chrome */
+		-moz-column-count: 1; /* Firefox */
+/*		column-width: 100% !important;*/
+	}
+	#speciesList p
+	{
+		white-space: nowrap;
+		overflow: visible;
+	}
+	#speciesList input
+	{
+		width: 6em;
+	}
+	#speciesList em
+	{
+/*		min-width: 5em;*/
+	}
+	
+	
+	select, select option, input
+	{
+		max-width: 19em;
+	}
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ------------------------------
+Helpers
+*/
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
