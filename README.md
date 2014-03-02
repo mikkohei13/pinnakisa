@@ -2,15 +2,16 @@
 Pinnakisa
 =========
 
-Verkkopalvelu, johon voi perustaa (lintu)pinnakisoja. Käyttäjät voivat rekisteröityä, osallistua kisoihin ja tallentaa niihin pinnoja, sekä tarkastella reaaliaikaisia tuloksia ja tilastoja.
+Verkkopalvelu, johon voi perustaa (lintu)pinnakisoja. Käyttäjät voivat rekisteröityä, osallistua kisoihin ja tallentaa niihin pinnoja, sekä tarkastella reaaliaikaisia tuloksia ja tilastoja. Esimerkki: http://www.tringa.fi/kisa/ 
+
+Web service for managing, publishing and participating to (bird) tick contests. Example site: http://www.tringa.fi/kisa/
 
 ### Tekniset vaatimukset:
 
-* PHP ja Codeigniter framework
+* PHP
+* Codeigniter framework
+* Ion Auth plugin (sisältyy tähän repositoryyn)
 * MySQL
-
-
-Mikko Heikkinen 23.9.2013-
 
 Dokumentaatiota:
 ---------------
@@ -34,12 +35,30 @@ Mikäli salasananpalautus antaa geneerisen ei onnistu -virheen, syynä voi olla 
 
 Tietokannan users-taulun remember_code-kohta tulee täytetyksi, jos käyttäjä kirjautuu sisään ja muista minut -chekbox on valittuna. Uloskirjautuminen ja checkboxin valinnan poistaminen ei poista koodia.
 
-Perustuu / Based on
--------------------
+Käyttö / Usage
+--------------
+
+Voit joko asentaa ohjelmiston itse, tai pyytää päästä käyttämään valmiiksi asennettua versiota <hawk(ät)biomi.org>
+
+You can install the system by yourself, or ask to use it as a service <hawk(ät)biomi.org>.
+
+### Asennus
+* Hanki ja asenna Codeigniter
+* Kopioi tämän repositoryn tiedostot Codeigniterin kanssa samaan hakemistoon
+* Luo tyhjä tietokanta ja sille käyttäjä kaikin oikeuksin.
+* Populoi tietokanta
+** Autentikaatiotaulujen tiedot ovat hakemistossa application/sql/
+** Kilpailuja varten luo taulut XX ja YY (@TODO)
+* Päivitä omat tietosi application/config -hakemiston tiedostoihin
+** database.php: tietokannan tiedot
+** mail.php: postipalvelimen tiedot
+** config.php: encryption key
+
+
+Lisenssit / Licenses
+--------------------
+* [MIT License](LICENSE.md) / 
+Mikko Heikkinen/biomi.org 23.9.2013-
 
 * Codeigniter / http://ellislab.com/codeigniter / CODEIGNITER_LICENSE.txt 
 * Ion Auth / http://benedmunds.com/ion_auth/ / Apache License v2.0 http://www.apache.org/licenses/LICENSE-2.0
-
-Lisenssi / License
-------------------
-* [MIT License](LICENSE.md)
