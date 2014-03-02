@@ -47,5 +47,18 @@ function abbrKeys2Finnish($abbrArray)
 
 }
 
+/**
+*
+*/
+function gitLastCommitInfo($gitLocation)
+{
+	$commitArray = file($gitLocation);
+	$lastCommit = array_pop($commitArray);
+	$lastCommitArray = explode("\t", $lastCommit);
+	$lastCommitArray2 = explode(" ", $lastCommitArray[0]);
+	$pop = array_pop($lastCommitArray2);
+	return date("Y-m-d", array_pop($lastCommitArray2));
+}
+
 
 
