@@ -65,5 +65,22 @@ $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
 
+// 2013 kisa
+$db['db2013']['hostname'] = ''; // Fill this
+$db['db2013']['username'] = ''; // Fill this
+$db['db2013']['password'] = ''; // Fill this
+$db['db2013']['database'] = ''; // Fill this
+$db['db2013']['dbdriver'] = 'mysql';
+$db['db2013']['dbprefix'] = '';
+$db['db2013']['pconnect'] = TRUE;
+$db['db2013']['db_debug'] = TRUE;
+$db['db2013']['cache_on'] = FALSE;
+$db['db2013']['cachedir'] = '';
+$db['db2013']['char_set'] = 'utf8';
+$db['db2013']['dbcollat'] = 'utf8_general_ci';
+$db['db2013']['swap_pre'] = '';
+$db['db2013']['autoinit'] = TRUE;
+$db['db2013']['stricton'] = FALSE;
+
 /* End of file database.php */
 /* Location: ./application/config/database.php */
