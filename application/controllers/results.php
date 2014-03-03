@@ -99,7 +99,7 @@ class Results extends CI_Controller {
 	}
 	
 	// ------------------------------------------------------
-	// Shows a species list of one participant from a contest
+	// Shows a graph of species accumulation
 	
 	public function graph($contest_id, $top)
 	{
@@ -117,6 +117,26 @@ class Results extends CI_Controller {
 //		echo "<pre>";	print_r ($viewdata); // debug
 		
 		$this->load->view('results_graph', $viewdata);
+	}
+
+	// ------------------------------------------------------
+	// Shows comparison to previous years
+	
+	public function comparison($contest_id)
+	{
+		$viewdata = Array();
+		$this->load->model('results_model');
+		$this->load->helper('pinna');
+		
+		// Basic data about the contest
+		$this->load->model('contest_model');
+		$viewdata['contest'] = $this->contest_model->load($contest_id);
+
+		$viewdata['scriptData'] = $this->results_model->comparison_js_data($contest_id, $this->ion_auth->user()->row()->id);
+		
+//		echo "<pre>";	print_r ($viewdata); // debug
+		
+		$this->load->view('results_comparison', $viewdata);
 	}
 }
 
