@@ -18,7 +18,7 @@ Dokumentaatiota:
 
 ### Kentän lisääminen osallistumiseen
 -Lisää kenttä tietokantaan
--Lisää kenttä viewiin (huomaa että kentän nimi on tiedostossa kaksi kertaa)
+-Lisää kenttä viewiin (huomaa että kentän nimi on tiedostossa kaksi kertaa: name ja value)
 -Määritä validointisäännöt controlleriin
 
 

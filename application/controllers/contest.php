@@ -69,6 +69,7 @@ class Contest extends CI_Controller {
 		$this->form_validation->set_rules('date_begin', 'Alkupäivämäärä', 'required');
 		$this->form_validation->set_rules('date_end', 'Loppupäivämäärä', 'required');
 		$this->form_validation->set_rules('url', 'URL', 'required|max_length[256]');
+		$this->form_validation->set_rules('comparison', 'Vertailu', 'max_length[128]');
 		$this->form_validation->set_rules('status', 'Kisan tila', 'required');
 		$this->form_validation->set_rules('location_list', 'Kilpailualueen rajaus', '');
 

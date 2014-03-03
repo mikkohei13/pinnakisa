@@ -48,6 +48,9 @@ echo "<div id=\"infoMessage\">" . $this->session->flashdata('flash') . " " . val
 <h4>Lisätieto-www-osoite (aloita http...)</h4>
 <input type="text" name="url" class="required" value="<?php echo $editableData['url']; ?>" size="100" />
 
+<h4>Vertailu aiempaan kisaan (jätä tyhjäksi)</h4>
+<input type="text" name="comparison" value="<?php echo $editableData['comparison']; ?>" size="30" />
+
 <h4>Kisan tila</h4>
 <?php
 
