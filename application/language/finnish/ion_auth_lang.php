@@ -5,6 +5,9 @@
 * Author: Jarno Fabritius
 *         jarno.fabritius@meisso.com
 *         @meisso_jarno
+* 
+* Author: Mikko Heikkinen
+*         @mikkohei13
 *
 * Location: http://github.com/benedmunds/ion_auth/
 *

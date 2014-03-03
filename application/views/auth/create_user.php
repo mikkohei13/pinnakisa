@@ -25,6 +25,11 @@ include "application/views/page_elements/header.php";
             <?php echo form_input($email);?>
 
 
+      <p>
+            <?php echo lang('create_user_old_id_label', 'old_id');?> </p>
+            <?php echo form_input($old_id);?>
+
+
 
       <p class="required" style="margin-top: 2em;">
             <?php echo lang('create_user_password_label', 'password');?> </p>

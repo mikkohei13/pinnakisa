@@ -407,7 +407,8 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'required|xss_clean');
 		$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email');
-		$this->form_validation->set_rules('address', $this->lang->line('create_user_validation_address_label'), 'xss_clean');
+/*		$this->form_validation->set_rules('address', $this->lang->line('create_user_validation_address_label'), 'xss_clean'); */
+		$this->form_validation->set_rules('old_id', $this->lang->line('create_user_validation_old_id_label'), 'xss_clean|integer'); // ABB
 		$this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 
@@ -420,7 +421,7 @@ class Auth extends CI_Controller {
 			$additional_data = array(
 				'first_name' => $this->input->post('first_name'),
 				'last_name'  => $this->input->post('last_name'),
-				'address'      => $this->input->post('address'),
+				'old_id'      => $this->input->post('old_id'),
 			);
 			
 		}
@@ -455,11 +456,11 @@ class Auth extends CI_Controller {
 				'type'  => 'text',
 				'value' => $this->form_validation->set_value('email'),
 			);
-			$this->data['address'] = array(
-				'name'  => 'address',
-				'id'    => 'address',
+			$this->data['old_id'] = array(
+				'name'  => 'old_id',
+				'id'    => 'old_id',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('address'),
+				'value' => $this->form_validation->set_value('old_id'),
 			);
 			$this->data['password'] = array(
 				'name'  => 'password',
@@ -493,7 +494,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'required|xss_clean');
 		$this->form_validation->set_rules('email', $this->lang->line('edit_user_validation_email_label'), 'required|valid_email|xss_clean');
-		$this->form_validation->set_rules('address', $this->lang->line('edit_user_validation_address_label'), 'xss_clean');
+		$this->form_validation->set_rules('old_id', $this->lang->line('edit_user_validation_old_id_label'), 'xss_clean|integer'); // ABB
 		$this->form_validation->set_rules('groups', $this->lang->line('edit_user_validation_groups_label'), 'xss_clean');
 		$this->form_validation->set_rules('password', $this->lang->line('edit_user_validation_password_label'), 'required|xss_clean');
 
@@ -543,7 +544,7 @@ class Auth extends CI_Controller {
 					$data = array(
 						'first_name'	=> $this->input->post('first_name'),
 						'last_name'		=> $this->input->post('last_name'),
-						'address'		=> $this->input->post('address'),
+						'old_id'		=> $this->input->post('old_id'),
 						'email'  		=> $this->input->post('email'),
 					);
 					
@@ -601,6 +602,12 @@ class Auth extends CI_Controller {
 			'value' => $this->form_validation->set_value('address', $user->address),
 		);
 		*/
+		$this->data['old_id'] = array(
+			'name'  => 'old_id',
+			'id'    => 'old_id',
+			'type'  => 'text',
+			'value' => $this->form_validation->set_value('old_id', $user->old_id),
+		);
 		$this->data['password'] = array(
 			'name' => 'password',
 			'id'   => 'password',
