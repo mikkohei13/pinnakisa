@@ -37,6 +37,24 @@ class Kisa2013_model extends CI_Model {
 
 	// ------------------------------------------------------------------------
 
+	public function speciesArraysOfUser($user_id)
+	{
+		$dataArray2013 = $this->kisa2013_model->loadParticipation($user_id);
+
+		foreach ($dataArray2013 as $tickNumber => $tickArray)
+		{
+			$speciesArray2013[$tickArray['Lyhenne']] = $tickArray['paiva'];
+			@$dailyTicksArray2013[$tickArray['paiva']]++;
+		}
+
+		$ret['speciesArray2013'] = $speciesArray2013;
+		$ret['dailyTicksArray2013'] = $dailyTicksArray2013;
+
+		return $ret;
+	}
+
+	// ------------------------------------------------------------------------
+
 }
 
 /* End of file */

@@ -6,6 +6,7 @@ class Kisa2013 extends CI_Controller {
 	
 	public function index()
 	{
+		// Tätä ei tarvita enää koska data voidaan hakea suoraan moelilla. 
 		$this->load->model('kisa2013_model');
 		$speciesArray = $this->kisa2013_model->loadParticipation($this->ion_auth->user()->row()->id);
 

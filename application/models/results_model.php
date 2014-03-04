@@ -168,7 +168,7 @@ $(function () {
 			exit("Tietokantavirhe. Ota yhteyttä webmasteriin.");
 		}
 		
-		echo "<pre>"; print_r ($resultArray); echo "</pre>"; // debug
+		return $resultArray;
 
 /*		
 		// Create scipt data

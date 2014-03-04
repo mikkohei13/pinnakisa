@@ -132,11 +132,47 @@ class Results extends CI_Controller {
 		$this->load->model('contest_model');
 		$viewdata['contest'] = $this->contest_model->load($contest_id);
 
-		$viewdata['scriptData'] = $this->results_model->comparison_js_data($contest_id, $this->ion_auth->user()->row()->id);
+		// 2013 data
+		$this->load->model('kisa2013_model');
+//		$dataArray2013 = $this->kisa2013_model->loadParticipation($this->ion_auth->user()->row()->id);
+
+		$data2013 = $this->kisa2013_model->speciesArraysOfUser($this->ion_auth->user()->row()->id);
+		$speciesArray2013 = $data2013['speciesArray2013'];
+		$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
+		/*
+	    [10] => Array
+	        (
+	            [paiva] => 2013-01-01
+	            [Lyhenne] => CORMON
+	            [Suomi] => Naakka
+	        )
+		*/
+
+		// This year's data
+		$contestDataArrayThisyear = $this->results_model->comparison_js_data($contest_id, $this->ion_auth->user()->row()->id);
+		$speciesArrayThisyear = json_decode($contestDataArrayThisyear[0]['species_json'], TRUE);
+		$dailyTicksArrayThisyear = json_decode($contestDataArrayThisyear[0]['ticks_day_json'], TRUE);
+
+
+		echo "<pre>"; // debug
+//		print_r ($dataArray2013);
+
+		print_r ($speciesArray2013);
+		print_r ($dailyTicksArray2013);
+		print_r ($speciesArrayThisyear);
+		print_r ($dailyTicksArrayThisyear);
+
+		/*
+		// Target data style:
+
+		{
+			name: 'Inka Plit',			
+			data: [ [Date.UTC(2014, 0, 10), 4], [Date.UTC(2014, 0, 11), 21], [Date.UTC(2014, 0, 15), 22], ]
+		},
+
+		*/
 		
-//		echo "<pre>";	print_r ($viewdata); // debug
-		
-		$this->load->view('results_comparison', $viewdata);
+//		$this->load->view('results_comparison', $viewdata);
 	}
 }
 
