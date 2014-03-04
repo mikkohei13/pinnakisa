@@ -139,6 +139,7 @@ class Results extends CI_Controller {
 		$data2013 = $this->kisa2013_model->speciesArraysOfUser($this->ion_auth->user()->row()->id);
 		$speciesArray2013 = $data2013['speciesArray2013'];
 		$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
+
 		/*
 	    [10] => Array
 	        (
@@ -153,7 +154,7 @@ class Results extends CI_Controller {
 		$speciesArrayThisyear = json_decode($contestDataArrayThisyear[0]['species_json'], TRUE);
 		$dailyTicksArrayThisyear = json_decode($contestDataArrayThisyear[0]['ticks_day_json'], TRUE);
 
-
+/*
 		echo "<pre>"; // debug
 //		print_r ($dataArray2013);
 
@@ -161,6 +162,55 @@ class Results extends CI_Controller {
 		print_r ($dailyTicksArray2013);
 		print_r ($speciesArrayThisyear);
 		print_r ($dailyTicksArrayThisyear);
+
+		exit("DEBUG END");
+*/
+
+		$cumulativeTicks = 0;
+		$singleDateData = "";
+		$fullDateData = "";
+		ksort($dailyTicksArray2013);
+		foreach ($dailyTicksArray2013 as $date => $ticks)
+		{
+			$cumulativeTicks = $cumulativeTicks + $ticks;
+//			$yearUTC = substr($date, 0, 4);
+			$yearUTC = 2014; // to display the charts on top of each other
+			$monthUTC = substr($date, 5, 2) - 1;
+			$dateUTC = substr($date, 8, 2);
+
+			$singleDateData = "[Date.UTC($yearUTC, $monthUTC, $dateUTC), $cumulativeTicks], ";
+			$fullDateData = $fullDateData . $singleDateData;
+		}
+
+		$viewdata['fullData2013'] = "
+		{
+			name: '2013',			
+			data: [ $fullDateData ]
+		},
+		";
+
+
+		$cumulativeTicks = 0;
+		$singleDateData = "";
+		$fullDateData = "";
+		ksort($dailyTicksArrayThisyear);
+		foreach ($dailyTicksArrayThisyear as $date => $ticks)
+		{
+			$cumulativeTicks = $cumulativeTicks + $ticks;
+			$yearUTC = substr($date, 0, 4);
+			$monthUTC = substr($date, 5, 2) - 1;
+			$dateUTC = substr($date, 8, 2);
+
+			$singleDateData = "[Date.UTC($yearUTC, $monthUTC, $dateUTC), $cumulativeTicks], ";
+			$fullDateData = $fullDateData . $singleDateData;
+		}
+
+		$viewdata['fullDataThisyear'] = "
+		{
+			name: '2014',			
+			data: [ $fullDateData ]
+		},
+		";
 
 		/*
 		// Target data style:
@@ -172,7 +222,7 @@ class Results extends CI_Controller {
 
 		*/
 		
-//		$this->load->view('results_comparison', $viewdata);
+		$this->load->view('results_comparison', $viewdata);
 	}
 }
 

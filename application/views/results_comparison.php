@@ -10,16 +10,80 @@ include "page_elements/header.php";
 
 echo "<h1><a href=\"" . site_url("/results/summary/" . $contest['id']) . "\">&laquo;</a> " . htmlspecialchars($contest['name'], ENT_COMPAT, 'UTF-8') . "</h1>";
 
-echo "<h3>Vertailu viime vuoteen</h3>";
+echo "<h3>Lajimäärän kehitys</h3>";
 
-if (! empty($scriptData))
+if (! empty($fullDataThisyear)) // string is not ever empty, it just doesn't contain js data
 {
 	echo "<div id=\"container\" style=\"min-width: 400px; height: 800px; margin: 0 auto\"></div>";
-	echo $scriptData;
+?>
+<script>
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'spline'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: { // don't display the dummy year
+                    month: '%e.%m.',
+                    year: '%b'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Lajeja'
+                },
+                min: 0
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        Highcharts.dateFormat('%A %e.%m.', this.x) +': '+ this.y + ' lajia';
+                }
+            },
+			plotOptions: {
+                spline: {
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 10,
+							color: '#ff0000'
+                        }
+                    },
+                    marker: {
+                        enabled: false,
+                        states: {
+                            hover: {
+                                enabled: true,
+                                radius: 5,
+                                lineWidth: 1
+                            }
+                        }
+                    },
+                }
+            },
+
+            series:
+            [
+				<?php echo $fullData2013; ?>
+				<?php echo $fullDataThisyear; ?>
+			]
+			});
+		});
+	});
+</script>
+<?php
+
 }
 else
 {
-	echo "<p>Kukaan ei ole vielä osallistunut tähän kisaan.</p>";
+	echo "<p>Et ole vielä osallistunut tähän kisaan.</p>";
 }
 
 
