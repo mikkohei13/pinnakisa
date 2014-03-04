@@ -125,7 +125,6 @@ class Results extends CI_Controller {
 	public function comparison($contest_id)
 	{
 		$viewdata = Array();
-		$this->load->model('results_model');
 		$this->load->helper('pinna');
 		
 		// Basic data about the contest
@@ -134,29 +133,18 @@ class Results extends CI_Controller {
 
 		// 2013 data
 		$this->load->model('kisa2013_model');
-//		$dataArray2013 = $this->kisa2013_model->loadParticipation($this->ion_auth->user()->row()->id);
-
 		$data2013 = $this->kisa2013_model->speciesArraysOfUser($this->ion_auth->user()->row()->id);
 		$speciesArray2013 = $data2013['speciesArray2013'];
 		$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
 
-		/*
-	    [10] => Array
-	        (
-	            [paiva] => 2013-01-01
-	            [Lyhenne] => CORMON
-	            [Suomi] => Naakka
-	        )
-		*/
-
 		// This year's data
-		$contestDataArrayThisyear = $this->results_model->comparison_js_data($contest_id, $this->ion_auth->user()->row()->id);
-		$speciesArrayThisyear = json_decode($contestDataArrayThisyear[0]['species_json'], TRUE);
-		$dailyTicksArrayThisyear = json_decode($contestDataArrayThisyear[0]['ticks_day_json'], TRUE);
+		$this->load->model('results_model');
+		$dataThisyear = $this->results_model->comparison_js_data($contest_id, $this->ion_auth->user()->row()->id);
+		@$speciesArrayThisyear = json_decode($dataThisyear[0]['species_json'], TRUE);
+		@$dailyTicksArrayThisyear = json_decode($dataThisyear[0]['ticks_day_json'], TRUE);
 
 /*
 		echo "<pre>"; // debug
-//		print_r ($dataArray2013);
 
 		print_r ($speciesArray2013);
 		print_r ($dailyTicksArray2013);
@@ -165,52 +153,23 @@ class Results extends CI_Controller {
 
 		exit("DEBUG END");
 */
-
-		$cumulativeTicks = 0;
-		$singleDateData = "";
-		$fullDateData = "";
-		ksort($dailyTicksArray2013);
-		foreach ($dailyTicksArray2013 as $date => $ticks)
+		if (! empty($dailyTicksArray2013))
 		{
-			$cumulativeTicks = $cumulativeTicks + $ticks;
-//			$yearUTC = substr($date, 0, 4);
-			$yearUTC = 2014; // to display the charts on top of each other
-			$monthUTC = substr($date, 5, 2) - 1;
-			$dateUTC = substr($date, 8, 2);
-
-			$singleDateData = "[Date.UTC($yearUTC, $monthUTC, $dateUTC), $cumulativeTicks], ";
-			$fullDateData = $fullDateData . $singleDateData;
+			$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, "2013");
+		}
+		if (! empty($dailyTicksArrayThisyear))
+		{
+			$viewdata['fullDataThisyear'] = cumulativeTickJSdata($dailyTicksArrayThisyear, "2014");
 		}
 
-		$viewdata['fullData2013'] = "
+		if (! empty($dailyTicksArrayThisyear))
 		{
-			name: '2013',			
-			data: [ $fullDateData ]
-		},
-		";
-
-
-		$cumulativeTicks = 0;
-		$singleDateData = "";
-		$fullDateData = "";
-		ksort($dailyTicksArrayThisyear);
-		foreach ($dailyTicksArrayThisyear as $date => $ticks)
-		{
-			$cumulativeTicks = $cumulativeTicks + $ticks;
-			$yearUTC = substr($date, 0, 4);
-			$monthUTC = substr($date, 5, 2) - 1;
-			$dateUTC = substr($date, 8, 2);
-
-			$singleDateData = "[Date.UTC($yearUTC, $monthUTC, $dateUTC), $cumulativeTicks], ";
-			$fullDateData = $fullDateData . $singleDateData;
+			$viewdata['takenPartThisyear'] = TRUE;
 		}
-
-		$viewdata['fullDataThisyear'] = "
+		else
 		{
-			name: '2014',			
-			data: [ $fullDateData ]
-		},
-		";
+			$viewdata['takenPartThisyear'] = FALSE;
+		}
 
 		/*
 		// Target data style:

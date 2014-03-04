@@ -12,7 +12,7 @@ echo "<h1><a href=\"" . site_url("/results/summary/" . $contest['id']) . "\">&la
 
 echo "<h3>Lajimäärän kehitys</h3>";
 
-if (! empty($fullDataThisyear)) // string is not ever empty, it just doesn't contain js data
+if ($takenPartThisyear)
 {
 	echo "<div id=\"container\" style=\"min-width: 400px; height: 800px; margin: 0 auto\"></div>";
 ?>

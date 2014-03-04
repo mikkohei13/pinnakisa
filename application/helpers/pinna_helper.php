@@ -60,5 +60,36 @@ function gitLastCommitInfo($gitLocation)
 	return date("Y-m-d", array_pop($lastCommitArray2));
 }
 
+/**
+*
+*/
+function cumulativeTickJSdata($dailyTicksArray, $label)
+{
+		$cumulativeTicks = 0;
+		$singleDateData = "";
+		$fullDateData = "";
+		ksort($dailyTicksArray);
+		foreach ($dailyTicksArray as $date => $ticks)
+		{
+			$cumulativeTicks = $cumulativeTicks + $ticks;
+//			$yearUTC = substr($date, 0, 4);
+			$yearUTC = date("Y"); // to display the charts on top of each other
+			$monthUTC = substr($date, 5, 2) - 1;
+			$dateUTC = substr($date, 8, 2);
+
+			$singleDateData = "[Date.UTC($yearUTC, $monthUTC, $dateUTC), $cumulativeTicks], ";
+			$fullDateData = $fullDateData . $singleDateData;
+		}
+
+		$fullData = "
+		{
+			name: '$label',			
+			data: [ $fullDateData ]
+		},
+		";
+
+		return $fullData;
+}
+
 
 
