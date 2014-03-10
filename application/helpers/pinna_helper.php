@@ -63,7 +63,7 @@ function gitLastCommitInfo($gitLocation)
 /**
 *
 */
-function cumulativeTickJSdata($dailyTicksArray, $label)
+function cumulativeTickJSdata($dailyTicksArray, $label, $draw2 = FALSE)
 {
 		$cumulativeTicks = 0;
 		$singleDateData = "";
@@ -79,6 +79,15 @@ function cumulativeTickJSdata($dailyTicksArray, $label)
 
 			$singleDateData = "[Date.UTC($yearUTC, $monthUTC, $dateUTC), $cumulativeTicks], ";
 			$fullDateData = $fullDateData . $singleDateData;
+		}
+
+		if ("today" == $draw2)
+		{
+			$fullDateData = $fullDateData . "[Date.UTC(" . date("Y") . ", " . (date("m") - 1) . ", " . date("d") . "), $cumulativeTicks], ";
+		}
+		elseif ("endOfYear" == $draw2)
+		{
+			$fullDateData = $fullDateData . "[Date.UTC(" . date("Y") . ", 12, 31), $cumulativeTicks], ";
 		}
 
 		$fullData = "

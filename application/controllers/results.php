@@ -155,11 +155,11 @@ class Results extends CI_Controller {
 */
 		if (! empty($dailyTicksArray2013))
 		{
-			$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, "2013");
+			$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, "2013", "endOfYear");
 		}
 		if (! empty($dailyTicksArrayThisyear))
 		{
-			$viewdata['fullDataThisyear'] = cumulativeTickJSdata($dailyTicksArrayThisyear, "2014");
+			$viewdata['fullDataThisyear'] = cumulativeTickJSdata($dailyTicksArrayThisyear, "2014", "today");
 		}
 
 		if (! empty($dailyTicksArrayThisyear))
