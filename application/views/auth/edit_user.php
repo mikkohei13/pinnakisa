@@ -27,7 +27,10 @@ include "application/views/page_elements/header.php";
 
       <p>
             <?php echo lang('edit_user_old_id_label', 'old_id');?> <br />
-            <?php echo form_input($old_id);?>
+            <?php
+            $old_id['autocomplete'] = "off"; 
+            echo form_input($old_id);
+            ?>
       </p>
 
       <p id="p_password">
