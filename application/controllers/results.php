@@ -16,6 +16,10 @@ class Results extends CI_Controller {
 		// Ticks per participant
 		$viewdata['summary'] = $this->results_model->summary($contest_id);
 
+		// My participation
+		$myParticipationSummary = $this->results_model->user_summary($contest_id, $this->ion_auth->user()->row()->id);
+		$viewdata['myParticipationSummary'] = $myParticipationSummary;
+
 		// Location ticks
 //		$viewdata['locations'] = $this->results_model->areaTicks();
 
