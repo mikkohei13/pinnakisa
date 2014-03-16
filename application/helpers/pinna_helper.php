@@ -87,7 +87,7 @@ function cumulativeTickJSdata($dailyTicksArray, $label, $draw2 = FALSE)
 		}
 		elseif ("endOfYear" == $draw2)
 		{
-			$fullDateData = $fullDateData . "[Date.UTC(" . date("Y") . ", 12, 31), $cumulativeTicks], ";
+			$fullDateData = $fullDateData . "[Date.UTC(" . date("Y") . ", 11, 31), $cumulativeTicks], "; // 11 = December, since month numbering starts from 0
 		}
 
 		$fullData = "
