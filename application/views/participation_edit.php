@@ -34,6 +34,15 @@ $script = "
 		$(this).parent().find('.sp').css('font-weight', 'normal');
 	  });
 	});
+
+
+	$(document).ready(function() {
+		$('#participation-form').attr({
+		  action: '" . base_url() . "index.php/participation/edit/" . @$editableData['id'] . "'
+		});
+		$('.submit-button').prop('disabled', false);
+	});
+
  </script>
 ";
 include "page_elements/header.php";
@@ -75,8 +84,10 @@ echo "<div id=\"infoMessage\">" . $this->session->flashdata('flash') . " " . val
 $submitButton = "";
 if ("published" == $contest['status'])
 {
-	echo form_open("participation/edit/" . @$editableData['id']);
-	$submitButton = "<p><input type=\"submit\" value=\"Tallenna\" /></p>";
+//	echo form_open("foo", array('id' => 'participation-form'));
+	echo "<form action method=\"post\" accept-charset=\"utf-8\" id=\"participation-form\"> ";
+
+	$submitButton = "<p><input type=\"submit\" class=\"submit-button\" value=\"Tallenna\"  disabled=\"disabled\" /></p>";
 }
 elseif ("archived" == $contest['status'])
 {
