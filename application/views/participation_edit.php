@@ -142,7 +142,7 @@ else
 <p>Kuljetut kilometrit</p>
 <input type="text" name="kms" value="<?php echo @$editableData['kms']; ?>" size="10" /> km
 <?php
-if ($editableData['kms'] > 0)
+if (@$editableData['kms'] > 0)
 {
 	echo "<span class=\"myStats\"> = " . round(($editableData['kms'] / $editableData['species_count']), 1) . " km/pinna</span>";
 }
@@ -151,7 +151,7 @@ if ($editableData['kms'] > 0)
 <p>Retkeillyt tunnit</p>
 <input type="text" name="hours" value="<?php echo @$editableData['hours']; ?>" size="10" /> h
 <?php
-if ($editableData['hours'] > 0)
+if (@$editableData['hours'] > 0)
 {
 	echo "<span class=\"myStats\"> = " . round(($editableData['hours'] / $editableData['species_count']), 1) . " h/pinna</span>";
 }
