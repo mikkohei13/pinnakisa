@@ -37,11 +37,24 @@ $script = "
 
 
 	$(document).ready(function() {
+
+		// Add action to form so that submit works
 		$('#participation-form').attr({
 		  action: '" . base_url() . "index.php/participation/edit/" . @$editableData['id'] . "'
 		});
+
+		// Enable submit button
 		$('.submit-button').prop('disabled', false);
+
+		// Fade info message out
+		$( '#infoMessage' ).delay(4000).fadeOut(1000, function() {
+			// Animation complete.
+		});
 	});
+
+
+
+
 
  </script>
 ";
@@ -74,11 +87,17 @@ if (@$alreadyTakenPart)
  
 </p>
 
+<?php
+$flash = $this->session->flashdata('flash');
+if (! empty($flash))
+{
+	echo "<div id=\"infoMessage\">" . $flash . " " . validation_errors() . "</div>";
+}
+?>
+
 </div>
 
 <?php
-echo "<div id=\"infoMessage\">" . $this->session->flashdata('flash') . " " . validation_errors() . "</div>";
-
 // echo "<pre>ARRAY: "; print_r ($editableData); echo "</pre>"; // debug
 
 $submitButton = "";

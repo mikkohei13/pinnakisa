@@ -72,6 +72,7 @@ h1
 	margin-top: 0;
 }
 
+
 h2 {	font-size: 140%;	}
 h3 {	font-size: 120%;	}
 h4 {	font-size: 110%;	}
@@ -131,9 +132,25 @@ input[type="submit"]
 	background-color: #B7F300;
 }
 
+
+#contestToTakePart h1
+{
+	margin-bottom: 0 !important;
+}
+
+#contestToTakePart
+{
+	position: RELATIVE;
+	margin-bottom: 0;
+}
+
 #infoMessage
 {
+	top: 0;
+	font-size: 160%;
 	background-color: #FFF200;
+	position: ABSOLUTE;
+	padding: 0.4em;
 }
 
 
@@ -364,11 +381,6 @@ input[type="submit"]
 	font-size: 150%;
 	margin: 0.5em 0;
 	border-radius: 5px;
-}
-
-#infoMessage
-{
-	font-size: 120%;
 }
 
 .required:after
