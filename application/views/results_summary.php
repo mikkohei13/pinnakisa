@@ -106,19 +106,27 @@ if (!empty($summary))
 	}
 	echo "</ul>";
 	
-	echo "<p>Klikkaamalla osallistujan nimeät näen hänen pinnalistansa.</p>";
+	echo "<p>Klikkaamalla osallistujan nimeät näen hänen pinnalistansa. Klikkaamalla otsikkoriviä taulukon voi lajitella.</p>";
 
-	echo "<table class=\"resultTable\" id=\"participantTable\">";
+	echo "<table class=\"resultTable tablesorter\" id=\"participantTable\">";
+	echo "<thead>";
 	echo "<tr>";
 	echo "	<th>Sija</th>";
 	echo "	<th>Nimi</th>";
 	echo "	<th>Sijainti</th>";
 	echo "	<th>Pinnat</th>";
 	echo "	<th title=\"Osallistujan ilmoittama spontaanien lajien määrä.\">Spondet</th>";
+	echo "	<th title=\"Osallistujan kulkema matka kilometreinä\">km</th>";
+	echo "	<th title=\"Osallistujan retkeilemä aika tunteina..\">h</th>";
 	echo "</tr>";
+	echo "</thead>";
+	echo "<tbody>";
 
 	$rank = 1;
 	$previousSpeciesCount = 0;
+
+//	echo "<pre>"; print_r ($summary); echo "</pre>"; // debug
+
 	foreach ($summary as $partNumber => $partArray)
 	{
 		echo "<tr class=\"participantRow\" id=\"" . $partArray['id'] . "\">"; // id = participation id
@@ -141,12 +149,29 @@ if (!empty($summary))
 		{
 			echo "	<td>&nbsp;</td>";
 		}
+		if ($partArray['kms'] > 0)
+		{
+			echo "	<td>" . htmlspecialchars($partArray['kms'], ENT_COMPAT, 'UTF-8') . "</td>";
+		}
+		else
+		{
+			echo "	<td>&nbsp;</td>";
+		}
+		if ($partArray['hours'] > 0)
+		{
+			echo "	<td>" . htmlspecialchars($partArray['hours'], ENT_COMPAT, 'UTF-8') . "</td>";
+		}
+		else
+		{
+			echo "	<td>&nbsp;</td>";
+		}
 		echo "</tr>";
 		
 		$previousSpeciesCount = $partArray['species_count'];
 		$rank++;
 	}
 
+	echo "</tbody>";
 	echo "</table>";
 	
 	echo "<div id=\"tickList\"></div>";

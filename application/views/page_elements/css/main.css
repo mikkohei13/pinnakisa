@@ -554,6 +554,11 @@ Specieslist
 	margin-top: 2em;
 }
 
+.tablesorter thead th
+{
+	cursor: pointer;
+}
+
 
 /* ------------------------------
 Media queries

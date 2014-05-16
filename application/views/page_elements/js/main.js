@@ -20,3 +20,10 @@
 		yearSuffix: ''
 	};
 })($);
+
+
+$(document).ready(function() 
+    { 
+        $(".tablesorter").tablesorter(); 
+    } 
+); 
