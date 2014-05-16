@@ -122,7 +122,8 @@ if (!empty($summary))
 	echo "</thead>";
 	echo "<tbody>";
 
-	$rank = 1;
+	$rank = 0;
+	$sameRank = 1;
 	$previousSpeciesCount = 0;
 
 //	echo "<pre>"; print_r ($summary); echo "</pre>"; // debug
@@ -130,14 +131,18 @@ if (!empty($summary))
 	foreach ($summary as $partNumber => $partArray)
 	{
 		echo "<tr class=\"participantRow\" id=\"" . $partArray['id'] . "\">"; // id = participation id
+
+		$rank++;
 		if ($previousSpeciesCount == $partArray['species_count'])
 		{
-			echo "<td>&nbsp;</td>";
+			echo "<td class=\"same-rank\">$sameRank.</td>";
 		}
 		else
 		{
-			echo "<td>$rank.</td>";
+			echo "<td class=\"new-rank\">$rank.</td>";
+			$sameRank = $rank;
 		}
+
 		echo "	<td>" . htmlspecialchars($partArray['name'], ENT_COMPAT, 'UTF-8') . "</td>";
 		echo "	<td>" . htmlspecialchars($partArray['location'], ENT_COMPAT, 'UTF-8') . "</td>";
 		echo "	<td>" . htmlspecialchars($partArray['species_count'], ENT_COMPAT, 'UTF-8') . "</td>";
@@ -168,7 +173,6 @@ if (!empty($summary))
 		echo "</tr>";
 		
 		$previousSpeciesCount = $partArray['species_count'];
-		$rank++;
 	}
 
 	echo "</tbody>";
