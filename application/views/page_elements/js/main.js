@@ -25,5 +25,10 @@
 $(document).ready(function() 
     { 
         $(".tablesorter").tablesorter(); 
-    } 
+			
+		// Fade info message out
+		$( '.validation-ok' ).delay(4000).fadeOut(1000, function() {
+			// Animation complete.
+		});
+    }
 ); 

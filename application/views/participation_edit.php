@@ -46,10 +46,6 @@ $script = "
 		// Enable submit button
 		$('.submit-button').prop('disabled', false);
 
-		// Fade info message out
-		$( '#infoMessage' ).delay(4000).fadeOut(1000, function() {
-			// Animation complete.
-		});
 	});
 
 
@@ -91,7 +87,16 @@ if (@$alreadyTakenPart)
 $flash = $this->session->flashdata('flash');
 if (! empty($flash))
 {
-	echo "<div id=\"infoMessage\">" . $flash . " " . validation_errors() . "</div>";
+	$validation_errors = validation_errors();
+	if (empty($validation_errors))
+	{
+		$class = "validation-ok";
+	}
+	else
+	{
+		$class = "validation-errors";
+	}
+	echo "<div id=\"infoMessage\" class=\"$class\">" . $flash . " " . $validation_errors . "</div>";
 }
 ?>
 
@@ -124,7 +129,7 @@ else
 <p class="required">Nimesi (Etu- ja sukunimi)<!-- tai joukkueesi jäsenten nimet--></p>
 <input type="text" name="name" class="required" value="<?php echo @$editableData['name']; ?>" size="50" />
 
-<p class="required"><!--Kilpailualue (ks. kisan tiedoista mitä tarkoittaa)-->Kotipesä (Kunta, Paikka)</p>
+<p class="required">Alue/kotipesä (Kunta, Paikka; ks. kisan säännöistä mitä merkitsee)</p>
 
 <?php
 if (@$locationArray)
@@ -142,7 +147,7 @@ else
 <p>Kuljetut kilometrit</p>
 <input type="text" name="kms" value="<?php echo @$editableData['kms']; ?>" size="10" /> km
 <?php
-if (@$editableData['kms'] > 0)
+if (@$editableData['kms'] > 0 && @$editableData['species_count'] > 0)
 {
 	echo "<span class=\"myStats\"> = " . round(($editableData['kms'] / $editableData['species_count']), 1) . " km/pinna</span>";
 }
@@ -151,7 +156,7 @@ if (@$editableData['kms'] > 0)
 <p>Retkeillyt tunnit</p>
 <input type="text" name="hours" value="<?php echo @$editableData['hours']; ?>" size="10" /> h
 <?php
-if (@$editableData['hours'] > 0)
+if (@$editableData['hours'] > 0 && @$editableData['species_count'] > 0)
 {
 	echo "<span class=\"myStats\"> = " . round(($editableData['hours'] / $editableData['species_count']), 1) . " h/pinna</span>";
 }

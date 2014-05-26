@@ -138,18 +138,26 @@ input[type="submit"]
 	margin-bottom: 0 !important;
 }
 
+
 #contestToTakePart
 {
-	position: RELATIVE;
 	margin-bottom: 0;
 }
 
 #infoMessage
 {
-	font-size: 160%;
+	font-size: 140%;
+}
+
+#infoMessage.validation-errors
+{
 	background-color: #FFF200;
 }
 
+#infoMessage.validation-ok
+{
+	background-color: #00F200;
+}
 
 /* ADMIN */
 #youAreAdmin

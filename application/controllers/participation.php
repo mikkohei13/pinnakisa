@@ -15,7 +15,7 @@ class Participation extends CI_Controller {
 	{
 		// TODO: (?) Jos contest_id:n jättää pois uuteen kisaan ilmoittautuessa, tuloksana kasa CI:n virheilmoituksia
 	
-		// Restrict this page only for admins
+		// Restrict this page only for logged in users
 		if (!$this->ion_auth->logged_in())
 		{
 			$this->session->set_flashdata('login', 'Kirjaudu sisään osallistuaksesi kisaan.');
@@ -62,13 +62,15 @@ class Participation extends CI_Controller {
 		$this->form_validation->set_rules('kms', 'Kuljetut kilometrit', 'integer');
 		$this->form_validation->set_rules('hours', 'Retkeillyt tunnit', 'integer');
 		$this->form_validation->set_rules('spontaneous', 'Spontaanien lajien määrä', 'integer');
-
 		$this->form_validation->set_rules('contest_id', 'Kisan tunniste', 'required');
 
 		// DO SOMETHING WITH THE DATA
+
+		// Validation error
 		if ($this->form_validation->run() == FALSE)
 		{
 //			echo "CASE B 1";
+			$this->session->set_flashdata("flash", "Täytä kaikki pakolliset kentät");
 			
 			// Get contest data
 			$this->load->model('contest_model');
@@ -94,6 +96,8 @@ class Participation extends CI_Controller {
 			// Validation not run or not passed; go to form
 			$this->load->view('participation_edit', $viewdata);
 		}
+
+		// Validation ok
 		else
 		{
 			// If handling old data, update document
