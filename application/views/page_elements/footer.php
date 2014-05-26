@@ -3,9 +3,7 @@
 
 <p id="footer">Pinnakisajärjestelmä: Mikko Heikkinen/<a href="http://www.biomi.org/">biomi.org</a>
  -- 
-<?php echo "version " . gitLastCommitInfo(".git/logs/HEAD"); ?>
- --
- palaute: <script type="text/javascript">
+ Palaute: <script type="text/javascript">
 //<![CDATA[
 <!--
 var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +

@@ -48,8 +48,9 @@ function abbrKeys2Finnish($abbrArray)
 }
 
 /**
-*
+* Problem: required .git repository online
 */
+/*
 function gitLastCommitInfo($gitLocation)
 {
 	$commitArray = file($gitLocation);
@@ -59,6 +60,7 @@ function gitLastCommitInfo($gitLocation)
 	$pop = array_pop($lastCommitArray2);
 	return date("Y-m-d", array_pop($lastCommitArray2));
 }
+*/
 
 /**
 *
