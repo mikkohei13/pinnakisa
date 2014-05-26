@@ -29,7 +29,8 @@ class Results_model extends CI_Model {
 		// Sort by species_count
 		usort($resultArray, array("Results_model", "sortBySpeciesCount"));
 		
-		$this->summary = $resultArray; // ??
+		// TODO: move elsewhere ?
+		$this->summary = $resultArray; // Populates array for area ticks
 
 		return $resultArray;
 	}
@@ -169,113 +170,6 @@ $(function () {
 		}
 		
 		return $resultArray;
-
-/*		
-		// Create scipt data
-		$allData = "";
-		$i = 0;
-		foreach ($resultArray as $nro => $part)
-		{
-			$partData = "";
-			$partData .= "
-			{
-				name: '" . $part['name'] . "',			
-				data: [ ";
-			
-			$json = json_decode($part['ticks_day_json'], TRUE);
-//			echo "<pre>"; print_r ($json); echo "</pre>"; // debug
-			
-			$totalTicks = 0;
-			foreach ($json as $day => $newTicks)
-			{
-				$totalTicks = $totalTicks + $newTicks;
-				$partData .= "[Date.UTC(" . substr($day, 0, 4) . ", " . (substr($day, 5, 2) - 1) . ", " . substr($day, 8, 2) . "), " . $totalTicks . "], ";
-			}
-			
-			$partData .= "]
-			},";
-			
-			$allData .= $partData;
-			
-			$i++;
-			if ($i >= $top)
-			{
-				break;
-			}
-		}
-		
-		$allData = htmlspecialchars($allData, ENT_COMPAT, 'UTF-8');
-
-		// Script
-		$allData = "
-<script>
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                type: 'spline'
-            },
-            title: {
-                text: ''
-            },
-            xAxis: {
-                type: 'datetime',
-                dateTimeLabelFormats: { // don't display the dummy year
-                    month: '%e.%m.',
-                    year: '%b'
-                }
-            },
-            yAxis: {
-                title: {
-                    text: 'Lajeja'
-                },
-                min: 0
-            },
-            tooltip: {
-                formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                        Highcharts.dateFormat('%A %e.%m.', this.x) +': '+ this.y + ' lajia';
-                }
-            },
-			plotOptions: {
-                spline: {
-                    lineWidth: 1,
-                    states: {
-                        hover: {
-                            lineWidth: 10,
-							color: '#ff0000'
-                        }
-                    },
-                    marker: {
-                        enabled: false,
-                        states: {
-                            hover: {
-                                enabled: true,
-                                radius: 5,
-                                lineWidth: 1
-                            }
-                        }
-                    },
-                }
-            },
-
-            series: [
-			"
-			.
-			$allData
-			.
-			"
-							]
-					});
-				});
-			});
-			</script>
-			";
-			
-		return $allData;
-*/
 	}
 	
 	// ------------------------------------------------------------------------

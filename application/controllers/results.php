@@ -19,12 +19,25 @@ class Results extends CI_Controller {
 		// My participation
 		$myParticipationSummary = $this->results_model->user_summary($contest_id, $this->ion_auth->user()->row()->id);
 		$viewdata['myParticipationSummary'] = $myParticipationSummary;
+	
+		$this->load->view('results_summary', $viewdata);
+	}
+	
+	public function area($contest_id)
+	{
+		$viewdata = Array();
+
+		// Basic data about the contest
+		$this->load->model('contest_model');
+		$viewdata['contest'] = $this->contest_model->load($contest_id);
+		
+		// Results...
+		$this->load->model('results_model');
 
 		// Location ticks
-//		$viewdata['locations'] = $this->results_model->areaTicks();
-
-		
-		$this->load->view('results_summary', $viewdata);
+		$this->results_model->summary($contest_id);
+		$viewdata['locations'] = $this->results_model->areaTicks();
+		$this->load->view('results_area', $viewdata);
 	}
 	
 	// ------------------------------------------------------

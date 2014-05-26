@@ -13,6 +13,11 @@ If names used in ongoing contests are changed, users will lose their location da
 
 */
 
+$locationArray['tringa-kesakisa2014']['Inkoo'] = "";
+$locationArray['tringa-kesakisa2014']['Nurmijärvi'] = "";
+$locationArray['tringa-kesakisa2014']['Pornainen'] = "";
+$locationArray['tringa-kesakisa2014']['Sipoo'] = "";
+
 $locationArray['TringanKunnat2013']['Espoo'] = "";
 $locationArray['TringanKunnat2013']['Hanko'] = "";
 $locationArray['TringanKunnat2013']['Helsinki'] = "";
