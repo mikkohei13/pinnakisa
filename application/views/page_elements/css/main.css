@@ -146,11 +146,8 @@ input[type="submit"]
 
 #infoMessage
 {
-	top: 0;
 	font-size: 160%;
 	background-color: #FFF200;
-	position: ABSOLUTE;
-	padding: 0.4em;
 }
 
 
@@ -558,7 +555,6 @@ Specieslist
 {
 	cursor: pointer;
 }
-
 
 /* ------------------------------
 Media queries
