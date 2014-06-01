@@ -17,8 +17,11 @@ class Results extends CI_Controller {
 		$viewdata['summary'] = $this->results_model->summary($contest_id);
 
 		// My participation
-		$myParticipationSummary = $this->results_model->user_summary($contest_id, $this->ion_auth->user()->row()->id);
-		$viewdata['myParticipationSummary'] = $myParticipationSummary;
+		if (! empty($this->ion_auth->user()->row()->id))
+		{
+			$myParticipationSummary = $this->results_model->user_summary($contest_id, $this->ion_auth->user()->row()->id);
+			$viewdata['myParticipationSummary'] = $myParticipationSummary;
+		}
 	
 		$this->load->view('results_summary', $viewdata);
 	}
