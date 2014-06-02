@@ -1,4 +1,12 @@
 <?php
+
+// Format max javascript date for datepicker
+$dateBeginParts = explode("-", $contest['date_begin']);
+$dateBeginJS = "new Date(" . $dateBeginParts[0] . "," . ($dateBeginParts[1] - 1) . "," . $dateBeginParts[2] . ")";
+
+//echo "<pre>"; print_r ($contest); echo "</pre>"; // debug
+
+
 $title = "Pinnakisa";
 $script = "
 <script>
@@ -6,7 +14,8 @@ $script = "
 	$(function() {
 		$.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 		$('.datepicker').datepicker({
-			maxDate: '0' // tämä sivukohtaiseksi
+			minDate: " . $dateBeginJS . ",
+			maxDate: '0'
 		});
 	});
 	// DATE FIELD: datepicker
