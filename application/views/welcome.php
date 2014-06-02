@@ -59,9 +59,6 @@ if (! empty($participations))
 	}
 }
 
-// -----
-
-
 // --------------------------------------------
 // Open participarions
 
@@ -91,6 +88,18 @@ echo "<h3>Meneillään olevat kisat</h3>";
 
 foreach ($publishedContests as $rowNumber => $array)
 {
+//	print_r ($array); continue; // debug
+
+	// Tulospalvelulinkki
+	if ($array['location_list'])
+	{
+		$resultsLink = "<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>";
+	}
+	else
+	{
+		$resultsLink = "<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulokset</a>";
+	}
+
 	echo "
 	<div class=\"contest\">
 	";
@@ -105,7 +114,7 @@ foreach ($publishedContests as $rowNumber => $array)
 
 	}
 	echo "<h4>" . @$array['name'] . "</h4>
-		<p class='results'><a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulospalvelu</a></p>
+		<p class='results'>$resultsLink</p>
 		<p class='contestTime'>Kilpailuaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
 		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
 		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
