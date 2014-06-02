@@ -20,6 +20,7 @@ class Participation_model extends CI_Model {
 		$speciesCount = 0;
 		$ticksPerDay = Array();
 
+		// Calculate stats
 		foreach ($data['species'] as $sp => $value)
 		{
 			if (! $value)
@@ -60,11 +61,10 @@ class Participation_model extends CI_Model {
 		$data['meta_created_user'] = $userData->id;
 		$data['meta_created'] = date("Y-m-d H:i:s");
 		
-		// Calculate stats
-		
-
 		// Insert document
 		$this->db->insert('kisa_participations', $data);
+
+		$this->backup($data);
 	
 	/*
 	// TODO: try catch exception
@@ -96,6 +96,8 @@ class Participation_model extends CI_Model {
 		// Update document
 		$this->db->where('id', $id);
 		$this->db->update('kisa_participations', $data); 
+
+		$this->backup($data, $id);
 		
 	/*
 	// TODO: try catch exception
@@ -168,6 +170,27 @@ class Participation_model extends CI_Model {
 		{
 			return FALSE;
 		}
+	}
+
+	// ------------------------------------------------------------------------
+
+	public function backup($data, $id = "new")
+	{
+//		echo "<pre>BACKUP  \n"; print_r($data); // debug
+
+		$json = json_encode($data);
+		$time = date("Ymd-His");
+
+		$directory = "backups/" . date("Y-m");
+		if (! file_exists($directory))
+		{
+    		mkdir($directory, 0777, true);
+		}
+
+		$filename = $directory . "/" . $id . "-" . $time . "-" . md5($json) . ".json";
+
+		$bytesSaved = file_put_contents($filename, $json);
+		return $bytesSaved;
 	}
 
 	// ------------------------------------------------------------------------
