@@ -209,6 +209,8 @@ foreach ($bird as $key => $arr)
 }
 echo "</div>";
 
+echo "<input type=\"hidden\" name=\"form_loaded\" id=\"form_loaded\" value=\"true\">";
+
 echo $submitButton;
 if ("published" == $contest['status'])
 {
