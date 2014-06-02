@@ -93,12 +93,17 @@ foreach ($publishedContests as $rowNumber => $array)
 	// Tulospalvelulinkki
 	if ($array['location_list'])
 	{
-		$resultsLink = "<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>";
+		$resultsLink = "
+			<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>
+			|
+			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Osallistujat</a>
+		";
 	}
 	else
 	{
 		$resultsLink = "<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulokset</a>";
 	}
+
 
 	echo "
 	<div class=\"contest\">
