@@ -56,6 +56,7 @@ Kisaan voi osallistua joukkueena kirjaamalla kaikkien joukkuueen jäsenten nimet
 Jos joku kirjaa oletettavasti virheellisen pinnan (väärä päivämäärä, epäilyttävän harvinainen laji), kannattaa häneen ensin ottaa yhteyttä sähköpostitse ja kysyä lisätietoja tai pyytää korjaamaan pinna itse. Jos vastausta ei kuulu, pinnan voi korjata suoraan tietokannassa. (Vähäisen tarpeen takia (n. 1 / vuosi) tähän ei ole työkalua.)
 
 Yhden pinnan poistaminen
+
 1. Etsi korjattava osallistuminen taulusta kisa_participations
 2. Muuta seuraavat kentät:
 	* ticks_day_json: vähennä pinnamäärää yhdellä virheellisen havainnon päivämäärn kohdalta 
