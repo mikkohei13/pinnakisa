@@ -16,9 +16,9 @@ Kun kirjaudut ylläpitäjän (admin) tunnuksella, etusivun alaosassa näkyvät y
 * _Alku- ja loppupäivämäärä_: Kisa-aika muodossa vvvvkkpp ... vvvvkkpp
 * _Lisätieto-www-osoite_: osoite, jossa kerrotaan kisasta lisää. Esim. säännöt kannattaa laittaa tänne.
 * _Kisan tila_:
-** _luonnos_: näkyy vain ylläpitäjille
-** _julkaistu_: näkyy kaikille, pinnoja voi tallentaa
-** _arkistoitu_: näkyy kaikille, mutta pinnoja ei voi tallentaa
+	* _luonnos_: näkyy vain ylläpitäjille
+	* _julkaistu_: näkyy kaikille, pinnoja voi tallentaa
+	* _arkistoitu_: näkyy kaikille, mutta pinnoja ei voi tallentaa
 
 ### Erikoistiedot, joita täytetään harvemmin
 
@@ -58,8 +58,8 @@ Jos joku kirjaa oletettavasti virheellisen pinnan (väärä päivämäärä, ep�
 Yhden pinnan poistaminen
 1. Etsi korjattava osallistuminen taulusta kisa_participations
 2. Muuta seuraavat kentät:
-2.1. ticks_day_json: vähennä pinnamäärää yhdellä virheellisen havainnon päivämäärn kohdalta 
-2.2. species_json: poista laji ja sen havaintopäivämäärä
-2.3. species_count: vähennä kokonaislajimäärää yhdellä
+	1. ticks_day_json: vähennä pinnamäärää yhdellä virheellisen havainnon päivämäärn kohdalta 
+	2. species_json: poista laji ja sen havaintopäivämäärä
+	3. species_count: vähennä kokonaislajimäärää yhdellä
 3. Testaa tulospalvelusta että kokonaislajilista ja kertymäkaavio näyttävät oikeilta
 
