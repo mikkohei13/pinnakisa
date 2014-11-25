@@ -72,7 +72,7 @@ TODO
 * Siistimmän näköiset error/success-ilmoitukset
 * Vertailukaavio edelliseen vuoteen
 * Käyttäjälle mahdollisuus piilottaa rarit tallennuslomakkeelta
-* Vain yksi osallistuminen per kisa
+* Mahdollisuus sallia kisaan vain yksi osallistuminen per kisa?
 * Helpompi linkitys tulokset <-> osallistumislomake
 
 
