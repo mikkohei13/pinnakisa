@@ -16,6 +16,8 @@ Web service for managing, publishing and participating to (bird) tick contests. 
 Dokumentaatiota:
 ---------------
 
+*[Käyttöohje](MANUAL.md)*
+
 ### Kentän lisääminen osallistumiseen
 -Lisää kenttä tietokantaan
 -Lisää kenttä viewiin (huomaa että kentän nimi on tiedostossa kaksi kertaa: name ja value)
