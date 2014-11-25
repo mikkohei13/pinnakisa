@@ -58,8 +58,8 @@ Jos joku kirjaa oletettavasti virheellisen pinnan (väärä päivämäärä, ep�
 Yhden pinnan poistaminen
 1. Etsi korjattava osallistuminen taulusta kisa_participations
 2. Muuta seuraavat kentät:
-	1. ticks_day_json: vähennä pinnamäärää yhdellä virheellisen havainnon päivämäärn kohdalta 
-	2. species_json: poista laji ja sen havaintopäivämäärä
-	3. species_count: vähennä kokonaislajimäärää yhdellä
+	* ticks_day_json: vähennä pinnamäärää yhdellä virheellisen havainnon päivämäärn kohdalta 
+	* species_json: poista laji ja sen havaintopäivämäärä
+	* species_count: vähennä kokonaislajimäärää yhdellä
 3. Testaa tulospalvelusta että kokonaislajilista ja kertymäkaavio näyttävät oikeilta
 
