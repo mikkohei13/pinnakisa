@@ -62,3 +62,19 @@ Mikko Heikkinen/biomi.org 23.9.2013-
 
 * Codeigniter / http://ellislab.com/codeigniter / CODEIGNITER_LICENSE.txt 
 * Ion Auth / http://benedmunds.com/ion_auth/ / Apache License v2.0 http://www.apache.org/licenses/LICENSE-2.0
+
+
+TODO
+----
+
+* Estetään tallennus päivämäärillä, jotka ovat kisa-ajan ulkopuolella
+* Kisan tietoihin päivämäärät näkyviin suomalaisessa formaatissa p(p).k(k).vvvv
+* Siistimmän näköiset error/success-ilmoitukset
+* Vertailukaavio edelliseen vuoteen
+* Käyttäjälle mahdollisuus piilottaa rarit tallennuslomakkeelta
+* Vain yksi osallistuminen per kisa
+* Helpompi linkitys tulokset <-> osallistumislomake
+
+
+
+
