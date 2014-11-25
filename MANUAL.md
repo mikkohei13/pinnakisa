@@ -11,18 +11,18 @@ Kun kirjaudut ylläpitäjän (admin) tunnuksella, etusivun alaosassa näkyvät y
 
 ### Perustiedot, jotka kannattaa täyttää kaikista kisoista:
 
-* Kisan nimi: käytä nimeä joka yksilöi kisan riittävän tarkasti. Esim. "Yhdistyksen NN talvipinnakisa 2014-2015"
-* Lyhyt kuvaus: etusivulla näkyvä kuvaus, joka kertoo lyhyesti mistä kisassa on kyse.
-* Alku- ja loppupäivämäärä: Kisa-aika muodossa vvvvkkpp ... vvvvkkpp
-* Lisätieto-www-osoite: osoite, jossa kerrotaan kisasta lisää. Esim. säännöt kannattaa laittaa tänne.
-* Kisan tila:
-** luonnos: näkyy vain ylläpitäjille
-** julkaistu: näkyy kaikille, pinnoja voi tallentaa
-** arkistoitu: näkyy kaikille, mutta pinnoja ei voi tallentaa
+* _Kisan nimi_: käytä nimeä joka yksilöi kisan riittävän tarkasti. Esim. "Yhdistyksen NN talvipinnakisa 2014-2015"
+* _Lyhyt kuvaus_: etusivulla näkyvä kuvaus, joka kertoo lyhyesti mistä kisassa on kyse.
+* _Alku- ja loppupäivämäärä_: Kisa-aika muodossa vvvvkkpp ... vvvvkkpp
+* _Lisätieto-www-osoite_: osoite, jossa kerrotaan kisasta lisää. Esim. säännöt kannattaa laittaa tänne.
+* _Kisan tila_:
+** _luonnos_: näkyy vain ylläpitäjille
+** _julkaistu_: näkyy kaikille, pinnoja voi tallentaa
+** _arkistoitu_: näkyy kaikille, mutta pinnoja ei voi tallentaa
 
 ### Erikoistiedot, joita täytetään harvemmin
 
-*Kilpailualueiden rajaus*
+__Kilpailualueiden rajaus__
 
 Palvelussa voi järjestää kahdenlaisia kisoja:
 
@@ -31,7 +31,7 @@ Palvelussa voi järjestää kahdenlaisia kisoja:
 
 Kisan tyyppi valitaan kohdassa Kilpailualueiden rajaus. *Jätä tämä tyhjäksi jos lisäät tavallisen kisan*. Jos sen sijaan haluat lisätä aluekisan, kirjaa ensin tiedostoon application/controllers/includes/locationarray.php PHP-arrayhin ne alueet, joiden haluat olevan mukana kisassa. Tämän jälkeen alueet tulevat näkyville Kilpailualueiden rajaus -valikkoon, josta voit valita ne. 
 
-*Vertailu aiempaan kisaan* (POISTUMASSA?)
+__Vertailu aiempaan kisaan (POISTUMASSA?)__
 
 Jos vastaava kisa on järjestetty aiemmin Jukka Koiviston (Suomenselän lintutieteellinen yhdistys) tekemällä pinnakisasovelluksella, voi pinnakisapalvelu näyttää kisaajalle hänen pinnamääränsä kehityksen kaaviona tänä vs. aiempana vuonna. Tämän aikaansaamiseksi pitää tehdä useampi asia:
 
