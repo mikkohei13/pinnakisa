@@ -1,5 +1,5 @@
 
-# Käyttöohje
+# Käyttöohjeita
 
 Kun kirjaudut ylläpitäjän (admin) tunnuksella, etusivun alaosassa näkyvät ylläpitäjän työkalut:
 
@@ -63,4 +63,25 @@ Yhden pinnan poistaminen
 	* species_json: poista laji ja sen havaintopäivämäärä
 	* species_count: vähennä kokonaislajimäärää yhdellä
 3. Testaa tulospalvelusta että kokonaislajilista ja kertymäkaavio näyttävät oikeilta
+
+
+## Dokumentaatiota:
+
+### Kentän lisääminen osallistumiseen
+-Lisää kenttä tietokantaan
+-Lisää kenttä viewiin (huomaa että kentän nimi on tiedostossa kaksi kertaa: name ja value)
+-Määritä validointisäännöt controlleriin
+
+### Tunnuksen luominen
+
+Sähköpostiosoitetta ei aktivoida, koska
+-Sähköposti vaaditaan joka tapauksessa, aktivointi vain varmistaisi sen oikeellisuuden
+-Ion Authin aktivointitoiminto on hidas (usein >10 s)
+-Oletuksena Ion Auth ei näytä ohjetta sähköpostiaktivoinnista; tämä pitäisi lisätä itse
+
+### Muuta
+
+Mikäli salasananpalautus antaa geneerisen ei onnistu -virheen, syynä voi olla että tunnus on muutettu epäaktiiviseksi, tai koska sitä ei ole vielä aktivoitu sähköpostilinkillä.
+
+Tietokannan users-taulun remember_code-kohta tulee täytetyksi, jos käyttäjä kirjautuu sisään ja muista minut -chekbox on valittuna. Uloskirjautuminen ja checkboxin valinnan poistaminen ei poista koodia.
 
