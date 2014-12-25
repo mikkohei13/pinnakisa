@@ -10,7 +10,7 @@ include "page_elements/header.php";
 
 echo "<h1><a href=\"" . site_url("/results/summary/" . $contest['id']) . "\">&laquo;</a> " . htmlspecialchars($contest['name'], ENT_COMPAT, 'UTF-8') . "</h1>";
 
-echo "<h3>Lajimäärän kehitys</h3>";
+echo "<h3>Oman lajimäärän kehitys</h3>";
 
 if ($takenPartThisyear)
 {
