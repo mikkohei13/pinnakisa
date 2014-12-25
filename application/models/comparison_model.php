@@ -16,9 +16,35 @@ class Comparison_model extends CI_Model {
 
 	public function loadData($old_contest_id, $user_id)
 	{
-		echo "$old_contest_id, $user_id"; // DEBUG
+		$query_array = array(
+			'contest_id' => $old_contest_id,
+			'meta_edited_user' => $user_id
+			);
 
-		exit("\n\n<p>DEBUG END");
+		$query = $this->db->get_where('kisa_participations', $query_array);
+		
+		if (! isset($query))
+		{
+			exit("Tietokantavirhe 2. Ota yhteyttä webmasteriin.");
+		}
+
+		$data = $query->row_array(); // return one row as an associative array
+
+		// Ticks from JSON
+		$data['ticks_day'] = json_decode($data['ticks_day_json'], TRUE);
+		unset($data['ticks_day_json']);
+
+		// Species from JSON
+		$data['species'] = json_decode($data['species_json'], TRUE);
+		unset($data['species_json']);
+
+
+//		print_r ($data); // debug
+//		echo "$old_contest_id, $user_id"; // DEBUG
+//		exit("\n\n<p>DEBUG END");
+
+
+		return $data;
 	}
 
 	// ------------------------------------------------------------------------

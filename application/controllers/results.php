@@ -167,12 +167,10 @@ class Results extends CI_Controller {
 			$this->load->model('comparison_model');
 			$data2013 = $this->comparison_model->loadData($viewdata['contest']['comparison'], $this->ion_auth->user()->row()->id);
 
-			print_r ($data2013); exit("\n\nDATA DEBUG END"); // debug
+//			print_r ($data2013); exit("\n\nDATA DEBUG END"); // debug
 
-
-
-			$speciesArray2013 = $data2013['speciesArray2013'];
-			$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
+			$speciesArray2013 = $data2013['species'];
+			$dailyTicksArray2013 = $data2013['ticks_day'];
 		}
 
 		// This year's data
