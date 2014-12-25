@@ -43,12 +43,11 @@ class Comparison_model extends CI_Model {
 		$data['species'] = json_decode($data['species_json'], TRUE);
 		unset($data['species_json']);
 
-
 //		print_r ($data); // debug
 //		echo "$old_contest_id, $user_id"; // DEBUG
 //		exit("\n\n<p>DEBUG END");
-
-//		print_r ($data2['name']); exit("FOOD");
+//		print_r ($data2['name']); exit("DEBUG 2");
+		
 		$data['contest_name'] = $this->returnOldContestName($old_contest_id);
 
 		return $data;

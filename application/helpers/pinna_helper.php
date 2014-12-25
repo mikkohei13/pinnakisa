@@ -65,7 +65,7 @@ function gitLastCommitInfo($gitLocation)
 /**
 *
 */
-function cumulativeTickJSdata($dailyTicksArray, $label, $draw2 = FALSE)
+function cumulativeTickJSdata($dailyTicksArray, $label, $draw2 = FALSE, $addYear = 0)
 {
 		$cumulativeTicks = 0;
 		$singleDateData = "";
@@ -74,8 +74,8 @@ function cumulativeTickJSdata($dailyTicksArray, $label, $draw2 = FALSE)
 		foreach ($dailyTicksArray as $date => $ticks)
 		{
 			$cumulativeTicks = $cumulativeTicks + $ticks;
-//			$yearUTC = substr($date, 0, 4);
-			$yearUTC = date("Y"); // to display the charts on top of each other
+			$yearUTC = substr($date, 0, 4) + $addYear;
+//			$yearUTC = substr($date, 5, 2); // to display the charts on top of each other
 			$monthUTC = substr($date, 5, 2) - 1;
 			$dateUTC = substr($date, 8, 2);
 
@@ -90,6 +90,10 @@ function cumulativeTickJSdata($dailyTicksArray, $label, $draw2 = FALSE)
 		elseif ("endOfYear" == $draw2)
 		{
 			$fullDateData = $fullDateData . "[Date.UTC(" . date("Y") . ", 11, 31), $cumulativeTicks], "; // 11 = December, since month numbering starts from 0
+		}
+		elseif ("naturalEnd" == $draw2)
+		{
+			
 		}
 
 		$fullData = "

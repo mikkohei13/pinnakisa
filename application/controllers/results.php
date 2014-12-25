@@ -154,9 +154,9 @@ class Results extends CI_Controller {
 //		print_r ($viewdata['contest']); exit("DEBUG END"); // debug
 
 		// Comparison data
+		// 2013 data: this and associated model can be removed in 2/2014, after removing eko2013 from production database. Then refactor variable names here.
 		if ("eko2013" == $viewdata['contest']['comparison'])
 		{
-			// 2013 data
 			$this->load->model('kisa2013_model');
 			$data2013 = $this->kisa2013_model->speciesArraysOfUser($this->ion_auth->user()->row()->id);
 			$speciesArray2013 = $data2013['speciesArray2013'];
@@ -191,7 +191,14 @@ class Results extends CI_Controller {
 */
 		if (! empty($dailyTicksArray2013))
 		{
-			$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "endOfYear");
+			if (TRUE)
+			{
+				$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "naturalEnd", 1);
+			}
+			else // "eko2013" == $viewdata['contest']['comparison'] ??
+			{
+				$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "endOfYear");
+			}
 		}
 		if (! empty($dailyTicksArrayThisyear))
 		{
