@@ -1,10 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Comparison_model extends CI_Model {
-	/*
-	1. get old contest id (COMPARISON) from function call
-	2. get old participation data from KISA_PARTICIPATIONS, using META_EDITED_USER = user id and ID = old contest id
-	*/
+	
+	var $user_id = FALSE;
+	var $old_contest_id = FALSE;
+
 	// ------------------------------------------------------------------------
 
 	public function __construct()
@@ -16,9 +16,14 @@ class Comparison_model extends CI_Model {
 
 	public function loadData($old_contest_id, $user_id)
 	{
+		// Setup
+		$this->user_id = $user_id;
+		$this->old_contest_id = $old_contest_id;
+
+		// Get old contest data
 		$query_array = array(
-			'contest_id' => $old_contest_id,
-			'meta_edited_user' => $user_id
+			'contest_id' => $this->old_contest_id,
+			'meta_edited_user' => $this->user_id
 			);
 
 		$query = $this->db->get_where('kisa_participations', $query_array);
@@ -43,11 +48,18 @@ class Comparison_model extends CI_Model {
 //		echo "$old_contest_id, $user_id"; // DEBUG
 //		exit("\n\n<p>DEBUG END");
 
+//		print_r ($data2['name']); exit("FOOD");
+		$data['contest_name'] = $this->returnOldContestName($old_contest_id);
 
-		// TODO_ move to function
-		// Name of old contest
+		return $data;
+	}
+
+	// ------------------------------------------------------------------------
+	
+	public function returnOldContestName()
+	{
 		$query_array = array(
-			'id' => $old_contest_id,
+			'id' => $this->old_contest_id,
 			);
 
 		$query = $this->db->get_where('kisa_contests', $query_array);
@@ -57,17 +69,13 @@ class Comparison_model extends CI_Model {
 			exit("Tietokantavirhe 2B. Ota yhteyttä webmasteriin.");
 		}
 
-		$data2 = $query->row_array(); // return one row as an associative array
+		$data = $query->row_array(); // return one row as an associative array
 
-//		print_r ($data2['name']); exit("FOOD");
-		$data['contest_name'] = $data2['name'];
-
-
-
-		return $data;
+		return $data['name'];
 	}
 
 	// ------------------------------------------------------------------------
+
 
 }
 
