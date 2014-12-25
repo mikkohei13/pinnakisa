@@ -151,11 +151,29 @@ class Results extends CI_Controller {
 		$this->load->model('contest_model');
 		$viewdata['contest'] = $this->contest_model->load($contest_id);
 
-		// 2013 data
-		$this->load->model('kisa2013_model');
-		$data2013 = $this->kisa2013_model->speciesArraysOfUser($this->ion_auth->user()->row()->id);
-		$speciesArray2013 = $data2013['speciesArray2013'];
-		$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
+//		print_r ($viewdata['contest']); exit("DEBUG END"); // debug
+
+		// Comparison data
+		if ("eko2013" == $viewdata['contest']['comparison'])
+		{
+			// 2013 data
+			$this->load->model('kisa2013_model');
+			$data2013 = $this->kisa2013_model->speciesArraysOfUser($this->ion_auth->user()->row()->id);
+			$speciesArray2013 = $data2013['speciesArray2013'];
+			$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
+		}
+		else
+		{
+			$this->load->model('comparison_model');
+			$data2013 = $this->comparison_model->loadData($viewdata['contest']['comparison'], $this->ion_auth->user()->row()->id);
+
+			print_r ($data2013); exit("\n\nDATA DEBUG END"); // debug
+
+
+
+			$speciesArray2013 = $data2013['speciesArray2013'];
+			$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
+		}
 
 		// This year's data
 		$this->load->model('results_model');
