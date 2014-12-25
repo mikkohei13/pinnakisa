@@ -191,14 +191,7 @@ class Results extends CI_Controller {
 */
 		if (! empty($dailyTicksArray2013))
 		{
-			if (TRUE)
-			{
-				$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "naturalEnd", 1);
-			}
-			else // "eko2013" == $viewdata['contest']['comparison'] ??
-			{
-				$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "endOfYear");
-			}
+			$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "naturalEnd", 1);
 		}
 		if (! empty($dailyTicksArrayThisyear))
 		{
