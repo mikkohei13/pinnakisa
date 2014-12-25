@@ -25,7 +25,7 @@ class Comparison_model extends CI_Model {
 		
 		if (! isset($query))
 		{
-			exit("Tietokantavirhe 2. Ota yhteyttä webmasteriin.");
+			exit("Tietokantavirhe 2A. Ota yhteyttä webmasteriin.");
 		}
 
 		$data = $query->row_array(); // return one row as an associative array
@@ -42,6 +42,26 @@ class Comparison_model extends CI_Model {
 //		print_r ($data); // debug
 //		echo "$old_contest_id, $user_id"; // DEBUG
 //		exit("\n\n<p>DEBUG END");
+
+
+		// TODO_ move to function
+		// Name of old contest
+		$query_array = array(
+			'id' => $old_contest_id,
+			);
+
+		$query = $this->db->get_where('kisa_contests', $query_array);
+		
+		if (! isset($query))
+		{
+			exit("Tietokantavirhe 2B. Ota yhteyttä webmasteriin.");
+		}
+
+		$data2 = $query->row_array(); // return one row as an associative array
+
+//		print_r ($data2['name']); exit("FOOD");
+		$data['contest_name'] = $data2['name'];
+
 
 
 		return $data;
