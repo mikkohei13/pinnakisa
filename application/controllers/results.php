@@ -22,6 +22,8 @@ class Results extends CI_Controller {
 			$myParticipationSummary = $this->results_model->user_summary($contest_id, $this->ion_auth->user()->row()->id);
 			$viewdata['myParticipationSummary'] = $myParticipationSummary;
 		}
+
+//		print_r($viewdata); exit("FB");
 	
 		$this->load->view('results_summary', $viewdata);
 	}
@@ -191,6 +193,10 @@ class Results extends CI_Controller {
 */
 		if (! empty($dailyTicksArray2013))
 		{
+			if (empty($data2013['contest_name']))
+			{
+				$data2013['contest_name'] = "Edellinen kisa";
+			}
 			$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "naturalEnd", 1);
 		}
 		if (! empty($dailyTicksArrayThisyear))

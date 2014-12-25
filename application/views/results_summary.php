@@ -100,7 +100,7 @@ if (!empty($summary))
 	echo "<ul>";
 	echo "	<li><strong><a href=\"" . site_url("/results/species/" . $contest['id']) . "\">Kisan lajiluettelo ja omat puutteet</a></strong></li>";
 	echo "	<li><strong>Pinnakertymä: <a href=\"" . site_url("/results/graph/" . $contest['id'] . "/50") . "\">Top 50</a> | <a href=\"" . site_url("/results/graph/" . $contest['id'] . "/1000") . "\">Kaikki</a></strong></li>"; // limit to 1000 = everyone
-	if (! empty($myParticipationSummary))
+	if (! empty($contest['comparison']))
 	{
 		echo "	<li><strong><a href=\"" . site_url("/results/comparison/" . $contest['id']) . "\">Oman lajimäärän vertailu viime vuoteen</a></strong></li>";
 	}
