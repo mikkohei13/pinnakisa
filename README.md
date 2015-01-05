@@ -25,12 +25,13 @@ Voit joko asentaa ohjelmiston itse, tai pyytää päästä käyttämään valmii
 1. Hanki ja asenna Codeigniter
 2. Kopioi tämän repositoryn tiedostot Codeigniterin kanssa samaan hakemistoon
 3. Luo tyhjä tietokanta ja sille käyttäjä kaikin oikeuksin.
-4. Luo ja populoi tietokantataulut. Taulujen tiedot ovat hakemistossa application/sql/ Käytä etuliitettä taulujen nimissä, jos käytätä samaa tietokantaa jonkin toisen palvelun kanssa (esim "kisa_").
+4. Luo ja populoi tietokantataulut. Taulujen tiedot ovat hakemistossa application/sql/ Käytä etuliitettä taulujen nimissä, jos käytät samaa tietokantaa jonkin toisen palvelun kanssa (esim "kisa_").
 5. Päivitä omat tietosi application/config -hakemiston tiedostoihin
 	1. database.php: tietokannan tiedot
 	2. mail.php: postipalvelimen tiedot
 	3. config.php: encryption key
-	
+6. Rajoita tietokantakäyttäjän oikeudet: vain luku ja kirjoitusoikeudet tarvitaan
+
 
 Lisenssit / Licenses
 --------------------

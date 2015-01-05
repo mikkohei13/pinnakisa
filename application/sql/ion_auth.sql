@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS `groups`;
+
+# DROP TABLE IF EXISTS `groups`;
 
 #
 # Table structure for table 'groups'
@@ -21,7 +22,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 
 
 
-DROP TABLE IF EXISTS `users`;
+# DROP TABLE IF EXISTS `users`;
 
 #
 # Table structure for table 'users'
@@ -57,7 +58,7 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`
      ('1',0x7f000001,'administrator','59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4','9462e8eee0','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0');
 
 
-DROP TABLE IF EXISTS `users_groups`;
+# DROP TABLE IF EXISTS `users_groups`;
 
 #
 # Table structure for table 'users_groups'
@@ -80,7 +81,7 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
      (2,1,2);
 
 
-DROP TABLE IF EXISTS `login_attempts`;
+# DROP TABLE IF EXISTS `login_attempts`;
 
 #
 # Table structure for table 'login_attempts'
