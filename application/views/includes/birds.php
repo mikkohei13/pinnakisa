@@ -2369,4 +2369,9 @@ $bird[490]['sc'] = "Emberiza melanocephala";
 $bird[490]['fi'] = "Mustapääsirkku";
 $bird[490]['sv'] = "Svarthuvad sparv";
 $bird[490]['en'] = "Black-headed Bunting";
+$bird[490]['abbr'] = "EMBCAL";
+$bird[490]['sc'] = "Emberiza calandra";
+$bird[490]['fi'] = "Harmaasirkku";
+$bird[490]['sv'] = "Kornsparv";
+$bird[490]['en'] = "Corn Bunting";
 ?>
