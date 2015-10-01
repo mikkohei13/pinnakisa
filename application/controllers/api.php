@@ -14,6 +14,19 @@ class Api extends CI_Controller {
 		
 	}
 
+	public function contest_participations($contest_id)
+	{
+		$viewdata = Array();
+
+		// Results...
+		$this->load->model('results_model');
+
+		// Location ticks
+		$viewdata['data'] = $this->results_model->summary($contest_id);
+	
+		$this->load->view('api', $viewdata);
+	}
+
 }
 
 
