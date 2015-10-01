@@ -11,6 +11,7 @@ class Api extends CI_Controller {
 		$viewdata['data'] = $this->contest_model->listing();
 	
 		$this->load->view('api', $viewdata);
+		
 	}
 
 }
