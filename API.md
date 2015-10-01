@@ -16,7 +16,7 @@ Esimerkiksi: http://www.tringa.fi/kisa/index.php/api/contests/
 Luettelo osallistujista ja pinnoista
 ------------------------------------
 
-Endpoint: /index.php/api/contest_participations/<KISAN ID>
+Endpoint: /index.php/api/contest_participations/{id}
 
 Esimerkiksi: http://www.tringa.fi/kisa/index.php/api/contest_participations/458b531b395c643b2dc02a1de5733e1db6a0fd86
 
