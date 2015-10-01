@@ -52,6 +52,15 @@ TODO
 * Mahdollisuus sallia kisaan vain yksi osallistuminen per kisa?
 * Helpompi linkitys tulokset <-> osallistumislomake
 
+tunnus luotu -> vahvistus infomessage
+
+infomessage-tyylit puuttuvat
+
+pienennä infomessage-fonttia
+
+Väliaikaisesti suljettu -> Tunnus on suljettu väliaikaisesti liian monen epäonnistumisen kirjautumisen takia. Yritä uudelleen X minuutin kuluttua.
+
+
 
 
 
