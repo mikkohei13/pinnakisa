@@ -21,9 +21,31 @@ class Api extends CI_Controller {
 		// Results...
 		$this->load->model('results_model');
 
-		// Location ticks
 		$viewdata['data'] = $this->results_model->summary($contest_id);
 	
+		$this->load->view('api', $viewdata);
+	}
+
+	public function species()
+	{
+		$viewdata = Array();
+
+		require "application/views/includes/birds.php";
+
+		foreach ($bird as $id => $arr)
+		{
+			if (! isset($arr['sc'])) // family
+			{
+
+			}
+			else // species
+			{
+
+			}
+		}
+
+		$viewdata['data'] = $bird;
+
 		$this->load->view('api', $viewdata);
 	}
 
