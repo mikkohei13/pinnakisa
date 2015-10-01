@@ -32,15 +32,17 @@ class Api extends CI_Controller {
 
 		require "application/views/includes/birds.php";
 
+		$currentFamily = "";
 		foreach ($bird as $id => $arr)
 		{
 			if (! isset($arr['sc'])) // family
 			{
-
+				$currentFamily = $arr['abbr'];
+				unset($bird[$id]);
 			}
 			else // species
 			{
-
+				$bird[$id]['family'] = $currentFamily;
 			}
 		}
 
