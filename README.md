@@ -45,6 +45,9 @@ Mikko Heikkinen/biomi.org 23.9.2013-
 TODO
 ----
 
+Parannusmahdollisuuksia:
+
+* Ylläpitäjälle pääsy poistamaan pinnoja
 * Estetään tallennus päivämäärillä, jotka ovat kisa-ajan ulkopuolella
 * Kisan tietoihin päivämäärät näkyviin suomalaisessa formaatissa p(p).k(k).vvvv
 * Siistimmän näköiset error/success-ilmoitukset
@@ -52,14 +55,10 @@ TODO
 * Käyttäjälle mahdollisuus piilottaa rarit tallennuslomakkeelta
 * Mahdollisuus sallia kisaan vain yksi osallistuminen per kisa?
 * Helpompi linkitys tulokset <-> osallistumislomake
-
-tunnus luotu -> vahvistus infomessage
-
-infomessage-tyylit puuttuvat
-
-pienennä infomessage-fonttia
-
-Väliaikaisesti suljettu -> Tunnus on suljettu väliaikaisesti liian monen epäonnistumisen kirjautumisen takia. Yritä uudelleen X minuutin kuluttua.
+* tunnus luotu -> vahvistus infomessage
+* infomessage-tyylit puuttuvat
+* pienennä infomessage-fonttia
+* Tekstimuutos: Väliaikaisesti suljettu -> Tunnus on suljettu väliaikaisesti liian monen epäonnistumisen kirjautumisen takia. Yritä uudelleen X minuutin kuluttua.
 
 
 
