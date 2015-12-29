@@ -156,7 +156,8 @@ class Results extends CI_Controller {
 		$this->load->model('contest_model');
 		$viewdata['contest'] = $this->contest_model->load($contest_id);
 
-		$compareTo = $viewdata['contest']['comparison'];
+//		$compareTo = $viewdata['contest']['comparison'];
+		$compareToArray = explode(",", $viewdata['contest']['comparison']);
 
 //		echo "<pre>"; print_r ($viewdata['contest']); exit("DEBUG END"); // debug
 
@@ -172,17 +173,28 @@ class Results extends CI_Controller {
 		$dailyTicksArray2013 = $data2013['ticks_day'];
 		*/
 
-		// This year's data
 		$this->load->model('results_model');
+		$n = 0;
 		
-		$dataThisyear = $this->results_model->comparison_js_data($contest_id, $myUserId);
-		@$speciesArrayThisyear = json_decode($dataThisyear[0]['species_json'], TRUE);
-		@$dailyTicksArrayThisyear = json_decode($dataThisyear[0]['ticks_day_json'], TRUE);
+		// This year's data
+		$data = $this->results_model->comparison_js_data($contest_id, $myUserId);
+		$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
+		$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
+
+		$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Last year", "naturalEnd", 1);
+
+		$n++;
 
 		// Last year's data
-		$dataLastyear = $this->results_model->comparison_js_data($compareTo, $myUserId);
-		@$speciesArrayLastyear = json_decode($dataLastyear[0]['species_json'], TRUE);
-		@$dailyTicksArrayLastyear = json_decode($dataLastyear[0]['ticks_day_json'], TRUE);
+		foreach ($compareToArray as $number => $compareId) {
+			$data = $this->results_model->comparison_js_data($compareId, $myUserId);
+			$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
+			$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
+
+			$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Last year", "naturalEnd", "today");
+
+			$n++;
+		}
 
 /*
 		echo "<pre>"; // debug
@@ -194,20 +206,17 @@ class Results extends CI_Controller {
 
 		exit("DEBUG END");
 */
+
+		/*
 		if (! empty($dailyTicksArrayLastyear))
 		{
-			/*
-			if (empty($data2013['contest_name']))
-			{
-				$data2013['contest_name'] = "Edellinen kisa";
-			}
-			*/
 			$viewdata['fullDataLastyear'] = cumulativeTickJSdata($dailyTicksArrayLastyear, "Last year", "naturalEnd", 1);
 		}
 		if (! empty($dailyTicksArrayThisyear))
 		{
 			$viewdata['fullDataThisyear'] = cumulativeTickJSdata($dailyTicksArrayThisyear, $viewdata['contest']['name'], "today");
 		}
+		*/
 
 		if (! empty($dailyTicksArrayThisyear))
 		{
@@ -217,6 +226,8 @@ class Results extends CI_Controller {
 		{
 			$viewdata['takenPartThisyear'] = FALSE;
 		}
+
+		$viewdata['takenPartThisyear'] = TRUE; // TEMPORARY FIX
 
 		/*
 		// Target data style:

@@ -71,8 +71,12 @@ $(function () {
 
             series:
             [
-				<?php echo $fullDataLastyear; ?>
-				<?php echo $fullDataThisyear; ?>
+				<?php
+                foreach ($fullData as $number => $yearlyData)
+                {
+                    echo $yearlyData;
+                }
+                ?>
 			]
 			});
 		});
