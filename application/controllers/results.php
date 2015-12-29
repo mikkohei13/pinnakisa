@@ -181,7 +181,7 @@ class Results extends CI_Controller {
 		$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
 		$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
 
-		$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Last year", "naturalEnd", 1);
+		$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Uusin kisa", "naturalEnd", 0);
 
 		$n++;
 
@@ -191,7 +191,7 @@ class Results extends CI_Controller {
 			$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
 			$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
 
-			$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Last year", "naturalEnd", "today");
+			$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Vanha kisa", "naturalEnd", $n);
 
 			$n++;
 		}
