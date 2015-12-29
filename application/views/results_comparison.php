@@ -71,7 +71,7 @@ $(function () {
 
             series:
             [
-				<?php echo $fullData2013; ?>
+				<?php echo $fullDataLastyear; ?>
 				<?php echo $fullDataThisyear; ?>
 			]
 			});

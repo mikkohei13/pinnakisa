@@ -147,39 +147,42 @@ class Results extends CI_Controller {
 	public function comparison($contest_id)
 	{
 		$viewdata = Array();
+		$this->load->model('results_model');
 		$this->load->helper('pinna');
+
+		$myUserId = $this->ion_auth->user()->row()->id;
 		
 		// Basic data about the contest
 		$this->load->model('contest_model');
 		$viewdata['contest'] = $this->contest_model->load($contest_id);
 
-//		print_r ($viewdata['contest']); exit("DEBUG END"); // debug
+		$compareTo = $viewdata['contest']['comparison'];
 
+//		echo "<pre>"; print_r ($viewdata['contest']); exit("DEBUG END"); // debug
+
+		/*
 		// Comparison data
 		// 2013 data: this and associated model can be removed in 2/2014, after removing eko2013 from production database. Then refactor variable names here.
-		if ("eko2013" == $viewdata['contest']['comparison'])
-		{
-			$this->load->model('kisa2013_model');
-			$data2013 = $this->kisa2013_model->speciesArraysOfUser($this->ion_auth->user()->row()->id);
-			$speciesArray2013 = $data2013['speciesArray2013'];
-			$dailyTicksArray2013 = $data2013['dailyTicksArray2013'];
-		}
-		else
-		{
-			$this->load->model('comparison_model');
-			$data2013 = $this->comparison_model->loadData($viewdata['contest']['comparison'], $this->ion_auth->user()->row()->id);
+		$this->load->model('comparison_model');
+		$data2013 = $this->comparison_model->loadData($compareTo, $this->ion_auth->user()->row()->id);
 
-//			print_r ($data2013); exit("\n\nDATA DEBUG END"); // debug
+//		print_r ($data2013); exit("\n\nDATA DEBUG END"); // debug
 
-			$speciesArray2013 = $data2013['species'];
-			$dailyTicksArray2013 = $data2013['ticks_day'];
-		}
+		$speciesArray2013 = $data2013['species'];
+		$dailyTicksArray2013 = $data2013['ticks_day'];
+		*/
 
 		// This year's data
 		$this->load->model('results_model');
-		$dataThisyear = $this->results_model->comparison_js_data($contest_id, $this->ion_auth->user()->row()->id);
+		
+		$dataThisyear = $this->results_model->comparison_js_data($contest_id, $myUserId);
 		@$speciesArrayThisyear = json_decode($dataThisyear[0]['species_json'], TRUE);
 		@$dailyTicksArrayThisyear = json_decode($dataThisyear[0]['ticks_day_json'], TRUE);
+
+		// Last year's data
+		$dataLastyear = $this->results_model->comparison_js_data($compareTo, $myUserId);
+		@$speciesArrayLastyear = json_decode($dataLastyear[0]['species_json'], TRUE);
+		@$dailyTicksArrayLastyear = json_decode($dataLastyear[0]['ticks_day_json'], TRUE);
 
 /*
 		echo "<pre>"; // debug
@@ -191,13 +194,15 @@ class Results extends CI_Controller {
 
 		exit("DEBUG END");
 */
-		if (! empty($dailyTicksArray2013))
+		if (! empty($dailyTicksArrayLastyear))
 		{
+			/*
 			if (empty($data2013['contest_name']))
 			{
 				$data2013['contest_name'] = "Edellinen kisa";
 			}
-			$viewdata['fullData2013'] = cumulativeTickJSdata($dailyTicksArray2013, $data2013['contest_name'], "naturalEnd", 1);
+			*/
+			$viewdata['fullDataLastyear'] = cumulativeTickJSdata($dailyTicksArrayLastyear, "Last year", "naturalEnd", 1);
 		}
 		if (! empty($dailyTicksArrayThisyear))
 		{
