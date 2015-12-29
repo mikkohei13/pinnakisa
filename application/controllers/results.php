@@ -148,15 +148,13 @@ class Results extends CI_Controller {
 	{
 		$viewdata = Array();
 		$this->load->model('results_model');
+		$this->load->model('contest_model');
 		$this->load->helper('pinna');
 
 		$myUserId = $this->ion_auth->user()->row()->id;
 		
-		// Basic data about the contest
-		$this->load->model('contest_model');
-		$viewdata['contest'] = $this->contest_model->load($contest_id);
-
 //		$compareTo = $viewdata['contest']['comparison'];
+		$viewdata['contest'] = $this->contest_model->load($contest_id);
 		$compareToArray = explode(",", $viewdata['contest']['comparison']);
 
 //		echo "<pre>"; print_r ($viewdata['contest']); exit("DEBUG END"); // debug
@@ -173,25 +171,28 @@ class Results extends CI_Controller {
 		$dailyTicksArray2013 = $data2013['ticks_day'];
 		*/
 
-		$this->load->model('results_model');
 		$n = 0;
 		
 		// This year's data
+//		print_r ($viewdata['contest']); exit(); // debug
+
 		$data = $this->results_model->comparison_js_data($contest_id, $myUserId);
 		$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
 		$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
 
-		$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Uusin kisa", "naturalEnd", 0);
+		$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], $viewdata['contest']['name'], "naturalEnd", 0);
 
 		$n++;
 
 		// Last year's data
 		foreach ($compareToArray as $number => $compareId) {
+			$contestData = $this->contest_model->load($compareId);
+
 			$data = $this->results_model->comparison_js_data($compareId, $myUserId);
 			$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
 			$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
 
-			$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], "Vanha kisa", "naturalEnd", $n);
+			$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], $contestData['name'], "naturalEnd", $n);
 
 			$n++;
 		}
