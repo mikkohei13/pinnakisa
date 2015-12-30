@@ -87,7 +87,7 @@ $(function () {
 }
 else
 {
-	echo "<p>Et ole vielä osallistunut tähän kisaan.</p>";
+	echo "<p>Et ole vielä osallistunut tähän kisaan, joten et voi vertailla tuloksia.</p>";
 }
 
 
