@@ -151,6 +151,15 @@ class Results extends CI_Controller {
 		$this->load->model('contest_model');
 		$this->load->helper('pinna');
 
+		if (! @is_object($this->ion_auth->user()->row()->id))
+		{
+			exit("Kirjaudu ensin sis&auml;&auml;n.");
+			// TODO: tämä siistimmin
+		}
+		else
+		{
+			echo "OK";
+		}
 		$myUserId = $this->ion_auth->user()->row()->id;
 		
 //		$compareTo = $viewdata['contest']['comparison'];
