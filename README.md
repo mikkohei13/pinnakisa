@@ -47,18 +47,22 @@ TODO
 
 Parannusmahdollisuuksia:
 
-* Ylläpitäjälle pääsy poistamaan pinnoja
+SHOULD:
+* Pinnojen poistotoiminto admineille
+* Yhteystietojen katselutoiminto admineille
+* Osallistumisen poisto / roskakorittaminen
 * Estetään tallennus päivämäärillä, jotka ovat kisa-ajan ulkopuolella
 * Kisan tietoihin päivämäärät näkyviin suomalaisessa formaatissa p(p).k(k).vvvv
+* Käyttäjälle jonkinlainen mahdollisuus piilottaa rarit tallennuslomakkeelta
+* Tekstimuutos: Väliaikaisesti suljettu -> Tunnus on suljettu väliaikaisesti liian monen epäonnistumisen kirjautumisen takia. Yritä uudelleen X minuutin kuluttua.
+
+NICE:
 * Siistimmän näköiset error/success-ilmoitukset
-* Vertailukaavio edelliseen vuoteen
-* Käyttäjälle mahdollisuus piilottaa rarit tallennuslomakkeelta
-* Mahdollisuus sallia kisaan vain yksi osallistuminen per kisa?
+* Mahdollisuus sallia kisaan vain yksi osallistuminen per kisa
 * Helpompi linkitys tulokset <-> osallistumislomake
 * tunnus luotu -> vahvistus infomessage
 * infomessage-tyylit puuttuvat
 * pienennä infomessage-fonttia
-* Tekstimuutos: Väliaikaisesti suljettu -> Tunnus on suljettu väliaikaisesti liian monen epäonnistumisen kirjautumisen takia. Yritä uudelleen X minuutin kuluttua.
 
 
 
