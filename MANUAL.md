@@ -31,13 +31,9 @@ Palvelussa voi järjestää kahdenlaisia kisoja:
 
 Kisan tyyppi valitaan kohdassa Kilpailualueiden rajaus. *Jätä tämä tyhjäksi jos lisäät tavallisen kisan*. Jos sen sijaan haluat lisätä aluekisan, kirjaa ensin tiedostoon application/controllers/includes/locationarray.php PHP-arrayhin ne alueet, joiden haluat olevan mukana kisassa. Tämän jälkeen alueet tulevat näkyville Kilpailualueiden rajaus -valikkoon, josta voit valita ne. 
 
-__Vertailu aiempaan kisaan (POISTUMASSA?)__
+__Vertailu aiempiin kisoihin__
 
-Jos vastaava kisa on järjestetty aiemmin Jukka Koiviston (Suomenselän lintutieteellinen yhdistys) tekemällä pinnakisasovelluksella, voi pinnakisapalvelu näyttää kisaajalle hänen pinnamääränsä kehityksen kaaviona tänä vs. aiempana vuonna. Tämän aikaansaamiseksi pitää tehdä useampi asia:
-
-1. Kirjaa tähän kenttään 'eko2013'.
-2. Kirjaa jokaisen käyttäjän tietoihin hänen numeronsa aiemmassa kisasovelluksessa
-3. Kirjaa tiedostoon application/config/database.php käyttäjätunnus, jolla on oikeudet käyttää aiemman kisasovelluksen tietokantaa
+Jos vastaava kisa on järjestetty aiemmin tällä samalla pinnakisapalvelulla, voi se näyttää kisaajalle hänen pinnamääränsä kehityksen kaaviona tänä vs. aiempina vuosina. Tämän aikaansaamiseksi uusi kisa pitää linkittää vanhoihin lisäämällä kisan tietoihin "Vertailu aiempaan kisaan" -kenttään aiempien kisojen id:t, alkaen uusimmasta vertailukhteesta ja päättyen vanhimpaan, pilkulla eroteltuina.
 
 
 ## Toimintalogiikkaa
