@@ -153,7 +153,7 @@ class Results extends CI_Controller {
 
 		if (! is_object($this->ion_auth->user()->row()))
 		{
-			exit("Kirjaudu ensin sis&auml;&auml;n.");
+			exit("<a href='/kisa/index.php/auth/login'>Kirjaudu ensin sis&auml;&auml;n</a>");
 			// TODO: tämä siistimmin
 		}
 

@@ -42,7 +42,7 @@ $lang['activation_email_unsuccessful']           = 'Aktivointiviestiä ei voitu 
 $lang['login_successful']                        = 'Olet nyt kirjautunut sisään';
 $lang['login_unsuccessful']                      = 'Kirjautuminen epäonnistui';
 $lang['login_unsuccessful_not_active']           = 'Tiliä ei ole aktivoitu';
-$lang['login_timeout']                           = 'Väliaikaisesti suljettu. Yritä uudelleen myöhemmin.';
+$lang['login_timeout']                           = 'Tunnus on väliaikaisesti suljettu liian monen virheellisen kirjautumisyrityksen takia. Yritä uudelleen myöhemmin.';
 $lang['logout_successful']                       = 'Olet nyt kirjautunut ulos';
   
 // Account Changes
