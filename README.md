@@ -55,6 +55,7 @@ SHOULD:
 * Kisan tietoihin päivämäärät näkyviin suomalaisessa formaatissa p(p).k(k).vvvv
 * Käyttäjälle jonkinlainen mahdollisuus piilottaa rarit tallennuslomakkeelta
 * Tekstimuutos: Väliaikaisesti suljettu -> Tunnus on suljettu väliaikaisesti liian monen epäonnistumisen kirjautumisen takia. Yritä uudelleen X minuutin kuluttua.
+* Lisätietokenttä, joka näkyy kaikille osallistujalistassa, mutta ei liian hallitsevana
 
 NICE:
 * Siistimmän näköiset error/success-ilmoitukset
