@@ -205,12 +205,17 @@ class Results extends CI_Controller {
 				$contestData = $this->contest_model->load($compareId);
 
 				$data = $this->results_model->comparison_js_data($compareId, $myUserId);
-				$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
-				$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
 
-				$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], $contestData['name'], "naturalEnd", $n);
+				// Proceed only is taken part in previous years 
+				if (! empty($data))
+				{
+					$ticks[$n]['speciesArray'] = json_decode($data[0]['species_json'], TRUE);
+					$ticks[$n]['dailyTicksArray'] = json_decode($data[0]['ticks_day_json'], TRUE);
 
-				$n++;
+					$viewdata['fullData'][$n] = cumulativeTickJSdata($ticks[$n]['dailyTicksArray'], $contestData['name'], "naturalEnd", $n);
+
+					$n++;
+				}
 			}
 		}
 		
