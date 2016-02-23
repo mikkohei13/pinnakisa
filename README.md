@@ -2,9 +2,9 @@
 Pinnakisapalvelu
 ================
 
-Sovellus ja verkkopalvelu, johon voi perustaa (lintu)pinnakisoja. Käyttäjät voivat rekisteröityä, osallistua kisoihin ja tallentaa niihin pinnoja, sekä tarkastella reaaliaikaisia tuloksia ja tilastoja. Esimerkki: http://www.tringa.fi/kisa/ 
+'''FI''': Sovellus ja verkkopalvelu, johon voi perustaa (lintu)pinnakisoja. Käyttäjät voivat rekisteröityä, osallistua kisoihin ja tallentaa niihin pinnoja, sekä tarkastella reaaliaikaisia tuloksia ja tilastoja. Esimerkki: http://www.tringa.fi/kisa/ 
 
-Web app and a service for managing, publishing and participating to (bird) tick contests. Example site: http://www.tringa.fi/kisa/ You can install the system by yourself, or ask to use it as a service <hawk(ät)biomi.org>.
+'''EN''': Web application for managing, publishing and participating to (bird) tick contests. Users can register, take part to the contest, record the birds they have obersved, and examine real-time results and statistics as charts and tabular data. Example site: http://www.tringa.fi/kisa/ You can install the system by yourself, or ask to use it as a service <hawk(ät)biomi.org>.
 
 * [Käyttöohje](MANUAL.md)
 * [API (rajapinta)](API.md)
