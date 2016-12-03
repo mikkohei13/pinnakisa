@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $bird[1]['abbr'] = "Anseriformes - Sorsalinnut";
 $bird[2]['abbr'] = "CYGOLO";
 $bird[2]['sc'] = "Cygnus olor";
@@ -2374,4 +2374,14 @@ $bird[490]['sc'] = "Emberiza calandra";
 $bird[490]['fi'] = "Harmaasirkku";
 $bird[490]['sv'] = "Kornsparv";
 $bird[490]['en'] = "Corn Bunting";
+$bird[491]['abbr'] = "FICLLA";
+$bird[491]['sc'] = "Ficedula albicilla";
+$bird[491]['fi'] = "Idänpikkusieppo";
+$bird[491]['sv'] = "Tajgaflugsnappare";
+$bird[491]['en'] = "Taiga flycatcher";
+$bird[492]['abbr'] = "BARLON";
+$bird[492]['sc'] = "Bartramia longicauda";
+$bird[492]['fi'] = "Preeriakahlaaja";
+$bird[492]['sv'] = "Piparsnäppa";
+$bird[492]['en'] = "Upland sandpiper";
 ?>
