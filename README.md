@@ -13,7 +13,7 @@ Pinnakisapalvelu
 ### Tekniset vaatimukset:
 
 * PHP
-* Codeigniter framework
+* Codeigniter framework (testattu versiolla 2.1.4)
 * Ion Auth plugin (sisältyy tähän repositoryyn)
 * MySQL
 
@@ -23,7 +23,7 @@ Käyttö
 Voit joko asentaa ohjelmiston itse, tai pyytää päästä käyttämään valmiiksi asennettua versiota <hawk(ät)biomi.org>
 
 ### Asennus
-1. Hanki ja asenna Codeigniter
+1. Hanki ja asenna Codeigniter (ks. versio yllä)
 2. Kopioi tämän repositoryn tiedostot Codeigniterin kanssa samaan hakemistoon
 3. Luo tyhjä tietokanta ja sille käyttäjä kaikin oikeuksin.
 4. Luo ja populoi tietokantataulut. Taulujen tiedot ovat hakemistossa application/sql/ Käytä etuliitettä taulujen nimissä, jos käytät samaa tietokantaa jonkin toisen palvelun kanssa (esim "kisa_").
@@ -36,10 +36,9 @@ Voit joko asentaa ohjelmiston itse, tai pyytää päästä käyttämään valmii
 
 Lisenssit / Licenses
 --------------------
-* [MIT License](LICENSE.md) / 
-Mikko Heikkinen/biomi.org 23.9.2013-
-* Codeigniter / http://ellislab.com/codeigniter / CODEIGNITER_LICENSE.txt 
-* Ion Auth / http://benedmunds.com/ion_auth/ / Apache License v2.0 http://www.apache.org/licenses/LICENSE-2.0
+* Pinnakisapalvelu: [MIT License](LICENSE.md) / Mikko Heikkinen/biomi.org 2013-
+* Codeigniter: [MIT License](CODEIGNITER_LICENSE.txt) / British Columbia Institute of Technology 
+* Ion Auth: Apache License v2.0 http://www.apache.org/licenses/LICENSE-2.0 / http://benedmunds.com/ion_auth/
 
 
 TODO
