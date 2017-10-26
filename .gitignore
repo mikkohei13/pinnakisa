@@ -1,0 +1,38 @@
+
+*-BACKUP*
+ion_auth_userguide*
+system*
+user_guide*
+application/sql/mongo*
+
+images/*
+!images/example*
+
+
+# Codeigniter files
+
+application/config/database.php
+application/config/config.php
+application/config/ion_auth.php
+application/config/email.php
+application/config/mongodb.php
+application/config/mongodb_session.php
+
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+# Internal
+
+TODO_private.txt
+pinna-tietosuojaseloste.pdf
+
+# Misc
+
+.DS_Store
+Thumbs.db
+web.config
