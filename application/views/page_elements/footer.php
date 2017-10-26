@@ -1,7 +1,7 @@
 <p id="clearer">&nbsp;</p>
 </div> <!-- Content -->
 
-<p id="footer">Pinnakisajärjestelmä: Mikko Heikkinen/<a href="http://www.biomi.org/">biomi.org</a>
+<p id="footer">Pinnakisajärjestelmä: Mikko Heikkinen/<a href="https://www.biomi.org/">biomi.org</a>
  -- 
  Palaute: <script type="text/javascript">
 //<![CDATA[
@@ -26,7 +26,7 @@ echo "<a href=\"" . base_url("pinna-tietosuojaseloste.pdf") . "\">tietosuojaselo
 
 ?>
  -- 
- <a href="http://www.tringa.fi/">Tringa ry</a>
+ <a href="https://www.tringa.fi/">Tringa ry</a>
  -- 
 {elapsed_time} s
 

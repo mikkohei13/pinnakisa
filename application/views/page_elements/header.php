@@ -23,7 +23,7 @@ else
         <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/normalize.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/main.css">
 
-        <link href='http://fonts.googleapis.com/css?family=Overlock:400,700|PT+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Overlock:400,700|PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,11 +37,11 @@ else
         includde js ehdollisesti: määrittele tämä viewin alussa jQuery = TRUE
         -->
         
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css" />
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<!--<script>window.jQuery || document.write('<script src="application/views/page_elements/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>-->
 
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script src="<?php echo base_url(); ?>application/views/page_elements/js/main.js"></script>
 		<script src="<?php echo base_url(); ?>application/views/page_elements/js/vendor/tablesorter/jquery.tablesorter.min.js"></script>
 		<?php echo @$script; ?>
