@@ -1,8 +1,8 @@
 <?php
 $title = "Pinnakisa";
 $script = "
-	<script src=\"http://biomi.kapsi.fi/tools/tringa-eko/include/highcharts.js\"></script>
-	<script src=\"http://biomi.kapsi.fi/tools/tringa-eko/include/exporting.js\"></script>
+	<script src=\"https://biomi.kapsi.fi/tools/tringa-eko/include/highcharts.js\"></script>
+	<script src=\"https://biomi.kapsi.fi/tools/tringa-eko/include/exporting.js\"></script>
 ";
 include "page_elements/header.php";
 
