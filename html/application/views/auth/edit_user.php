@@ -1,5 +1,5 @@
 <?php
-$title = " - Pinnakisapalvelu";
+$title = "Muokkaa omia tietojasi - 100 lintulajia";
 include "application/views/page_elements/header.php";
 ?>
 

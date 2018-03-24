@@ -1,5 +1,5 @@
 <?php
-$title = "100 lintulajia";
+$title = "Tunnista 100 lintulajia";
 include "page_elements/header.php";
 ?>
 
