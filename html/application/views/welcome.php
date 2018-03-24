@@ -3,7 +3,9 @@ $title = "Tunnista 100 lintulajia";
 include "page_elements/header.php";
 ?>
 
-<h1>Tunnista 100 lintulajia</h1>
+<h1>Tunnista 100 lintulajia - haaste</h1>
+
+<p>Tässä voit osallistua 100 lajia -haasteeseen.
 
 <?php
 
@@ -35,13 +37,20 @@ foreach ($publishedContests as $rowNumber => $array)
 $htmlPublished = "";
 $htmlOther = "";
 
+/*
+NOTE: THIS EXPECTS THAT THERE IS ONLY ONE COMPETITION !!
+alreadyParticipated
+*/
+
 if (! empty($participations))
 {
+	$alreadyParticipated = true;
 	foreach ($participations as $rowNumber => $array)
 	{
 		$temp = "
 		<div class=\"participation\">
-			<p><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Muokkaa tätä osallistumista<!--" . $allContests[$array['contest_id']]['name'] . "--></a><br /> " . $array['location'] . "<br /> " . $array['name'] . "</p>
+			<h4><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Muokkaa tätä osallistumista<!--" . $allContests[$array['contest_id']]['name'] . "--></a></h4>
+			<p> " . $array['location'] . "<br /> " . $array['name'] . "</p>
 		</div>
 		";
 		
@@ -56,6 +65,9 @@ if (! empty($participations))
 	//	echo $rowNumber . " / " . $array["status"] . "<br />";
 		$temp = "";
 	}
+}
+else {
+	$alreadyParticipated = false;
 }
 
 // --------------------------------------------
@@ -85,6 +97,10 @@ if ($this->ion_auth->logged_in())
 echo "<div class=\"contestsCol active\">";
 echo "<h3>Osallistu tästä</h3>";
 
+if ($alreadyParticipated) {
+	echo "<p id='alreadyParticipated2'>Olet jo osallistunut haasteeseen (ks. yllä), mutta voit tallentaa tässä uuden osallistumisen toisen henkilön puolesta (esim. perheenjäsenen).</p>";
+}
+
 foreach ($publishedContests as $rowNumber => $array)
 {
 //	print_r ($array); continue; // debug
@@ -100,7 +116,7 @@ foreach ($publishedContests as $rowNumber => $array)
 	}
 	else
 	{
-		$resultsLink = "<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulokset</a>";
+		$resultsLink = "<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Haasteen tulokset</a>";
 	}
 
 
@@ -110,18 +126,18 @@ foreach ($publishedContests as $rowNumber => $array)
 	if ($this->ion_auth->logged_in())
 	{
 		$temp = "participation/edit/?contest_id=" . $array['id'];
-		echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">osallistu</a></p>";
+		echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">Osallistu haasteeseen</a></p>";
 	}
 	else
 	{
 //		echo "<p class=\"takePart\">Kirjaudu sisään ja osallistu</p>";
 
 	}
-	echo "<h4>" . @$array['name'] . "</h4>
-		<p class='results'>$resultsLink</p>
-		<p class='contestTime'>Osallistumisaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
+	echo "<!--<h4>" . @$array['name'] . "</h4>-->
 		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
-		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
+		<p class='contestTime'>Osallistumisaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
+		<p class='infoURL'>Lisää tietoa osoitteesta <a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
+		<p class='results'>$resultsLink</p>
 	</div>
 	";
 	

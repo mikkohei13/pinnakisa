@@ -1,8 +1,8 @@
 <?php
-$title = "Pinnakisa";
+$title = "100 lajia havainneet - 100 lintulajia";
 include "page_elements/header.php";
 
-echo "<h1>" . $contest['name'] . "</h1>";
+echo "<h1><a href='/'>&laquo;</a> " . $contest['name'] . "</h1>";
 
 //echo $this->session->flashdata('login');
 

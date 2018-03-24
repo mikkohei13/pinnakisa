@@ -1,5 +1,5 @@
 <?php
-$title = "Pinnakisa";
+$title = "Havaitut lajit - 100 lintulajia";
 include "page_elements/header.php";
 
 //echo "<pre>"; print_r ($species); echo "</pre>"; // debug
@@ -13,7 +13,7 @@ if (!empty($species))
 	if ($this->ion_auth->logged_in())
 	{
 		echo "<p>Havaitsemasi lajit on <span class=\"onMyList\">korostettu</span>.<br />
-		<span class='small'>(Jos samalla tunnuksella on monta osallistumista, koskee tämä niistä vain ensimmäistä.)</span></p>";
+		<span class='small'>(Jos tunnuksellasi on tallennettu monta osallistumista, koskee tämä niistä vain ensimmäistä.)</span></p>";
 	}
 
 	echo "<table class=\"resultTable\" id=\"speciesTable\">";

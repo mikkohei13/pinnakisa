@@ -7,7 +7,7 @@ $dateBeginJS = "new Date(" . $dateBeginParts[0] . "," . ($dateBeginParts[1] - 1)
 //echo "<pre>"; print_r ($contest); echo "</pre>"; // debug
 
 
-$title = "Pinnakisa";
+$title = "100 lajia";
 $script = "
 <script>
 	//	$.datepicker.formatDate('ISO_8601', date, settings)
@@ -73,7 +73,7 @@ include "page_elements/header.php";
 <?php
 echo $contest['name'];
 echo " <em>-haasteeseen ";
-echo " (<a href=\"" . site_url("results/summary") . "/" . $contest['id'] . "\">tulokset</a>)</em>";
+echo " <span>(<a href=\"" . site_url("results/summary") . "/" . $contest['id'] . "\">Haasteen tulokset</a>)</span></em>";
 
 ?>
 </h1>
@@ -164,8 +164,13 @@ if (isset($editableData['species_count']))
 echo "</h4>";
 echo "<p>Klikkaa lajin nimeä jos havaitsit lajin tänään, tai päivämääräkenttää jos havaitsit sen aiemmin.</p>";
 
+
+// Species list begins
+// brekapoints: keräkurmista & tundrakirvinen
+
 include "application/views/includes/birds.php";
 echo "<div id=\"speciesList\">\n";
+echo "<div class=\"col\">";
 foreach ($bird as $key => $arr)
 {
 	if (@$arr['sc'])
@@ -174,6 +179,9 @@ foreach ($bird as $key => $arr)
 		if (!empty($editableData['species'][$arr['abbr']])) // TODO: pitäisikö tyhjät solut kokonaan poistaa (modelissa)
 		{
 			$setClass = " isSet";
+		}
+		if ("CHAMOR" == $arr['abbr'] || "ANTGUS" == $arr['abbr']) {
+			echo "</div>\n<div class=\"col\">";
 		}
 		echo "<p class=\"$setClass\"><em class=\"sp\">" . $arr['fi'];
 		$vn = "species[" . $arr['abbr'] . "]";
@@ -186,7 +194,10 @@ foreach ($bird as $key => $arr)
 		echo "<h5>" . $arr['abbr'] . "</h5>";
 	}
 }
+echo "</div>"; // col
 echo "</div>";
+// Species list ends
+
 
 echo "<input type=\"hidden\" name=\"form_loaded\" id=\"form_loaded\" value=\"true\">";
 

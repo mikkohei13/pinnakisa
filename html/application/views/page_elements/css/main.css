@@ -95,9 +95,9 @@ a:visited
 
 #toolNavi
 {
-	border-top: 3px solid #555;
-	background-color: #B7F300;
-	color: #333;
+	border-top: 3px solid #127fb4;
+	background-color: #5b98c7; /* BL light blue */
+	color: #fff;
 }
 
 .development #toolNavi
@@ -106,15 +106,18 @@ a:visited
 }
 
 #toolNavi a:link,
-#toolNavi a:visited
+#toolNavi a:visited,
+#footer a:link,
+#footer a:visited
 {
 	color: #eee;
-		color: #333;
 }
 
 #footer
 {
-	border-top: 3px solid #B7F300;
+	border-top: 3px solid #127fb4;
+	background-color: #5b98c7; /* BL light blue */
+	color: #fff;
 }
 
 
@@ -129,7 +132,8 @@ table th
 
 input[type="submit"]
 {
-	background-color: #B7F300;
+	background-color: #508e35;
+	color: #fff;
 }
 
 
@@ -175,7 +179,7 @@ input[type="submit"]
 /*TOOLS*/
 .contest
 {
-	border-top: 3px solid #B7F300;
+	border-top: 3px solid #508e35;
 	background-color: #f1f1f1;
 		background-color: #e1e1e1;
 }
@@ -183,7 +187,7 @@ input[type="submit"]
 
 .active .participation
 {
-	background-color: #FFF873;
+	background-color: #C1D9B6;
 }
 
 .passive .participation
@@ -193,14 +197,19 @@ input[type="submit"]
  
  
 
-.takePart
-{
-	background-color: #B7F300;
-	border: 3px solid #D7F970;
+.takePart {
+	background-color: #508e35;
+	/*
 		border-right: 2px solid #9c9c9c; 
 		border-bottom: 2px solid #9c9c9c; 
 		border-left: 2px solid #f0f0f0; 
 		border-top: 2px solid #f0f0f0; 
+		*/
+}
+
+.takePart a:link,
+.takePart a:visited {
+		color: #fff;
 }
 
 #speciesList h5
@@ -329,11 +338,11 @@ h3
 
 .takePart {
 		font-size: 130%;
-	width: 100px;
-	float: right;
+	width: 11em;
+/*	float: right; */
 	margin: 10px;
 	text-align: center;
-			border-radius: 5px;
+/*			border-radius: 5px; */
 }
 
 .takePart a {
@@ -385,7 +394,9 @@ input[type="submit"]
 {
 	font-size: 150%;
 	margin: 0.5em 0;
-	border-radius: 5px;
+	padding: 0.2em;
+	border: 0;
+/*	border-radius: 5px; */
 }
 
 .required:after
@@ -475,21 +486,41 @@ h4
 Specieslist
 */
 
+/*
 #speciesList
 {
 	min-width: 19em;
 	column-count: 3;
 	column-width: 19em;
-	-webkit-column-count: 3; /* Safari and Chrome */
+	-webkit-column-count: 3;
 	-webkit-column-width: 19em;
-	-moz-column-count: 3; /* Firefox */
+	-moz-column-count: 3;
 	-moz-column-width: 19em;
 }
+*/
+
+#speciesList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+#speciesList .col {
+	border: 1px solid lime;
+	padding-right: 1em;
+}
+
+
+@media (max-width: 850px) { 
+	#speciesList {
+		display: block;
+	}		
+}
+
 
 #speciesList p {
 	margin: 0 0 0.2em 0;
 	font-size: 100%;
-	height: 1.5em; /* Jos tähän 1em -> rivit ja sarakkeet sekaisin. Mikä toimii varmasti eri selaimilla, myös mobiili? Jos ei arvoa, lihavointi muuttaa rivin korkeutta. */
 	white-space: nowrap;
 	overflow: visible;
 }
@@ -503,11 +534,16 @@ Specieslist
 
 #speciesList h5 {
 	padding: 0.2em;
-	margin: .5em 0 .2em 0;
+	margin: 1em 0 .2em 0;
 	font-size: 100%;
 /*	border-radius: 4px; */
 	font-weight: normal;
 }
+
+#speciesList .col h5:first-child {
+	margin-top: 0;
+}
+
 
 
 #speciesList em {

@@ -67,12 +67,8 @@ NICE:
 TODO/100 lajia
 ----
 
-- Otsikot, tekstit -> 100 lajia
 - BL ulkoasumuokkaus 
-- ylimääräiset kentät pois
-- kenttien labelit
 - anttri-bugi
-- muide lajilista pois, tilalle 100 ylittäneet
 
 - osallistumisen poisto/piilotus
 - harvinaisten piilotus

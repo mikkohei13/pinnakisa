@@ -12,7 +12,7 @@ class Results_model extends CI_Model {
 	}
 
 	// ------------------------------------------------------------------------
-	// Osallistujat laskevassa pinnajärjestyksessä
+	// Yli n lajin osallistujat laskevassa pinnajärjestyksessä
 
 	public function summary($contest_id)
 	{
@@ -20,6 +20,30 @@ class Results_model extends CI_Model {
 		$min_species_to_show = 100;
 
 		$this->db->where('species_count >=', $min_species_to_show);
+		$query = $this->db->get_where('kisa_participations', array('contest_id' => $contest_id));
+		
+		if (! isset($query))
+		{
+			exit("Tietokantavirhe. Ota yhteyttä webmasteriin.");
+		}
+		
+		$resultArray = $query->result_array();
+		
+		// Sort by species_count
+		usort($resultArray, array("Results_model", "sortBySpeciesCount"));
+		
+		// TODO: move elsewhere ?
+		$this->summary = $resultArray; // Populates array for area ticks
+
+		return $resultArray;
+	}
+
+	// ------------------------------------------------------------------------
+	// Kaikki osallistujat laskevassa pinnajärjestyksessä
+
+	public function summaryAll($contest_id)
+	{
+		// Participations
 		$query = $this->db->get_where('kisa_participations', array('contest_id' => $contest_id));
 		
 		if (! isset($query))

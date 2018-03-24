@@ -61,7 +61,7 @@ class Results extends CI_Controller {
 		$this->load->model('results_model');
 		
 		// Get & count species
-		$summary = $this->results_model->summary($contest_id);
+		$summary = $this->results_model->summaryAll($contest_id);
 		
 //echo "<pre>"; print_r ($summary); echo "</pre>"; // debug
 		
