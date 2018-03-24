@@ -1,10 +1,9 @@
 <?php
-$title = "Pinnakisa";
+$title = "100 lintulajia";
 include "page_elements/header.php";
 ?>
 
-<h1>Pinnakisapalvelu</h1>
-<p style="margin-top: -10px;">Täällä voit osallistua erilaisiin pinnakisoihin.
+<h1>Tunnista 100 lintulajia</h1>
 
 <?php
 
@@ -69,14 +68,14 @@ if ($this->ion_auth->logged_in())
 		echo "<div class=\"participationsCol active\" id=\"active\">";
 		
 		// Published
-		echo "<h3>Käynnissä olevat osallistumiseni</h3>";
+		echo "<h3>Osallistumiseni</h3>";
 		echo $htmlPublished;
 
 		echo "</div>";
 	}
 	else
 	{
-		echo "<p>Et ole osallistunut käynnissä oleviin kisoihin.</p>";
+		echo "<p>Et ole vielä osallistunut.</p>";
 	}
 }
 
@@ -84,7 +83,7 @@ if ($this->ion_auth->logged_in())
 // Open contests
 
 echo "<div class=\"contestsCol active\">";
-echo "<h3>Meneillään olevat kisat</h3>";
+echo "<h3>Osallistu tästä</h3>";
 
 foreach ($publishedContests as $rowNumber => $array)
 {
@@ -120,7 +119,7 @@ foreach ($publishedContests as $rowNumber => $array)
 	}
 	echo "<h4>" . @$array['name'] . "</h4>
 		<p class='results'>$resultsLink</p>
-		<p class='contestTime'>Kilpailuaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
+		<p class='contestTime'>Osallistumisaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
 		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
 		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
 	</div>
@@ -132,7 +131,7 @@ echo "</div>";
 
 // --------------------------------------------
 // Old contests
-
+/*
 echo "<div class=\"contestsCol passive\">";
 echo "<h3>Päättyneet kisat</h3>";
 
@@ -150,10 +149,10 @@ foreach ($archivedContests as $rowNumber => $array)
 }
 
 echo "</div>";
-
+*/
 // --------------------------------------------
 // Old participarions
-
+/*
 if ($this->ion_auth->logged_in())
 {
 	if (! empty($htmlOther))
@@ -167,35 +166,8 @@ if ($this->ion_auth->logged_in())
 		echo "</div>";
 	}
 }
+*/
 
-
-
-
-?>
-
-<p>
-Jos haluat perustaa uuden kisan, ota yhteyttä osoitteeseen 
-<script type="text/javascript">
-//<![CDATA[
-<!--
-var x="function f(x){var i,o=\"\",l=x.length;for(i=l-1;i>=0;i--) {try{o+=x.c" +
-"harAt(i);}catch(e){}}return o;}f(\")\\\"function f(x,y){var i,o=\\\"\\\\\\\""+
-"\\\\,l=x.length;for(i=0;i<l;i++){if(i==52)y+=i;y%=127;o+=String.fromCharCod" +
-"e(x.charCodeAt(i)^(y++));}return o;}f(\\\"\\\\PZUBU\\\\\\\\\\\\\\\\TO\\\\\\" +
-"\\022JLV4$.-lgz&h!8.*p\\\\\\\\022m=0;? :l<1*;/\\\\\\\\034),6\\\\\\\\016\\\\" +
-"\\\\006\\\\\\\\003M\\\\\\\\002\\\\\\\\014:E=jvTMG\\\\\\\\036x\\\\\\\\007z\\" +
-"\\\\\\005\\\\\\\\026BCXMYn[BX\\\\\\\\\\\\\\\\TU\\\\\\\\033P^\\\\\\\\004\\\\" +
-"\\\\026[\\\\\\\\005\\\\\\\\036\\\\\\\\024\\\\\\\\005\\\\\\\\017{\\\"\\\\,52" +
-")\\\"(f};)lo,0(rtsbus.o nruter};)i(tArahc.x=+o{)--i;0=>i;1-l=i(rof}}{)e(hct" +
-"ac};l=+l;x=+x{yrt{)35=!)31/l(tAedoCrahc.x(elihw;lo=l,htgnel.x=lo,\\\"\\\"=o" +
-",i rav{)x(f noitcnuf\")"                                                     ;
-while(x=eval(x));
-//-->
-//]]>
-</script>
-</p>
-
-<?php
 
 // ---------------------------------------------------------
 // Admin menu

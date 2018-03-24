@@ -64,6 +64,18 @@ NICE:
 * infomessage-tyylit puuttuvat
 * pienennä infomessage-fonttia
 
+TODO/100 lajia
+----
+
+- Otsikot, tekstit -> 100 lajia
+- BL ulkoasumuokkaus 
+- ylimääräiset kentät pois
+- kenttien labelit
+- anttri-bugi
+
+- osallistumisen poisto/piilotus
+- harvinaisten piilotus
+- testaus
 
 
 

@@ -1,34 +1,41 @@
 <p id="clearer">&nbsp;</p>
 </div> <!-- Content -->
 
-<p id="footer">Pinnakisajärjestelmä: Mikko Heikkinen/<a href="https://www.biomi.org/">biomi.org</a>
- -- 
- Palaute: <script type="text/javascript">
+<p id="footer">
+
+<?php
+echo "<a href=\"" . base_url("100lajia-tietosuojaseloste.pdf") . "\">Tietosuojaseloste</a>";
+// DEBUG: print_r($userData);
+?>
+ &ndash; 
+<script type="text/javascript">
 //<![CDATA[
 <!--
-var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
-"=48){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
-".substr(0,ol);}f(\")36,\\\"QYSND[500\\\\L^600\\\\220\\\\0p4143;030\\\\93;=8" +
-"985'`\\\"\\\\' #$ve230\\\\g030\\\\~'-4VJ]^'530\\\\310\\\\720\\\\Y730\\\\030" +
-"\\\\330\\\\230\\\\020\\\\1630\\\\n\\\\000\\\\400\\\\700\\\\000\\\\300\\\\41" +
-"0\\\\000\\\\It\\\\610\\\\710\\\\n\\\\710\\\\[710\\\\+24=6x500\\\\e13'<s3mrg" +
-" !)?#;?i2+!.7\\\"\\\\/[\\\"(f};o nruter};))++y(^)i(tAedoCrahc.x(edoCrahCmor" +
-"f.gnirtS=+o;721=%y;i=+y)36==i(fi{)++i;l<i;0=i(rof;htgnel.x=l,\\\"\\\"=o,i r" +
-"av{)y,x(f noitcnuf\")"                                                       ;
+var x="function f(x){var i,o=\"\",l=x.length;for(i=0;i<l;i+=2) {if(i+1<l)o+=" +
+"x.charAt(i+1);try{o+=x.charAt(i);}catch(e){}}return o;}f(\"ufcnitnof x({)av" +
+" r,i=o\\\"\\\"o,=l.xelgnhtl,o=;lhwli(e.xhcraoCedtAl(1/)3=!94{)rt{y+xx=l;=+;" +
+"lc}tahce({)}}of(r=i-l;1>i0=i;--{)+ox=c.ahAr(t)i};erutnro s.buts(r,0lo;)f}\\" +
+"\"(8),8\\\"\\\\01\\\\0t\\\\\\\\\\\\03\\\\06\\\\03\\\\\\\\24\\\\03\\\\01\\\\" +
+"\\\\4U03\\\\\\\\16\\\\0X\\\\1V00\\\\\\\\KKGE[NEAJfPPLKpI#jG>E8r%azg}32fL#hm" +
+"ieculgolDrv3i02\\\\\\\\24\\\\03\\\\02\\\\\\\\17\\\\0@\\\\26\\\\04\\\\01\\\\" +
+"\\\\33\\\\07\\\\03\\\\\\\\24\\\\01\\\\03\\\\\\\\.Q6L02\\\\\\\\\\\\n4\\\\03\\"+
+"\\\\\\05\\\\0L\\\\\\\\nV\\\\@K\\\\tn\\\\\\\\\\\\00\\\\00\\\\02\\\\\\\\\\\\n" +
+"0\\\\02\\\\\\\\26\\\\0N\\\\0+189.<6\\\"\\\\f(;} ornture;}))++(y)^(iAtdeCoar" +
+"chx.e(odrChamCro.fngriSt+=;o27=1y%2;*=)yy)8+(8i>f({i+)i+l;i<0;i=r(foh;gten." +
+"l=x,l\\\"\\\\\\\"\\\\o=i,r va){,y(x fontincfu)\\\"\")"                       ;
 while(x=eval(x));
 //-->
 //]]>
 </script>
- -- 
-<?php
-echo "<a href=\"" . base_url("pinna-tietosuojaseloste.pdf") . "\">tietosuojaseloste</a>";
-// DEBUG: print_r($userData);
+ &ndash; 
+<a href="https://www.birdlife.fi/">BirdLife Suomi</a>
+ &ndash; 
+Järjestelmä: Mikko Heikkinen/<a href="https://www.biomi.org/">biomi.org</a>
 
-?>
- -- 
- <a href="https://www.tringa.fi/">Tringa ry</a>
- -- 
+
+ <!-- 
 {elapsed_time} s
+-->
 
 <?php
 // Cannot be filtered; contains scripts
