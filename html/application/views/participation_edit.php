@@ -166,7 +166,6 @@ echo "<p>Klikkaa lajin nimeä jos havaitsit lajin tänään, tai päivämäärä
 
 
 // Species list begins
-// brekapoints: keräkurmista & tundrakirvinen
 
 include "application/views/includes/birds.php";
 echo "<div id=\"speciesList\">\n";
@@ -180,7 +179,8 @@ foreach ($bird as $key => $arr)
 		{
 			$setClass = " isSet";
 		}
-		if ("CHAMOR" == $arr['abbr'] || "ANTGUS" == $arr['abbr']) {
+		// Column breakpoints
+		if ("CHAASI" == $arr['abbr'] || "ANTCAM" == $arr['abbr']) {
 			echo "</div>\n<div class=\"col\">";
 		}
 		echo "<p class=\"$setClass\"><em class=\"sp\">" . $arr['fi'];

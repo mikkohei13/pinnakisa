@@ -13,10 +13,6 @@ class Participation_model extends CI_Model {
 
 	public function formatter($data)
 	{
-		// empties to NULL
-		if ("" == $data['kms']) { $data['kms'] = NULL; }
-		if ("" == $data['hours']) { $data['hours'] = NULL; }
-	
 		$speciesCount = 0;
 		$ticksPerDay = Array();
 
