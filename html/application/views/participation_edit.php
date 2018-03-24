@@ -69,18 +69,21 @@ include "page_elements/header.php";
 <div id="contestToTakePart">
 
 <h1>
-<em>Osallistuminen kisaan</em> 
+<em>Osallistuminen </em> 
 <?php
 echo $contest['name'];
-echo " (<a href=\"" . site_url("results/summary") . "/" . $contest['id'] . "\">tulokset</a>)";
+echo " <em>-haasteeseen ";
+echo " (<a href=\"" . site_url("results/summary") . "/" . $contest['id'] . "\">tulokset</a>)</em>";
 
 ?>
 </h1>
 
+<p class="tip">Vinkki: tallenna tämä sivu selaimesi kirjanmerkkeihin, niin pääset helposti lisäämään lajeja.</p>
+
 <?php
 if (@$alreadyTakenPart)
 {
-	echo "<p id=\"alreadyParticipated\">Olet jo osallistunut tähän kisaan. Voit kuitenkin osallistua uudelleen toisella alueella, mikäli kisan säännöt sen sallivat.</p>";
+	echo "<p id=\"alreadyParticipated\">HUOM! Olet jo osallistunut. Voit kuitenkin tallentaa tässä osallistumisen toisen henkilön puolesta (esim. perheenjäsenen).</p>";
 }
 ?>
 
@@ -124,21 +127,21 @@ if ("published" == $contest['status'])
 }
 elseif ("archived" == $contest['status'])
 {
-	echo "<p id=\"notification\">Tähän kisaan osallistuminen on päättynyt, eikä kilpailutietoja voi enää muokata.</p>";
+	echo "<p id=\"notification\">Osallistumisaika on päättynyt, eikä tietoja voi enää muokata.</p>";
 }
 else
 {
-	echo "<p id=\"notification\">Tämä kisa ei ole nyt käynnissä, eikä kilpailutietoja voi muokata.</p>";
+	echo "<p id=\"notification\">Osallistuminen ei ole nyt käynnissä, eikä tietoja voi muokata.</p>";
 }
 
 ?> 
 
 <input type="hidden" name="contest_id" value="<?php echo @$editableData['contest_id']; ?>" />
 
-<p class="required">Nimesi (Etu- ja sukunimi)<!-- tai joukkueesi jäsenten nimet--></p>
+<p class="required">Nimesi (Etu- ja sukunimi)</p>
 <input type="text" name="name" class="required" value="<?php echo @$editableData['name']; ?>" size="50" />
 
-<p class="required">Alue/kotipesä (Kunta, Paikka; ks. kisan säännöistä mitä merkitsee)</p>
+<p class="required">Paikkakunta (ei tarkkaa osoitetta)</p>
 
 <?php
 if (@$locationArray)
@@ -151,45 +154,12 @@ else
 	echo "<input type=\"text\" name=\"location\" value=\"" . @$editableData['location'] . "\" size=\"30\" />";
 }
 
-?>
-
-<p>Kuljetut kilometrit</p>
-<input type="text" name="kms" value="<?php echo @$editableData['kms']; ?>" size="10" /> km
-<?php
-if (@$editableData['kms'] > 0 && @$editableData['species_count'] > 0)
-{
-	echo "<span class=\"myStats\"> = " . round(($editableData['kms'] / $editableData['species_count']), 1) . " km/pinna</span>";
-}
-?>
-
-<p>Retkeillyt tunnit</p>
-<input type="text" name="hours" value="<?php echo @$editableData['hours']; ?>" size="10" /> h
-<?php
-if (@$editableData['hours'] > 0 && @$editableData['species_count'] > 0)
-{
-	echo "<span class=\"myStats\"> = " . round(($editableData['hours'] / $editableData['species_count']), 1) . " h/pinna</span>";
-}
-?>
-
-<p>Spontaanien lajien määrä</p>
-<?php
-// TODO: tämä elegantimmin, modelissa?
-$sponde = @$editableData['spontaneous'];
-if (0 == $sponde)
-{
-	$sponde = "";
-}
-
-?>
-<input type="text" name="spontaneous" value="<?php echo $sponde; ?>" size="10" /> 
-
-<?php
 echo $submitButton;
 
-echo "<h4>Havaitut lajit ";
+echo "<h4>Havaitsemasi lajit ";
 if (isset($editableData['species_count']))
 {
-	echo "(" . $editableData['species_count'] . ")";
+	echo "(yhteensä " . $editableData['species_count'] . ")";
 }
 echo "</h4>";
 echo "<p>Klikkaa lajin nimeä jos havaitsit lajin tänään, tai päivämääräkenttää jos havaitsit sen aiemmin.</p>";

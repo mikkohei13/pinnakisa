@@ -41,7 +41,7 @@ if (! empty($participations))
 	{
 		$temp = "
 		<div class=\"participation\">
-			<p><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">" . $allContests[$array['contest_id']]['name'] . "</a><br /> " . $array['location'] . "<br /> " . $array['name'] . "</p>
+			<p><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Muokkaa tätä osallistumista<!--" . $allContests[$array['contest_id']]['name'] . "--></a><br /> " . $array['location'] . "<br /> " . $array['name'] . "</p>
 		</div>
 		";
 		

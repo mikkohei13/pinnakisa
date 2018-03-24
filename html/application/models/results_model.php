@@ -17,6 +17,9 @@ class Results_model extends CI_Model {
 	public function summary($contest_id)
 	{
 		// Participations
+		$min_species_to_show = 100;
+
+		$this->db->where('species_count >=', $min_species_to_show);
 		$query = $this->db->get_where('kisa_participations', array('contest_id' => $contest_id));
 		
 		if (! isset($query))

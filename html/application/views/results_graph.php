@@ -29,7 +29,7 @@ if (! empty($scriptData))
 }
 else
 {
-	echo "<p>Kukaan ei ole vielä osallistunut tähän kisaan.</p>";
+	echo "<p>Kukaan ei ole vielä havainnut sataa lajia.</p>";
 }
 
 

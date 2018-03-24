@@ -72,6 +72,7 @@ TODO/100 lajia
 - ylimääräiset kentät pois
 - kenttien labelit
 - anttri-bugi
+- muide lajilista pois, tilalle 100 ylittäneet
 
 - osallistumisen poisto/piilotus
 - harvinaisten piilotus
