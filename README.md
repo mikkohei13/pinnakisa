@@ -44,6 +44,9 @@ Lisenssit / Licenses
 TODO
 ----
 
+MUST:
+* Firefox Anttri bugifix
+
 Parannusmahdollisuuksia:
 
 SHOULD:
@@ -67,11 +70,10 @@ NICE:
 TODO/100 lajia
 ----
 
-- BL ulkoasumuokkaus 
-- anttri-bugi
-
 - osallistumisen poisto/piilotus
 - harvinaisten piilotus
+	- tarkistuta luokitusrima, luokittele loputkin
+	- birds.php check that doesn't exist: $bird[3]['rarity']
 - testaus
 
 

@@ -163,6 +163,7 @@ if (isset($editableData['species_count']))
 }
 echo "</h4>";
 echo "<p>Klikkaa lajin nimeä jos havaitsit lajin tänään, tai päivämääräkenttää jos havaitsit sen aiemmin.</p>";
+echo "<p id='rarityVisibility'><span id='showRarities'>Näytä myös harvinaiset</span> <span id='hideRarities'>Piilota harvinaiset</span></p>";
 
 
 // Species list begins
@@ -172,12 +173,17 @@ echo "<div id=\"speciesList\">\n";
 echo "<div class=\"col\">";
 foreach ($bird as $key => $arr)
 {
-	if (@$arr['sc'])
+	if (@$arr['sc']) // If is species, and not higher taxon
 	{
 		$setClass = "";
+		if (@$arr['rarity']) // If is marked as rare
+		{
+			$setClass .= " rare rarity" . $arr['rarity'];
+		}
+
 		if (!empty($editableData['species'][$arr['abbr']])) // TODO: pitäisikö tyhjät solut kokonaan poistaa (modelissa)
 		{
-			$setClass = " isSet";
+			$setClass .= " isSet";
 		}
 		// Column breakpoints
 		if ("CHAASI" == $arr['abbr'] || "ANTCAM" == $arr['abbr']) {
@@ -189,7 +195,7 @@ foreach ($bird as $key => $arr)
 		echo "<span class=\"del\">X</span>\n";
 		echo "</p>\n";
 	}
-	else
+	else // If is higher taxon
 	{
 		echo "<h5>" . $arr['abbr'] . "</h5>";
 	}
