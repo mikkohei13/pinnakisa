@@ -154,6 +154,12 @@ else
 	echo "<input type=\"text\" name=\"location\" value=\"" . @$editableData['location'] . "\" size=\"30\" />";
 }
 
+// Show deletion link only if participation already saved
+if (@$editableData['id'])
+{
+	echo "<a href=\"" . site_url("participation/delete") . "/" . $editableData['id'] . "\" id=\"deleteParticipation\" style='float: right;'>Poista osallistuminen</a>";
+}
+
 echo $submitButton;
 
 echo "<h4>Havaitsemasi lajit ";

@@ -5,7 +5,7 @@ include "page_elements/header.php";
 
 <h1>Tunnista 100 lintulajia - haaste</h1>
 
-<p>Tässä voit osallistua 100 lajia -haasteeseen.
+<p>Tässä voit osallistua 100 lajia -haasteeseen.</p>
 
 <?php
 
@@ -14,14 +14,11 @@ if (! $this->ion_auth->logged_in())
 	echo " <a href=\"" . site_url("/auth/login") . "\">Kirjaudu ensin sisään</a> osallistuaksesi.";
 }
 
-?>
-
-
-</p>
-
-<?php
-
-echo $this->session->flashdata('login');
+$flash = $this->session->flashdata('login');
+if (! empty($flash))
+{
+	echo "<div id=\"infoMessage\">" . $flash . "</div>";
+}
 
 //echo "<pre>"; print_r ($participations); echo "</pre>"; // debug
 
