@@ -28,9 +28,25 @@ class Results_model extends CI_Model {
 		}
 		
 		$resultArray = $query->result_array();
+
 		
 		// Sort by species_count
 		usort($resultArray, array("Results_model", "sortBySpeciesCount"));
+
+		foreach ($resultArray as $nro => $person) {
+			$ticksDay = json_decode($person['ticks_day_json'], true);
+//			print_r ($ticksDay); // debug
+			ksort($ticksDay);
+			$totalTicks = 0;
+			foreach ($ticksDay as $day => $tickCount) {
+				$totalTicks = $totalTicks + $tickCount;
+				if ($totalTicks >= 100) {
+					$resultArray[$nro]['objectiveReachedDay'] = $day;
+					break;
+				}
+			}
+		}
+//		print_r($resultArray); // debug
 		
 		// TODO: move elsewhere ?
 		$this->summary = $resultArray; // Populates array for area ticks

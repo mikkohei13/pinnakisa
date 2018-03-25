@@ -29,6 +29,7 @@ if (!empty($summary))
 	echo "	<th>Nimi</th>";
 	echo "	<th>Sijainti</th>";
 	echo "	<th>Lajimäärä</th>";
+	echo "  <th>100 saavutettu</th>";
 	echo "</tr>";
 	echo "</thead>";
 	echo "<tbody>";
@@ -45,6 +46,7 @@ if (!empty($summary))
 		echo "	<td>" . htmlspecialchars($partArray['name'], ENT_COMPAT, 'UTF-8') . "</td>";
 		echo "	<td>" . htmlspecialchars($partArray['location'], ENT_COMPAT, 'UTF-8') . "</td>";
 		echo "	<td>" . htmlspecialchars($partArray['species_count'], ENT_COMPAT, 'UTF-8') . "</td>";
+		echo "	<td>" . htmlspecialchars($partArray['objectiveReachedDay'], ENT_COMPAT, 'UTF-8') . "</td>";
 		echo "</tr>";
 	}
 

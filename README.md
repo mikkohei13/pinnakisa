@@ -70,6 +70,9 @@ NICE:
 TODO/100 lajia
 ----
 
+- Remove kms, hours, spontaneos (see participation 19bc9aeee726a628f7a40cdcb34438f2524e0f70 )
+- Näytä pvm jolloin 100 lajia ylitetty
+- Piilota etusivulta kisat, jos ei kirjautunut sisään
 - UI/ulkoasun parantelu
 - harvinaisten piilotus
 	- tarkistuta luokitusrima, luokittele loputkin
