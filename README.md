@@ -70,6 +70,7 @@ NICE:
 TODO/100 lajia
 ----
 
+- results_summary -sivun laquo vie rootiin, po palvelun etusivulle
 - Remove kms, hours, spontaneos (see participation 19bc9aeee726a628f7a40cdcb34438f2524e0f70 )
 - Näytä pvm jolloin 100 lajia ylitetty
 - Piilota etusivulta kisat, jos ei kirjautunut sisään
@@ -80,5 +81,12 @@ TODO/100 lajia
 - testaus
 - tietoturva: ei oikeutta editoida/poistaa muiden osallistumisia
 
+
+Asentaessa muista
+- tietokantatiedot CI:n -> config/database.php
+- hostname CI:n -> config/config.php
+
+jos käytät Dockeria
+- tietokantatiedot env-tiedostoon
 
 
