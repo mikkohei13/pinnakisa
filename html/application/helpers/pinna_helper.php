@@ -106,5 +106,11 @@ function cumulativeTickJSdata($dailyTicksArray, $label, $draw2 = FALSE, $addYear
 		return $fullData;
 }
 
+function date2Fin($date) {
+	$dateParts = explode("-", $date);
+	$ret = $dateParts[2] . "." . $dateParts[1] . "." . $dateParts[0];
+
+	return $ret;
+}
 
 

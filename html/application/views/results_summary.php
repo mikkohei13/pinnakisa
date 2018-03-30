@@ -46,7 +46,7 @@ if (!empty($summary))
 		echo "	<td>" . htmlspecialchars($partArray['name'], ENT_COMPAT, 'UTF-8') . "</td>";
 		echo "	<td>" . htmlspecialchars($partArray['location'], ENT_COMPAT, 'UTF-8') . "</td>";
 		echo "	<td>" . htmlspecialchars($partArray['species_count'], ENT_COMPAT, 'UTF-8') . "</td>";
-		echo "	<td>" . htmlspecialchars($partArray['objectiveReachedDay'], ENT_COMPAT, 'UTF-8') . "</td>";
+		echo "	<td>" . date2Fin(htmlspecialchars($partArray['objectiveReachedDay'], ENT_COMPAT, 'UTF-8')) . "</td>";
 		echo "</tr>";
 	}
 

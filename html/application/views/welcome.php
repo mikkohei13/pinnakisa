@@ -132,7 +132,7 @@ foreach ($publishedContests as $rowNumber => $array)
 	}
 	echo "<!--<h4>" . @$array['name'] . "</h4>-->
 		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
-		<p class='contestTime'>Osallistumisaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
+		<p class='contestTime'>Osallistumisaika: " . date2Fin(@$array['date_begin']) . " &ndash; " . date2Fin(@$array['date_end']) . "</p>
 		<p class='infoURL'>Lisää tietoa osoitteesta <a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
 		<p class='results'>$resultsLink</p>
 	</div>
