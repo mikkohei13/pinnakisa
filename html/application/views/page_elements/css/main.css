@@ -306,14 +306,6 @@ h3
 	margin-right: 1em;
 }
 
-/*
-.contestsCol
-{
-	float: right;
-	width: 500px;
-	margin-left: 10px;
-}
-*/
 
 .contest
 {
@@ -501,19 +493,6 @@ h4
 Specieslist
 */
 
-/*
-#speciesList
-{
-	min-width: 19em;
-	column-count: 3;
-	column-width: 19em;
-	-webkit-column-count: 3;
-	-webkit-column-width: 19em;
-	-moz-column-count: 3;
-	-moz-column-width: 19em;
-}
-*/
-
 #speciesList {
 	display: flex;
 	flex-direction: row;
@@ -521,7 +500,6 @@ Specieslist
 }
 
 #speciesList .col {
-	border: 1px solid lime;
 	padding-right: 1em;
 }
 
@@ -562,7 +540,7 @@ Specieslist
 
 
 #speciesList em {
-/*	min-width: 11em;*/ margin-right: 0.5em;
+	margin-right: 0.5em;
 	float: left;
 	display: block;
 	font-style: normal;
@@ -595,6 +573,10 @@ Specieslist
 	display: none;
 }
 
+#rarityVisibility {
+	border-bottom: 1px solid #5b98c7;
+}
+
 #rarityVisibility span {
 	background-color: #5b98c7;
 	color: #fff;
@@ -615,6 +597,8 @@ Specieslist
 #speciesList .isSet input {
 	border: none;
 }
+
+
 
 .myStats
 {
@@ -638,17 +622,6 @@ Media queries
 
 @media only screen and (max-width: 35em)
 {
-	h1
-	{
-/*		color: red; */
-	}
-	#speciesList
-	{
-		column-count: 1;
-		-webkit-column-count: 1; /* Safari and Chrome */
-		-moz-column-count: 1; /* Firefox */
-/*		column-width: 100% !important;*/
-	}
 	#speciesList p
 	{
 		white-space: nowrap;
