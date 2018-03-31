@@ -73,14 +73,16 @@ NICE:
 TODO/100 lajia
 ----
 
+- 100 lajia tuloslistasta pois cursor pointer ja ajax
 - puh ja katuosoite
 - jquery click -> tap ??
 - Fix user info saving feature: http://localhost:70/index.php/auth/edit_user/2
 - Kirjaudu sisään -tyylit kun kirjautuminen erääntynyt
-- Remove kms, hours, spontaneos (see participation 19bc9aeee726a628f7a40cdcb34438f2524e0f70 )
+- Remove kms, hours, spontaneos (see participation 470aa945e7a5f4cc067c9ae1e5125b146989be8c )
 - Piilota etusivulta kisat, jos ei kirjautunut sisään
 - testaus
 - tietoturva: ei oikeutta editoida/poistaa muiden osallistumisia
+	Sikäläinen 2ded2f75fd35011f4011eff6c12e74791bcaca91
 - harvinaisten piilotus välilehdellä
 
 Asentaessa muista
