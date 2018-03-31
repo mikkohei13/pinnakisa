@@ -73,7 +73,6 @@ NICE:
 TODO/100 lajia
 ----
 
-- 100 lajia tuloslistasta pois cursor pointer ja ajax
 - puh ja katuosoite
 - jquery click -> tap ??
 - Fix user info saving feature: http://localhost:70/index.php/auth/edit_user/2

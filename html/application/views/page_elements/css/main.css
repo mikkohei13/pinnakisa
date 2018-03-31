@@ -452,11 +452,6 @@ h4
 	TOP: 1.6em;
 }
 
-#participantTable td
-{
-	cursor: pointer;
-}
-
 #participant
 {
 	font-weight: normal;
