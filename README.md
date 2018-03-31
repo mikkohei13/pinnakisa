@@ -70,6 +70,9 @@ NICE:
 TODO/100 lajia
 ----
 
+- jquery click -> tap ??
+- Fix user info saving feature: http://localhost:70/index.php/auth/edit_user/2
+- Kirjaudu sisään -tyylit kun kirjautuminen erääntynyt
 - Remove kms, hours, spontaneos (see participation 19bc9aeee726a628f7a40cdcb34438f2524e0f70 )
 - Piilota etusivulta kisat, jos ei kirjautunut sisään
 - UI/ulkoasun parantelu

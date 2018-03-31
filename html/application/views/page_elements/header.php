@@ -21,7 +21,7 @@ else
         <meta name="viewport" content="initial-scale=1">
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/normalize.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/main.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/main.css?<?php echo rand(0, 1000); ?>">
 
         <link href='https://fonts.googleapis.com/css?family=Overlock:400,700|PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
@@ -42,7 +42,7 @@ else
 		<!--<script>window.jQuery || document.write('<script src="application/views/page_elements/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>-->
 
 		<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<script src="<?php echo base_url(); ?>application/views/page_elements/js/main.js"></script>
+		<script src="<?php echo base_url(); ?>application/views/page_elements/js/main.js?<?php echo rand(0, 1000); ?>"></script>
 		<script src="<?php echo base_url(); ?>application/views/page_elements/js/vendor/tablesorter/jquery.tablesorter.min.js"></script>
 		<?php echo @$script; ?>
     </head>
