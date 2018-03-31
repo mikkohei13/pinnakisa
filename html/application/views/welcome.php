@@ -3,22 +3,25 @@ $title = "Tunnista 100 lintulajia";
 include "page_elements/header.php";
 ?>
 
-<h1>Tunnista 100 lintulajia - haaste</h1>
+<h1>Tunnista ja havaitse 100 lintulajia vuoden 2018 aikana!</h1>
 
-<p>Tässä voit osallistua 100 lajia -haasteeseen.</p>
+<p>Tunnista 100 lintulajia -haasteen tavoitteena on lintuharrastuksen ja luonnon tuntemuksen lisääminen sekä maamme upean luonnon juhlistaminen. Viime vuonna haaste otettiin innokkaasti vastaan, ja yli 1700 ihmistä ilmoitti havainneensa vähintään 100 lintulajia vuoden aikana. Kuinka moni saavuttaa sadan lajin rajapyykin 1.1.–31.12.2018?</p>
+
 
 <?php
-
-if (! $this->ion_auth->logged_in())
-{
-	echo " <a href=\"" . site_url("/auth/login") . "\">Kirjaudu ensin sisään</a> osallistuaksesi.";
-}
 
 $flash = $this->session->flashdata('login');
 if (! empty($flash))
 {
 	echo "<div id=\"infoMessage\">" . $flash . "</div>";
 }
+
+/*
+if (! $this->ion_auth->logged_in())
+{
+	echo " <a href=\"" . site_url("/auth/login") . "\">Kirjaudu ensin sisään</a> osallistuaksesi.";
+}
+*/
 
 //echo "<pre>"; print_r ($participations); echo "</pre>"; // debug
 
@@ -113,7 +116,10 @@ foreach ($publishedContests as $rowNumber => $array)
 	}
 	else
 	{
-		$resultsLink = "<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Haasteen tulokset</a>";
+		$resultsLink = "
+			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">100 lajia ylittäneet</a>
+			<a href=\"" . site_url("results/species/" . $array['id']) . "\">Kokonaislajiluettelo</a>
+		";
 	}
 
 
@@ -127,7 +133,7 @@ foreach ($publishedContests as $rowNumber => $array)
 	}
 	else
 	{
-//		echo "<p class=\"takePart\">Kirjaudu sisään ja osallistu</p>";
+		echo "<p class=\"notLoggedIn\"><a href=\"" . site_url("/auth/login") . "\">Kirjaudu sisään</a> tai <a href=\"" . site_url("/auth/create_user") . "\">rekisteröidy</a> osallistuaksesi</p>";
 
 	}
 	echo "<!--<h4>" . @$array['name'] . "</h4>-->

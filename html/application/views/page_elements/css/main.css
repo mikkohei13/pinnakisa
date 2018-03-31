@@ -163,6 +163,10 @@ input[type="submit"]
 	background-color: #00F200;
 }
 
+.notLoggedIn {
+	font-weight: bold;
+}
+
 /* ADMIN */
 #youAreAdmin
 {
@@ -177,13 +181,14 @@ input[type="submit"]
 }
 
 /*TOOLS*/
+/*
 .contest
 {
 	border-top: 3px solid #508e35;
 	background-color: #f1f1f1;
 		background-color: #e1e1e1;
 }
-
+*/
 
 .active .participation
 {
@@ -417,6 +422,10 @@ input[type="submit"]
 .results
 {
 	font-weight: bold;
+}
+
+.results a {
+	margin-right: 1em;
 }
 
 p,

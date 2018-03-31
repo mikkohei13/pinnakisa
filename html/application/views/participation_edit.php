@@ -169,7 +169,7 @@ if (isset($editableData['species_count']))
 }
 echo "</h4>";
 echo "<p>Klikkaa lajin nimeä jos havaitsit lajin tänään, tai päivämääräkenttää jos havaitsit sen aiemmin.</p>";
-echo "<p id='rarityVisibility'><span id='hideRarities'>Vain yleiset lajit</span> <span id='showRarities' class='active'>Kaikki lajit</span></p>";
+echo "<p id='rarityVisibility'><span id='hideRarities'>Näytä vain yleiset lajit</span> <span id='showRarities' class='active'>Näytä kaikki lajit</span></p>";
 
 
 // Species list begins
@@ -192,7 +192,7 @@ foreach ($bird as $key => $arr)
 			$setClass .= " isSet";
 		}
 		// Column breakpoints
-		if ("CHAASI" == $arr['abbr'] || "ANTCAM" == $arr['abbr']) {
+		if ("VANVAN" == $arr['abbr'] || "ANTCER" == $arr['abbr']) {
 			echo "</div>\n<div class=\"col\">";
 		}
 		echo "<p class=\"$setClass\"><em class=\"sp\">" . $arr['fi'];
@@ -200,6 +200,7 @@ foreach ($bird as $key => $arr)
 		echo "</em> <input type=\"text\" class=\"datepicker\" name=\"$vn\" value=\""	. set_value($vn, @$editableData['species'][$arr['abbr']]) . "\" size=\"8\" readonly />";
 		echo "<span class=\"del\">X</span>\n";
 		echo "</p>\n";
+//		print_r ($arr); // debug
 	}
 	else // If is higher taxon
 	{
