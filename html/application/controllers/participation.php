@@ -72,9 +72,6 @@ class Participation extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name', 'Nimi', 'required');
 		$this->form_validation->set_rules('location', 'Kilpailualue', 'required');
-		$this->form_validation->set_rules('kms', 'Kuljetut kilometrit', 'integer');
-		$this->form_validation->set_rules('hours', 'Retkeillyt tunnit', 'integer');
-		$this->form_validation->set_rules('spontaneous', 'Spontaanien lajien määrä', 'integer');
 		$this->form_validation->set_rules('contest_id', 'Kisan tunniste', 'required');
 		$this->form_validation->set_rules('form_loaded', 'Lomake ei ollut latautunut kokonaan ennen kuin tallensit sen. Jos käytät hidasta verkkoyhteyttä, odota hetki pidempään ennen kuin yrität tallennusta uudelleen.', 'required', 'form_loaded_check');
 

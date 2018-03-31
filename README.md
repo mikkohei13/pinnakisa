@@ -75,12 +75,11 @@ TODO/100 lajia
 
 - puh ja katuosoite
 - jquery click -> tap ??
-- Fix user info saving feature: http://localhost:70/index.php/auth/edit_user/2
 - Kirjaudu sisään -tyylit kun kirjautuminen erääntynyt
-- Remove kms, hours, spontaneos (see participation 470aa945e7a5f4cc067c9ae1e5125b146989be8c )
-- Piilota etusivulta kisat, jos ei kirjautunut sisään
 - testaus
-- harvinaisten piilotus välilehdellä
+
+
+### Asennus...
 
 Asentaessa muista
 - tietokantatiedot CI:n -> config/database.php
@@ -88,9 +87,6 @@ Asentaessa muista
 
 jos käytät Dockeria
 - tietokantatiedot env-tiedostoon
-
-
-### Asennus...
 
 admin
 admin
