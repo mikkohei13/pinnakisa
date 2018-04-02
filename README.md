@@ -96,3 +96,6 @@ user nro 1:n voi deletoida
 
 miten sallitaan kirjoitus backups-kansioon? nyt dockerfile:n chmod ei toimi, piti tehdä käsin containerissa
 hawk
+
+Jos systeemi antaa virheen Core... Line 346
+tarkoittaa tämä että tietokantaan ei saa yhteyttä. Tarkista hostname, käyttis, salasana etc.

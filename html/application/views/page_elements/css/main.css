@@ -165,6 +165,8 @@ input[type="submit"]
 
 .notLoggedIn {
 	font-weight: bold;
+	background-color: rgb(195, 235, 248); /* very light BL twitter button blue*/
+	padding: 3px;
 }
 
 /* ADMIN */

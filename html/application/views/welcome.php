@@ -95,7 +95,8 @@ if ($this->ion_auth->logged_in())
 // Open contests
 
 echo "<div class=\"contestsCol active\">";
-echo "<h3>Osallistu tästä</h3>";
+
+echo "<!--<h3>Osallistu tästä</h3>-->";
 
 if ($alreadyParticipated) {
 	echo "<p id='alreadyParticipated2'>Olet jo osallistunut haasteeseen (ks. yllä), mutta voit tallentaa tässä uuden osallistumisen toisen henkilön puolesta (esim. perheenjäsenen).</p>";
