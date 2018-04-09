@@ -49,8 +49,8 @@ if (! empty($participations))
 	{
 		$temp = "
 		<div class=\"participation\">
-			<h4><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Muokkaa tätä osallistumista<!--" . $allContests[$array['contest_id']]['name'] . "--></a></h4>
-			<p> " . $array['location'] . "<br /> " . $array['name'] . "</p>
+		<p>" . $array['name'] . ", " . $array['location'] . "</p>
+		<p class=\"takePart\"><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Päivitä omaa lajilistaa<!--" . $allContests[$array['contest_id']]['name'] . "--></a></p>
 		</div>
 		";
 		
@@ -80,7 +80,7 @@ if ($this->ion_auth->logged_in())
 		echo "<div class=\"participationsCol active\" id=\"active\">";
 		
 		// Published
-		echo "<h3>Osallistumiseni</h3>";
+		echo "<h3><!--Osallistumiseni--></h3>";
 		echo $htmlPublished;
 
 		echo "</div>";

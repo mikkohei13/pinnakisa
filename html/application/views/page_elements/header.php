@@ -65,9 +65,7 @@ else
 		echo " class=\"guest $dev_class\"";
 	}
 	
-	?>>
-
-<p id="toolNavi">
+	?>><p id="toolNavi">
 <?php
 
 echo $dev_info;
