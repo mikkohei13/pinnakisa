@@ -63,7 +63,10 @@ else
 
 echo $dev_info;
 echo "<span><a href=\"" . base_url() . "\" id=\"home\">Etusivu</a></span> ";
-echo "<span><a href=\"" . site_url("redirect/participation") . "\" id=\"home\">Oma lajiluettelo</a></span> ";
+if ($this->ion_auth->logged_in())
+{	
+	echo "<span><a href=\"" . site_url("redirect/participation") . "\" id=\"home\">Oma lajiluettelo</a></span> ";
+}
 echo "<span><a href=\"" . site_url("redirect/results") . "\" id=\"home\">Tulokset</a></span> ";
 echo " <span>•</span> ";
 
