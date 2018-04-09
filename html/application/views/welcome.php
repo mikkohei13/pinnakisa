@@ -216,6 +216,11 @@ if ($this->ion_auth->logged_in())
 }
 ?>
 
+<p id="logos">
+    <a href="https://www.birdlife.fi/"><img src="<?php echo base_url(); ?>application/views/page_elements/birdlife.png"></a>
+    <a href="https://www.birdlife.fi/100lintulajia"><img src="<?php echo base_url(); ?>application/views/page_elements/100lajia.jpg"></a>
+</p>
+
 <?php
 include "page_elements/footer.php";
 ?>
