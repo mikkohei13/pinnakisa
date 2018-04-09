@@ -5,7 +5,7 @@ include "page_elements/header.php";
 
 <h1>Tunnista ja havaitse 100 lintulajia vuoden 2018 aikana!</h1>
 
-<p>Tunnista 100 lintulajia -haasteen tavoitteena on lintuharrastuksen ja luonnon tuntemuksen lisääminen sekä maamme upean luonnon juhlistaminen. Viime vuonna haaste otettiin innokkaasti vastaan, ja yli 1700 ihmistä ilmoitti havainneensa vähintään 100 lintulajia vuoden aikana. Kuinka moni saavuttaa sadan lajin rajapyykin 1.1.–31.12.2018?</p>
+<p>Saavutatko sinä 100 lajin rajapyykin? Haasta myös kaverisi mukaan!</p>
 
 
 <?php
@@ -104,24 +104,6 @@ if (! $alreadyParticipated) {
 	{
 	//	print_r ($array); continue; // debug
 
-		// Tulospalvelulinkki
-		if ($array['location_list'])
-		{
-			$resultsLink = "
-				<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>
-				|
-				<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Osallistujat</a>
-			";
-		}
-		else
-		{
-			$resultsLink = "
-				<a href=\"" . site_url("results/summary/" . $array['id']) . "\">100 lajia ylittäneet</a>
-				<a href=\"" . site_url("results/species/" . $array['id']) . "\">Kokonaislajiluettelo</a>
-			";
-		}
-
-
 		echo "
 		<div class=\"contest\">
 		";
@@ -135,20 +117,41 @@ if (! $alreadyParticipated) {
 			echo "<p class=\"notLoggedIn\"><a href=\"" . site_url("/auth/login") . "\">Kirjaudu sisään</a> tai <a href=\"" . site_url("/auth/create_user") . "\">rekisteröidy</a> osallistuaksesi</p>";
 
 		}
-		echo "<!--<h4>" . @$array['name'] . "</h4>-->
-			<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
-			<p class='contestTime'>Osallistumisaika: " . date2Fin(@$array['date_begin']) . " &ndash; " . date2Fin(@$array['date_end']) . "</p>
-			<p class='infoURL'>Lisää tietoa osoitteesta <a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
-			<p class='results'>$resultsLink</p>
-		</div>
-		";
-		
 		$helper[$array['id']] = @$array['name'];
 	}
 	echo "</div>";
 
 }
 
+foreach ($publishedContests as $rowNumber => $array)
+{
+
+	// Tulospalvelulinkki
+	if ($array['location_list'])
+	{
+		$resultsLink = "
+			<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>
+			|
+			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Osallistujat</a>
+		";
+	}
+	else
+	{
+		$resultsLink = "
+			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">100 lajia ylittäneet</a>
+			<a href=\"" . site_url("results/species/" . $array['id']) . "\">Kokonaislajiluettelo</a>
+		";
+	}
+
+	echo "<!--<h4>" . @$array['name'] . "</h4>-->
+		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
+		<p class='contestTime'>Osallistumisaika: " . date2Fin(@$array['date_begin']) . " &ndash; " . date2Fin(@$array['date_end']) . "</p>
+		<p class='infoURL'>Lisää tietoa osoitteesta <a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
+		<p class='results'>$resultsLink</p>
+	</div>
+	";
+
+}
 
 // --------------------------------------------
 // Old contests
