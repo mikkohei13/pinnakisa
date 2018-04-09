@@ -50,7 +50,7 @@ if (! empty($participations))
 		$temp = "
 		<div class=\"participation\">
 		<p>" . $array['name'] . ", " . $array['location'] . "</p>
-		<p class=\"takePart\"><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Päivitä omaa lajilistaa<!--" . $allContests[$array['contest_id']]['name'] . "--></a></p>
+		<p class=\"takePart\"><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Päivitä omaa lajiluetteloa<!--" . $allContests[$array['contest_id']]['name'] . "--></a></p>
 		</div>
 		";
 		
