@@ -98,56 +98,57 @@ echo "<div class=\"contestsCol active\">";
 
 echo "<!--<h3>Osallistu tästä</h3>-->";
 
-if ($alreadyParticipated) {
-	echo "<p id='alreadyParticipated2'>Olet jo osallistunut haasteeseen (ks. yllä), mutta voit tallentaa tässä uuden osallistumisen toisen henkilön puolesta (esim. perheenjäsenen).</p>";
+if (! $alreadyParticipated) {
+
+	foreach ($publishedContests as $rowNumber => $array)
+	{
+	//	print_r ($array); continue; // debug
+
+		// Tulospalvelulinkki
+		if ($array['location_list'])
+		{
+			$resultsLink = "
+				<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>
+				|
+				<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Osallistujat</a>
+			";
+		}
+		else
+		{
+			$resultsLink = "
+				<a href=\"" . site_url("results/summary/" . $array['id']) . "\">100 lajia ylittäneet</a>
+				<a href=\"" . site_url("results/species/" . $array['id']) . "\">Kokonaislajiluettelo</a>
+			";
+		}
+
+
+		echo "
+		<div class=\"contest\">
+		";
+		if ($this->ion_auth->logged_in())
+		{
+			$temp = "participation/edit/?contest_id=" . $array['id'];
+			echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">Osallistu haasteeseen</a></p>";
+		}
+		else
+		{
+			echo "<p class=\"notLoggedIn\"><a href=\"" . site_url("/auth/login") . "\">Kirjaudu sisään</a> tai <a href=\"" . site_url("/auth/create_user") . "\">rekisteröidy</a> osallistuaksesi</p>";
+
+		}
+		echo "<!--<h4>" . @$array['name'] . "</h4>-->
+			<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
+			<p class='contestTime'>Osallistumisaika: " . date2Fin(@$array['date_begin']) . " &ndash; " . date2Fin(@$array['date_end']) . "</p>
+			<p class='infoURL'>Lisää tietoa osoitteesta <a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
+			<p class='results'>$resultsLink</p>
+		</div>
+		";
+		
+		$helper[$array['id']] = @$array['name'];
+	}
+	echo "</div>";
+
 }
 
-foreach ($publishedContests as $rowNumber => $array)
-{
-//	print_r ($array); continue; // debug
-
-	// Tulospalvelulinkki
-	if ($array['location_list'])
-	{
-		$resultsLink = "
-			<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>
-			|
-			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Osallistujat</a>
-		";
-	}
-	else
-	{
-		$resultsLink = "
-			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">100 lajia ylittäneet</a>
-			<a href=\"" . site_url("results/species/" . $array['id']) . "\">Kokonaislajiluettelo</a>
-		";
-	}
-
-
-	echo "
-	<div class=\"contest\">
-	";
-	if ($this->ion_auth->logged_in())
-	{
-		$temp = "participation/edit/?contest_id=" . $array['id'];
-		echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">Osallistu haasteeseen</a></p>";
-	}
-	else
-	{
-		echo "<p class=\"notLoggedIn\"><a href=\"" . site_url("/auth/login") . "\">Kirjaudu sisään</a> tai <a href=\"" . site_url("/auth/create_user") . "\">rekisteröidy</a> osallistuaksesi</p>";
-
-	}
-	echo "<!--<h4>" . @$array['name'] . "</h4>-->
-		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
-		<p class='contestTime'>Osallistumisaika: " . date2Fin(@$array['date_begin']) . " &ndash; " . date2Fin(@$array['date_end']) . "</p>
-		<p class='infoURL'>Lisää tietoa osoitteesta <a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
-		<p class='results'>$resultsLink</p>
-	</div>
-	";
-	
-	$helper[$array['id']] = @$array['name'];
-}
-echo "</div>";
 
 // --------------------------------------------
 // Old contests
