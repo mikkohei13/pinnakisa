@@ -279,7 +279,7 @@
 3120	x	ATHNOC	Athene noctua	Minervanpöllö	Minervauggla	Little Owl
 3130		STRALU	Strix aluco	Lehtopöllö	Kattuggla	Tawny Owl
 3140		STRURA	Strix uralensis	Viirupöllö	Slaguggla	Ural Owl
-3150	x	STRNEB	Strix nebulosa	Lapinpöllö	Lappuggla	Great Grey Owl
+3150		STRNEB	Strix nebulosa	Lapinpöllö	Lappuggla	Great Grey Owl
 3160		ASIOTU	Asio otus	Sarvipöllö	Hornuggla	Long-eared Owl
 3170		ASIFLA	Asio flammeus	Suopöllö	Jorduggla	Short-eared Owl
 3180		AEGFUN	Aegolius funereus	Helmipöllö	Pärluggla	Boreal Owl
