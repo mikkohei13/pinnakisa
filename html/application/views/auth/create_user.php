@@ -38,6 +38,14 @@ include "application/views/page_elements/header.php";
             <?php echo form_input($password_confirm);?>
       </p>
 
+<p id="user_terms">
+Rekisteröitymällä 100lintulajia-sovellukseen annat suostumuksen henkilötietojesi käsittelyyn.
+Henkilötietoja voidaan käyttää kerrottaessa osallistujille BirdLifen ja sen paikallisjärjestöjen
+tapahtumista ja tukimahdollisuuksista. Yhteydenottotapa voi olla sähköinen tai muu tapa.
+Tiedot ovat vain BirdLifen ja sen jäsenyhdistysten käytössä, eikä niitä luovuteta
+suoramarkkinointitarkoituksiin ulkopuolisille tahoille.
+Osallistuja voi itse sovelluksessa tarkastaa henkilötietonsa, korjata ja poistaa ne.
+</p>
 
 
       <p><?php echo form_submit('submit', lang('create_user_submit_btn'));?></p>
