@@ -490,12 +490,6 @@ Specieslist
 	padding-right: 1em;
 }
 
-	media (max-width: 850px) { 
-	#speciesList {
-		display: block;
-	}		
-}
-
 #speciesList p {
 	margin: 0 0 0.2em 0;
 	font-size: 100%;
@@ -580,18 +574,15 @@ Specieslist
 Media queries
 */
 
-@media only screen and (max-width: 35em)
+@media only screen and (max-width: 45em)
 {
+	#speciesList {
+		display: block;
+	}		
+
 	h1
 	{
 /*		color: red; */
-	}
-	#speciesList
-	{
-		column-count: 1;
-		-webkit-column-count: 1; /* Safari and Chrome */
-		-moz-column-count: 1; /* Firefox */
-/*		column-width: 100% !important;*/
 	}
 	#speciesList p
 	{
