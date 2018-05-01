@@ -118,8 +118,8 @@ $submitButton = "";
 if ("published" == $contest['status'])
 {
 //	echo form_open("foo", array('id' => 'participation-form'));
-	echo "<form action method=\"post\" accept-charset=\"utf-8\" id=\"participation-form\"> ";
 
+	echo "<form action method=\"post\" accept-charset=\"utf-8\" id=\"participation-form\"> ";
 	$submitButton = "<p><input type=\"submit\" class=\"submit-button\" value=\"Tallenna\"  disabled=\"disabled\" /></p>";
 }
 elseif ("archived" == $contest['status'])
@@ -184,6 +184,7 @@ if (0 == $sponde)
 <input type="text" name="spontaneous" value="<?php echo $sponde; ?>" size="10" /> 
 
 <?php
+
 echo $submitButton;
 
 echo "<h4>Havaitut lajit ";
@@ -194,8 +195,14 @@ if (isset($editableData['species_count']))
 echo "</h4>";
 echo "<p>Klikkaa lajin nimeä jos havaitsit lajin tänään, tai päivämääräkenttää jos havaitsit sen aiemmin.</p>";
 
+
+// Species list begins
+// brekapoints: keräkurmista & tundrakirvinen
+
+
 include "application/views/includes/birds.php";
 echo "<div id=\"speciesList\">\n";
+echo "<div class=\"col\">";
 foreach ($bird as $key => $arr)
 {
 	if (@$arr['sc'])
@@ -204,6 +211,9 @@ foreach ($bird as $key => $arr)
 		if (!empty($editableData['species'][$arr['abbr']])) // TODO: pitäisikö tyhjät solut kokonaan poistaa (modelissa)
 		{
 			$setClass = " isSet";
+		}
+		if ("CHAMOR" == $arr['abbr'] || "ANTGUS" == $arr['abbr']) {
+			echo "</div>\n<div class=\"col\">";
 		}
 		echo "<p class=\"$setClass\"><em class=\"sp\">" . $arr['fi'];
 		$vn = "species[" . $arr['abbr'] . "]";
@@ -216,11 +226,14 @@ foreach ($bird as $key => $arr)
 		echo "<h5>" . $arr['abbr'] . "</h5>";
 	}
 }
+echo "</div>"; // col
 echo "</div>";
+// Species list ends
 
 echo "<input type=\"hidden\" name=\"form_loaded\" id=\"form_loaded\" value=\"true\">";
-
 echo $submitButton;
+
+
 if ("published" == $contest['status'])
 {
 	echo "</form>";

@@ -478,18 +478,27 @@ Specieslist
 #speciesList
 {
 	min-width: 19em;
-	column-count: 3;
-	column-width: 19em;
-	-webkit-column-count: 3; /* Safari and Chrome */
-	-webkit-column-width: 19em;
-	-moz-column-count: 3; /* Firefox */
-	-moz-column-width: 19em;
+}
+
+#speciesList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+#speciesList .col {
+	padding-right: 1em;
+}
+
+	media (max-width: 850px) { 
+	#speciesList {
+		display: block;
+	}		
 }
 
 #speciesList p {
 	margin: 0 0 0.2em 0;
 	font-size: 100%;
-	height: 1.5em; /* Jos tähän 1em -> rivit ja sarakkeet sekaisin. Mikä toimii varmasti eri selaimilla, myös mobiili? Jos ei arvoa, lihavointi muuttaa rivin korkeutta. */
 	white-space: nowrap;
 	overflow: visible;
 }
@@ -503,12 +512,15 @@ Specieslist
 
 #speciesList h5 {
 	padding: 0.2em;
-	margin: .5em 0 .2em 0;
+	margin: 1em 0 .2em 0;
 	font-size: 100%;
 /*	border-radius: 4px; */
 	font-weight: normal;
 }
 
+#speciesList .col h5:first-child {
+	margin-top: 0;
+}
 
 #speciesList em {
 /*	min-width: 11em;*/ margin-right: 0.5em;

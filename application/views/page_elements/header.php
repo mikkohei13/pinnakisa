@@ -21,7 +21,7 @@ else
         <meta name="viewport" content="initial-scale=1">
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/normalize.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/main.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/main.css?v=2">
 
         <link href='https://fonts.googleapis.com/css?family=Overlock:400,700|PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
