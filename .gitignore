@@ -1,6 +1,5 @@
 
 mysqldump/*
-html/application/config/*
 env/*
 html/backups/*
 
@@ -16,12 +15,15 @@ images/*
 
 # Codeigniter files
 
-application/config/database.php
-application/config/config.php
-application/config/ion_auth.php
-application/config/email.php
-application/config/mongodb.php
-application/config/mongodb_session.php
+# all
+*/application/config/*
+
+# ...or file by file
+html/application/config/*.zip
+html/application/config/database.php
+html/application/config/config.php
+html/application/config/mongodb.php
+html/application/config/mongodb_session.php
 
 application/cache/*
 !application/cache/index.html
