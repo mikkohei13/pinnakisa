@@ -36,3 +36,10 @@ pinna-tietosuojaseloste.pdf
 .DS_Store
 Thumbs.db
 web.config
+
+# 100lajia & Docker
+
+env/*
+html/*
+mysqldump/*
+
