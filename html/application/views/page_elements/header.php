@@ -20,8 +20,8 @@ else
         <title><?php echo htmlspecialchars($title, ENT_COMPAT, 'UTF-8'); ?></title>
         <meta name="viewport" content="initial-scale=1">
 
-        <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/normalize.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>/application/views/page_elements/css/main.css?<?php echo rand(0, 1000); ?>">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/page_elements/css/normalize.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>application/views/page_elements/css/main.css?<?php echo rand(0, 1000); ?>">
 
         <link href='https://fonts.googleapis.com/css?family=Overlock:400,700|PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
@@ -31,7 +31,7 @@ else
         <![endif]-->
         
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css" />
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<!--<script>window.jQuery || document.write('<script src="application/views/page_elements/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>-->
 
 		<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -63,18 +63,20 @@ else
 
 echo $dev_info;
 echo "<span><a href=\"" . base_url() . "\" id=\"home\">Etusivu</a></span> ";
+/*
 if ($this->ion_auth->logged_in())
 {	
 	echo "<span><a href=\"" . site_url("redirect/participation") . "\" id=\"home\">Oma lajiluettelo</a></span> ";
 }
 echo "<span><a href=\"" . site_url("redirect/results") . "\" id=\"home\">Tulokset</a></span> ";
-echo " <span>•</span> ";
+*/
+//echo " <span>•</span> ";
 
 $userData = $this->ion_auth->user()->row();
 
 if ($this->ion_auth->logged_in())
 {	
-    echo "<span><strong>" . htmlspecialchars($userData->email, ENT_COMPAT, 'UTF-8') . "</strong></span> ";
+  echo "<span>Olet kirjautunut tunnuksella<strong> " . htmlspecialchars($userData->email, ENT_COMPAT, 'UTF-8') . "</strong></span> ";
 	if ($this->ion_auth->is_admin())
 	{
 		echo " <span><strong id=\"youAreAdmin\" title=\"Olet administrator\">admin</strong></span> ";

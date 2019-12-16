@@ -17,6 +17,7 @@ services:
             - mysql-pinnakisa-100lajia:/var/lib/mysql
 
     backend:
+        build: .
         image: mikkohei13/pinnakisa-100lajia:latest
         container_name: pinnakisa-100lajia
 

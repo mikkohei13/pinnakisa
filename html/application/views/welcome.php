@@ -3,7 +3,7 @@ $title = "Tunnista 100 lintulajia";
 include "page_elements/header.php";
 ?>
 
-<h1>Tunnista ja havaitse 100 lintulajia vuoden 2018 aikana!</h1>
+<h1>Tunnista ja havaitse 100 lintulajia vuoden aikana!</h1>
 
 <p>Saavutatko sinä 100 lajin rajapyykin? Haasta myös kaverisi mukaan!</p>
 
@@ -37,20 +37,13 @@ foreach ($publishedContests as $rowNumber => $array)
 $htmlPublished = "";
 $htmlOther = "";
 
-/*
-NOTE: THIS EXPECTS THAT THERE IS ONLY ONE COMPETITION !!
-alreadyParticipated
-*/
-
 if (! empty($participations))
 {
-	$alreadyParticipated = true;
 	foreach ($participations as $rowNumber => $array)
 	{
 		$temp = "
 		<div class=\"participation\">
-		<p>" . $array['name'] . ", " . $array['location'] . "</p>
-		<p class=\"takePart\"><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Päivitä omaa lajiluetteloa<!--" . $allContests[$array['contest_id']]['name'] . "--></a></p>
+			<p><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">" . $allContests[$array['contest_id']]['name'] . "</a><br /> " . $array['location'] . "<br /> " . $array['name'] . "</p>
 		</div>
 		";
 		
@@ -66,13 +59,8 @@ if (! empty($participations))
 		$temp = "";
 	}
 }
-else {
-	$alreadyParticipated = false;
-}
-
 // --------------------------------------------
 // Open participarions
-
 if ($this->ion_auth->logged_in())
 {
 	if (! empty($htmlPublished))
@@ -80,52 +68,22 @@ if ($this->ion_auth->logged_in())
 		echo "<div class=\"participationsCol active\" id=\"active\">";
 		
 		// Published
-		echo "<h3><!--Osallistumiseni--></h3>";
+		echo "<h3>Käynnissä olevat osallistumiseni</h3>";
 		echo $htmlPublished;
-
 		echo "</div>";
 	}
 	else
 	{
-		echo "<p>Et ole vielä osallistunut.</p>";
+		echo "<p>Et ole osallistunut käynnissä oleviin kisoihin.</p>";
 	}
 }
-
 // --------------------------------------------
 // Open contests
-
 echo "<div class=\"contestsCol active\">";
-
-echo "<!--<h3>Osallistu tästä</h3>-->";
-
-if (! $alreadyParticipated) {
-
-	foreach ($publishedContests as $rowNumber => $array)
-	{
-	//	print_r ($array); continue; // debug
-
-		echo "
-		<div class=\"contest\">
-		";
-		if ($this->ion_auth->logged_in())
-		{
-			$temp = "participation/edit/?contest_id=" . $array['id'];
-			echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">Osallistu haasteeseen</a></p>";
-		}
-		else
-		{
-			echo "<p class=\"notLoggedIn\"><a href=\"" . site_url("/auth/login") . "\">Kirjaudu sisään</a> tai <a href=\"" . site_url("/auth/create_user") . "\">rekisteröidy</a> osallistuaksesi</p>";
-
-		}
-		$helper[$array['id']] = @$array['name'];
-	}
-	echo "</div>";
-
-}
-
+echo "<h3>Meneillään olevat haasteet</h3>";
 foreach ($publishedContests as $rowNumber => $array)
 {
-
+//	print_r ($array); continue; // debug
 	// Tulospalvelulinkki
 	if ($array['location_list'])
 	{
@@ -137,33 +95,41 @@ foreach ($publishedContests as $rowNumber => $array)
 	}
 	else
 	{
-		$resultsLink = "
-			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">100 lajia ylittäneet</a>
-			<a href=\"" . site_url("results/species/" . $array['id']) . "\">Kokonaislajiluettelo</a>
-		";
+		$resultsLink = "<a href=\"" . site_url("results/summary/" . $array['id']) . "\">100 lajia saavuttaneet</a> ";
+		$resultsLink .= "<a href=\"" . site_url("results/species/" . $array['id']) . "\">Kokonaislajiluettelo</a>";
 	}
-
-	echo "<!--<h4>" . @$array['name'] . "</h4>-->
-		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
-		<p class='contestTime'>Osallistumisaika: " . date2Fin(@$array['date_begin']) . " &ndash; " . date2Fin(@$array['date_end']) . "</p>
-		<p class='infoURL'>Lisää tietoa osoitteesta <a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
+	echo "
+	<div class=\"contest\">
+	";
+	if ($this->ion_auth->logged_in())
+	{
+		$temp = "participation/edit/?contest_id=" . $array['id'];
+		echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">osallistu</a></p>";
+	}
+	else
+	{
+//		echo "<p class=\"takePart\">Kirjaudu sisään ja osallistu</p>";
+	}
+	echo "<h4>" . @$array['name'] . "</h4>
 		<p class='results'>$resultsLink</p>
+		<p class='contestTime'>Kilpailuaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
+		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
+		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
 	</div>
 	";
-
+	
+	$helper[$array['id']] = @$array['name'];
 }
-
+echo "</div>";
 // --------------------------------------------
 // Old contests
-/*
 echo "<div class=\"contestsCol passive\">";
-echo "<h3>Päättyneet kisat</h3>";
-
+echo "<h3>Päättyneet haasteet</h3>";
 foreach ($archivedContests as $rowNumber => $array)
 {
 	echo "<div class=\"contest\">";
-	echo "<h4>" . @$array['name'] . "</h4>
-		<p class='results'><a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulospalvelu</a></p>
+	echo "<h4>" . @$array['name'] . " (päättynyt)</h4>
+		<p class='results'><a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulokset</a></p>
 		<p class='contestTime'>Kilpailuaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
 		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
 	</div>
@@ -171,12 +137,9 @@ foreach ($archivedContests as $rowNumber => $array)
 	
 	$helper[$array['id']] = @$array['name'];
 }
-
 echo "</div>";
-*/
 // --------------------------------------------
 // Old participarions
-/*
 if ($this->ion_auth->logged_in())
 {
 	if (! empty($htmlOther))
@@ -186,11 +149,9 @@ if ($this->ion_auth->logged_in())
 		// Drafts and archived
 		echo "<h3>Päättyneet osallistumiseni</h3>";
 		echo $htmlOther;
-
 		echo "</div>";
 	}
 }
-*/
 
 
 // ---------------------------------------------------------
@@ -206,7 +167,7 @@ if ($this->ion_auth->logged_in())
 		<ul>
 		";
 		echo "<li><a href=\"" . site_url("contest/edit") . "\">Lisää uusi kisa</a></li>";
-		echo "<li><a href=\"" . site_url("contest") . "\">Kaikki kisat</a></li>";
+		echo "<li><a href=\"" . site_url("contest") . "\">Kaikki haasteet</a></li>";
 		echo "<li style=\"margin-top: 1em;\"><a href=\"" . site_url("auth") . "\">Käyttäjät</a></li>";
 		echo "
 		</ul>

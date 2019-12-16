@@ -183,14 +183,12 @@ input[type="submit"]
 }
 
 /*TOOLS*/
-/*
 .contest
 {
 	border-top: 3px solid #508e35;
 	background-color: #f1f1f1;
 		background-color: #e1e1e1;
 }
-*/
 
 .active .participation
 {
@@ -206,12 +204,8 @@ input[type="submit"]
 
 .takePart {
 	background-color: #508e35;
-	/*
-		border-right: 2px solid #9c9c9c; 
-		border-bottom: 2px solid #9c9c9c; 
-		border-left: 2px solid #f0f0f0; 
-		border-top: 2px solid #f0f0f0; 
-		*/
+	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.28);
+	float: right;
 }
 
 .takePart a:link,
