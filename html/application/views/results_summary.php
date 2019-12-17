@@ -6,20 +6,21 @@ echo "<h1><a href='" . site_url() . "'>&laquo;</a> " . $contest['name'] . "</h1>
 
 //echo $this->session->flashdata('login');
 
+echo "<ul>";
+echo "	<li><strong><a href=\"" . site_url("/results/species/" . $contest['id']) . "\">Kokonaislajiluettelo ja omat puutteet</a></strong></li>";
+if (! empty($contest['comparison']))
+{
+	echo "	<li><strong><a href=\"" . site_url("/results/comparison/" . $contest['id']) . "\">Oma lajimäärävertailu</a></strong></li>";
+}
+echo "</ul>";
+
+
 if (!empty($summary))
 {
 	// ---------------------------------------------------------------------------------
 	// Kisaajat
 	
 //	echo "<pre>"; print_r ($contest); echo "</pre>"; // debug
-
-	echo "<ul>";
-	echo "	<li><strong><a href=\"" . site_url("/results/species/" . $contest['id']) . "\">Kokonaislajiluettelo ja omat puutteet</a></strong></li>";
-	if (! empty($contest['comparison']))
-	{
-		echo "	<li><strong><a href=\"" . site_url("/results/comparison/" . $contest['id']) . "\">Oma lajimäärävertailu</a></strong></li>";
-	}
-	echo "</ul>";
 
 	echo "<h3>Vähintään 100 lajia havainneet</h3>";
 	

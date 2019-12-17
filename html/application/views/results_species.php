@@ -4,7 +4,7 @@ include "page_elements/header.php";
 
 //echo "<pre>"; print_r ($species); echo "</pre>"; // debug
 
-echo "<h1><a href=\"" . site_url("/results/summary/" . $contest['id']) . "\">&laquo;</a> " . htmlspecialchars($contest['name'], ENT_COMPAT, 'UTF-8') . "</h1>";
+echo "<h1><a href='" . site_url() . "'>&laquo;</a> " . htmlspecialchars($contest['name'], ENT_COMPAT, 'UTF-8') . "</h1>";
 
 echo "<h3>Kaikki havaitut lajit</h3>";
 

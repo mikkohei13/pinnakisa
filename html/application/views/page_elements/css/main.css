@@ -574,7 +574,6 @@ Specieslist
 }
 
 #rarityVisibility {
-
 }
 
 #rarityVisibility span {
@@ -583,21 +582,28 @@ Specieslist
 	float: left;
 	padding: 4px 15px;
 	margin-right: 1em;
-	background-color: #fff;
+/*	background-color: #fff;
 	color: #5b98c7;
 	border: 1px solid #5b98c7;
 	border-bottom: 1px solid #fff;
+	*/
+	display: none;
 }
 
 #rarityVisibility .active {
+/*	background-color: #5b98c7;
+	color: #fff;
+	border: 1px solid #fff;
+	*/
 	background-color: #5b98c7;
 	color: #fff;
 	border: 1px solid #fff;
+	display: block;
 }
 
 #speciesList {
 	clear: both;
-/*	border-top: 1px solid #5b98c7; */
+/*	border-top: 1px solid #5b98c7;*/
 	padding-top: 1em;
 }
 

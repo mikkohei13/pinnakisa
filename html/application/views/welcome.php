@@ -43,7 +43,7 @@ if (! empty($participations))
 	{
 		$temp = "
 		<div class=\"participation\">
-			<p><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">" . $allContests[$array['contest_id']]['name'] . "</a><br /> " . $array['location'] . "<br /> " . $array['name'] . "</p>
+			<p><a href=\"" . site_url("participation/edit/" . $array['id']) . "\">Muokkaa osallistumistani haasteeseen <strong>" . $allContests[$array['contest_id']]['name'] . "</strong></a><br /> " . $array['location'] . "<br /> " . $array['name'] . "</p>
 		</div>
 		";
 		
@@ -74,7 +74,7 @@ if ($this->ion_auth->logged_in())
 	}
 	else
 	{
-		echo "<p>Et ole osallistunut käynnissä oleviin kisoihin.</p>";
+//		echo "<p>Et ole vielä osallistunut käynnissä oleviin haasteisiin.</p>";
 	}
 }
 // --------------------------------------------
@@ -104,7 +104,7 @@ foreach ($publishedContests as $rowNumber => $array)
 	if ($this->ion_auth->logged_in())
 	{
 		$temp = "participation/edit/?contest_id=" . $array['id'];
-		echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">osallistu</a></p>";
+		echo "<p class=\"takePart\"><a href=\"" . site_url($temp) . "\">Osallistu</a></p>";
 	}
 	else
 	{
@@ -112,7 +112,7 @@ foreach ($publishedContests as $rowNumber => $array)
 	}
 	echo "<h4>" . @$array['name'] . "</h4>
 		<p class='results'>$resultsLink</p>
-		<p class='contestTime'>Kilpailuaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
+		<p class='contestTime'>Haasteen osallistumisaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
 		<p class='description'>" . str_replace("\n", "<p>", @$array['description']) . "</p>
 		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
 	</div>
@@ -129,7 +129,7 @@ foreach ($archivedContests as $rowNumber => $array)
 {
 	echo "<div class=\"contest\">";
 	echo "<h4>" . @$array['name'] . " (päättynyt)</h4>
-		<p class='results'><a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tulokset</a></p>
+		<p class='results'><a href=\"" . site_url("results/summary/" . $array['id']) . "\">Tilanne</a></p>
 		<p class='contestTime'>Kilpailuaika: " . @$array['date_begin'] . " &ndash; " . @$array['date_end'] . "</p>
 		<p class='infoURL'><a href='" . @$array['url'] . "'>" . @$array['url'] . "</a></p>
 	</div>
