@@ -94,7 +94,7 @@ foreach ($publishedContests as $rowNumber => $array)
 	if ($array['location_list'])
 	{
 		$resultsLink = "
-			<a href=\"" . site_url("results/area/" . $array['id']) . "\">Kuntien pinnat</a>
+			<a href=\"" . site_url("results/area/" . $array['id']) . "\">Alueiden pinnat</a>
 			|
 			<a href=\"" . site_url("results/summary/" . $array['id']) . "\">Osallistujat</a>
 		";
