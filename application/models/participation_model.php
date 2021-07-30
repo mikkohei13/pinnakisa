@@ -16,6 +16,7 @@ class Participation_model extends CI_Model {
 		// empties to NULL
 		if ("" == $data['kms']) { $data['kms'] = NULL; }
 		if ("" == $data['hours']) { $data['hours'] = NULL; }
+		if ("" == $data['spontaneous']) { $data['spontaneous'] = NULL; } // ADDED 2021-07-30 to fix bug about database OR codeigniter model not handling missing value correctly.
 	
 		$speciesCount = 0;
 		$ticksPerDay = Array();
