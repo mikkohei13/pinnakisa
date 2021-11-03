@@ -1,11 +1,12 @@
 <?php
 
-// Format max javascript date for datepicker
+// Format javascript date begin and end for datepicker
 $dateBeginParts = explode("-", $contest['date_begin']);
 $dateBeginJS = "new Date(" . $dateBeginParts[0] . "," . ($dateBeginParts[1] - 1) . "," . $dateBeginParts[2] . ")";
+$dateEndParts = explode("-", $contest['date_end']);
+$dateEndJS = "new Date(" . $dateEndParts[0] . "," . ($dateEndParts[1] - 1) . "," . $dateEndParts[2] . ")";
 
 //echo "<pre>"; print_r ($contest); echo "</pre>"; // debug
-
 
 $title = "Pinnakisa";
 $script = "
@@ -15,7 +16,7 @@ $script = "
 		$.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 		$('.datepicker').datepicker({
 			minDate: " . $dateBeginJS . ",
-			maxDate: '0'
+			maxDate: " . $dateEndJS . "
 		});
 	});
 	// DATE FIELD: datepicker
